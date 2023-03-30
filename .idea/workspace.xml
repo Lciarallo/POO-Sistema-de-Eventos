@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Docente.java" afterDir="false" />
     </list>
@@ -24,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/participantes/Docente.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,7 +117,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680204553743</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Classe Docente - correção">
+      <created>1680205311351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680205311351</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Classe Docente - correção">
+      <created>1680205646570</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680205646570</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Classe Docente - correção">
+      <created>1680206560531</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680206560531</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +158,7 @@
     <MESSAGE value="30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="Classe Docente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classe Docente" />
+    <MESSAGE value="Classe Docente - correção" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classe Docente - correção" />
   </component>
 </project>
