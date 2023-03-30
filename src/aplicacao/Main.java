@@ -6,7 +6,11 @@ import src.participantes.Docente;
 import javax.swing.*;
 
 public class Main {
+
     public static void main(String[] args) {
+
+        Discente discente = new Discente();
+        Docente docente = new Docente();
 
         JOptionPane.showInternalMessageDialog(null,"Bem vindo ao Event System!\nPor favor clique em 'ok' para continuar");
         Object[] pessoa = {"Discente", "Docente", "Sair"};
@@ -27,13 +31,13 @@ public class Main {
                     switch (op) {
                         case 0:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Discente");
-                            Discente discente = new Discente();
                             discente.cadastrarDiscente();
+                            discente.mostrarDiscente();
                             break;
                         case 1:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Docente");
-                            Docente docente = new Docente("nome","0000",0,"Titulo",0,"Turno","Especialização", "Unidade");
                             docente.cadastrarDocente();
+                            docente.mostrarDocente();
                             break;
                         case 4:
                             break;

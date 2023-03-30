@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Docente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +150,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680207719928</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Classe Docente - correção">
+      <created>1680207798808</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680207798808</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Classe Docente - correção">
+      <created>1680208005355</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680208005355</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
