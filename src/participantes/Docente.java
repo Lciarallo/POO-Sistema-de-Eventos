@@ -10,22 +10,22 @@ public class Docente {
     private String nome;
     private String dataNascimento;
     private String cpf;
-    private String Titulo;
-    private float CargaHoraria;
+    private String titulo;
+    private String CargaHoraria;
     private String Turno;
     private String Especializacao;
     private String UnidadeCurricular;
 
     //Método construtor
 
-    public Docente(String nome, String dataNascimento, String cpf, String titulo, float CargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
+    public Docente(String nome, String dataNascimento, String cpf, String titulo, String CargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
-        Titulo = titulo;
-        CargaHoraria = CargaHoraria;
-        Turno = turno;
-        Especializacao = Especializacao;
+        this.titulo = titulo;
+        this.CargaHoraria = CargaHoraria;
+        this.Turno = turno;
+        this.Especializacao = Especializacao;
         UnidadeCurricular = unidadeCurricular;
     }
 
@@ -54,19 +54,19 @@ public class Docente {
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        this.titulo = titulo;
     }
 
-    public float getCargaHoraria() {
+    public String getCargaHoraria() {
         return CargaHoraria;
     }
 
     public void setCargaHoraria(String CargaHoraria) {
-        CargaHoraria = CargaHoraria;
+        this.CargaHoraria = CargaHoraria;
     }
 
     public String getTurno() {
@@ -82,7 +82,7 @@ public class Docente {
     }
 
     public void setEspecializacao(String Especializacao) {
-        Especializacao = Especializacao;
+        this.Especializacao = Especializacao;
     }
 
     public String getUnidadeCurricular() {
@@ -90,7 +90,7 @@ public class Docente {
     }
 
     public void setUnidadeCurricular(String unidadeCurricular) {
-        UnidadeCurricular = unidadeCurricular;
+        this.UnidadeCurricular = unidadeCurricular;
     }
     public void cadastrarDocente(){
         setNome(JOptionPane.showInputDialog("Digite o nome do Docente:"));
@@ -100,6 +100,7 @@ public class Docente {
         setCargaHoraria(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:"));
         setEspecializacao(JOptionPane.showInputDialog("Digite o a Especializacao do Docente:"));
         setTurno(JOptionPane.showInputDialog("Digite o turno do Docente:"));
+        setUnidadeCurricular(JOptionPane.showInputDialog(null,"Digite a unidade curricular: "));
         JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
     }
     public void mostrarDocente(){
