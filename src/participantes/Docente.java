@@ -18,16 +18,7 @@ public class Docente {
 
     //Método construtor
 
-    public Docente(String nome, String dataNascimento, String cpf, String titulo, String cargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.cpf = cpf;
-        this.titulo = titulo;
-        this.cargaHoraria = cargaHoraria;
-        this.Turno = turno;
-        this.Especializacao = Especializacao;
-        this.unidadeCurricular = unidadeCurricular;
-    }
+
 
     public String getNome() {
         return nome;
