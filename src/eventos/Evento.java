@@ -21,6 +21,25 @@ public class Evento {
     private int num_interessados;
     private boolean iniciado = false;
 
+    public void cadastrarEvento() {
+        setNome(JOptionPane.showInputDialog(null, "Informe o Nome do Evento:"));
+        setTitulo(JOptionPane.showInputDialog(null, "Informe o Título do Evento:"));
+        setData_inicio(JOptionPane.showInputDialog(null, "Informe a Data de Início:"));
+        setData_fim(JOptionPane.showInputDialog(null, "Informe a Data de Término:"));
+        setLocal(JOptionPane.showInputDialog(null, "Informe o Local do Evento:"));
+        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início:")));
+        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término:")));
+        setCarga_horaria(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:")));
+        setOrganizadores(JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:"));
+        setDescricao(JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:"));
+        setCategoria(JOptionPane.showInputDialog(null, "Informe a Categoria do Evento:"));
+        setLimite_convidados(
+                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Participantes do Evento:")));
+        setNum_interessados(
+                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Interessados no Evento:")));
+        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+    }
+
     public String getNome() {
         return nome;
     }
