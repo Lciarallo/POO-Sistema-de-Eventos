@@ -1,17 +1,14 @@
 package src.eventos;
 
 import java.time.LocalTime;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-// Classe de Responsabilidade da Laisa
 public class Evento {
-
     private String nome;
     private String titulo;
-    private Date data_inicio;
-    private Date data_fim;
+    private String data_inicio;
+    private String data_fim;
     private String local;
     private LocalTime horario_inicio;
     private LocalTime horario_fim;
@@ -22,6 +19,55 @@ public class Evento {
     private int limite_convidados;
     private int num_interessados;
     private boolean iniciado = false;
+
+    public void cadastrarEvento() {
+
+        String nome = JOptionPane.showInputDialog(null, "Informe o Nome do Evento:");
+        this.nome = nome;
+
+        String titulo = JOptionPane.showInputDialog(null, "Informe o Título do Evento:");
+        this.titulo = titulo;
+
+        String data_inicio = JOptionPane.showInputDialog(null, "Informe a Data de Início:");
+        this.data_inicio = data_inicio;
+
+        String data_fim = JOptionPane.showInputDialog(null, "Informe a Data de Término:");
+        this.data_fim = data_fim;
+
+        String local = JOptionPane.showInputDialog(null, "Informe o Local do Evento:");
+        this.local = local;
+
+        LocalTime horario_inicio = LocalTime
+                .parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início:"));
+        this.horario_inicio = horario_inicio;
+
+        LocalTime horario_fim = LocalTime
+                .parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término:"));
+        this.horario_fim = horario_fim;
+
+        double carga_horaria = Double
+                .parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:"));
+        this.carga_horaria = carga_horaria;
+
+        String organizadores = JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:");
+        this.organizadores = organizadores;
+
+        String descricao = JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:");
+        this.descricao = descricao;
+
+        String categoria = JOptionPane.showInputDialog(null, "Informe a Categoria do Evento:");
+        this.categoria = categoria;
+
+        int limite_convidados = Integer
+                .parseInt(JOptionPane.showInputDialog(null,
+                        "Informe o Número de Participantes do Evento:"));
+        this.limite_convidados = limite_convidados;
+
+        int num_interessados = Integer
+                .parseInt(JOptionPane.showInputDialog(null,
+                        "Informe o Número de Interessados no Evento:"));
+        this.num_interessados = num_interessados;
+    }
 
     public String getNome() {
         return nome;
@@ -39,19 +85,19 @@ public class Evento {
         this.titulo = titulo;
     }
 
-    public Date getData_inicio() {
+    public String getData_inicio() {
         return data_inicio;
     }
 
-    public void setData_inicio(Date data_inicio) {
+    public void setData_inicio(String data_inicio) {
         this.data_inicio = data_inicio;
     }
 
-    public Date getData_fim() {
+    public String getData_fim() {
         return data_fim;
     }
 
-    public void setData_fim(Date data_fim) {
+    public void setData_fim(String data_fim) {
         this.data_fim = data_fim;
     }
 
@@ -145,13 +191,14 @@ public class Evento {
                 "Informações Sobre o Evento:\nEvento Iniciado: " + isIniciado() + "\n" + "Nome: " + getNome() + "\n"
                         + "Título: " + getTitulo() + "\n"
                         + "Data de Início: " + getData_inicio() + "\n" + "Data de Término: " + getData_fim() + "\n"
-                        + "Local: " + getLocal() + "\n" + "Horário de Início: " + getHorario_inicio() + "\n"
-                        + "Horário de Término: " + getHorario_fim() + "\n" + "Carga Horária: " + getCarga_horaria()
+                        + "Local: " + getLocal() + "\n" + "Horário de Início: " + getHorario_inicio() + "h" + "\n"
+                        + "Horário de Término: " + getHorario_fim() + "h" + "\n" + "Carga Horária: "
+                        + getCarga_horaria() + "h"
                         + "\n"
                         + "Organizadores: " + getOrganizadores() + "\n" + "Descrição: " + getDescricao() + "\n"
                         + "Categoria: " + getCategoria() + "\n" + "Número de Participantes: " + getLimite_convidados()
                         + "\n"
-                        + "Número de Interessados: " + getNum_interessados() + "\n");
+                        + "Número de Interessados: " + getNum_interessados());
     }
 
 }
