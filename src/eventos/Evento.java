@@ -5,8 +5,8 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+// Classe de Responsabilidade da Laisa
 public class Evento {
-    // Responsabilidade da Laisa
 
     private String nome;
     private String titulo;
