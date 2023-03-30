@@ -9,7 +9,7 @@ public class Docente {
     // Atributos da classe Docente
     private String nome;
     private String dataNascimento;
-    private int cpf;
+    private String cpf;
     private String Titulo;
     private float CargaHoraria;
     private String Turno;
@@ -18,7 +18,7 @@ public class Docente {
 
     //Método construtor
 
-    public Docente(String nome, String dataNascimento, int cpf, String titulo, float CargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
+    public Docente(String nome, String dataNascimento, String cpf, String titulo, float CargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
@@ -45,11 +45,11 @@ public class Docente {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -65,7 +65,7 @@ public class Docente {
         return CargaHoraria;
     }
 
-    public void setCargaHoraria(float CargaHoraria) {
+    public void setCargaHoraria(String CargaHoraria) {
         CargaHoraria = CargaHoraria;
     }
 
@@ -96,10 +96,10 @@ public class Docente {
         setNome(JOptionPane.showInputDialog("Digite o nome do Docente:"));
         setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do Docente:"));
         setTitulo(JOptionPane.showInputDialog("Digite o título: "));
-        setCpf(Integer.parseInt(String.valueOf(Integer.parseInt(  JOptionPane.showInputDialog("Digite o número de CPF do Docente:")))));
-        setCargaHoraria(Long.parseLong(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:")));
-        setEspecializacao(JOptionPane.showInputDialog("Digite o a Especializacao do profesor:"));
-        setTurno(JOptionPane.showInputDialog("Digite o turno do Profesor:"));
+        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do Docente:"));
+        setCargaHoraria(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:"));
+        setEspecializacao(JOptionPane.showInputDialog("Digite o a Especializacao do Docente:"));
+        setTurno(JOptionPane.showInputDialog("Digite o turno do Docente:"));
         JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
     }
     public void mostrarDocente(){
@@ -108,7 +108,7 @@ public class Docente {
                         "Nome: "+ getNome() +"\n" +
                         "Data de nascimento: " + getDataNascimento() + "\n" +
                         "CPF: "+ getCpf() +"\n" +
-                        "Titulo: " + getTitulo() +
+                        "Titulo: " + getTitulo() +"\n"+
                         "Especializacao: "+ getEspecializacao() +"\n" +
                         "Carga Horária: "+ getCargaHoraria() +"\n" +
                         "Turno: "+ getTurno() +"\n");
