@@ -2,7 +2,10 @@
 
 Precisamos das classes: 
 
-Eventos;
+Eventos:
+* Número de pessoas interessadas
+* Hora de início e término
+* 
 
 Pessoas(PASTA):
 *   Docente
@@ -14,5 +17,5 @@ Main:
 * Popular as classes;
 
 
-Daniel José
+
 
