@@ -1,16 +1,15 @@
 package src.participantes;
 
 import javax.swing.*;
-import java.util.Date;
 
 // Classe de Responsabilidade do Daniel
 public class Discente {
 
     // Atributos da classe Discente
     private String nome;
-    private Date dataNascimento;
-    private int cpf;
-    private int numeroMatricula;
+    private String dataNascimento;
+    private String cpf;
+    private long numeroMatricula;
     private String curso;
     private String turno;
 
@@ -23,27 +22,27 @@ public class Discente {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getNumeroMatricula() {
+    public long getNumeroMatricula() {
         return numeroMatricula;
     }
 
-    public void setNumeroMatricula(int numeroMatricula) {
+    public void setNumeroMatricula(long numeroMatricula) {
         this.numeroMatricula = numeroMatricula;
     }
 
@@ -64,6 +63,16 @@ public class Discente {
     }
 
     // Métodos da Classe Discente
+    public void cadastrarDiscente(){
+        setNome(JOptionPane.showInputDialog("Digite o nome do discente:"));
+        setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do discente:"));
+        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do discente:"));
+        setNumeroMatricula(Long.parseLong(JOptionPane.showInputDialog("Digite o número de matrícula do discente:")));
+        setCurso(JOptionPane.showInputDialog("Digite o curso do aluno:"));
+        setTurno(JOptionPane.showInputDialog("Digite o turno do aluno:"));
+        JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
+    }
+
     public void mostrarDiscente(){
         JOptionPane.showMessageDialog(null,
                 "\nDados do Discente:\n" +
@@ -73,10 +82,6 @@ public class Discente {
                         "Número de matrícula: "+ getNumeroMatricula() +"\n" +
                         "Curso: "+ getCurso() +"\n" +
                         "Turno: "+ getTurno() +"\n");
-    }
-
-    public void cadastrarDiscente(){
-        //code
     }
 
 }
