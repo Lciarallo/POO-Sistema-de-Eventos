@@ -1,9 +1,12 @@
 package src.aplicacao;
 
+import src.participantes.Discente;
+
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+
         JOptionPane.showInternalMessageDialog(null,"Bem vindo ao Event System!\nPor favor clique em 'ok' para continuar");
         Object[] pessoa = {"Discente", "Docente", "Sair"};
         int op = 0;
@@ -21,15 +24,19 @@ public class Main {
                     switch (op) {
                         case 0:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Discente");
+                            Discente discente = new Discente();
+                            discente.cadastrarDiscente();
                             break;
                         case 1:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Docente");
+
                             break;
                         case 4:
                             break;
 
 
                     }
+                case 2:
             }
 
 
