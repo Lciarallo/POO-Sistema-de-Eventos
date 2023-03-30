@@ -1,5 +1,7 @@
 package src.aplicacao;
 
+import src.participantes.Discente;
+
 import javax.swing.*;
 
 public class Main {
@@ -22,15 +24,19 @@ public class Main {
                     switch (op) {
                         case 0:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Discente");
+                            Discente discente = new Discente();
+                            discente.cadastrarDiscente();
                             break;
                         case 1:
                             JOptionPane.showInternalMessageDialog(null, "Você selecionou Docente");
+
                             break;
                         case 4:
                             break;
 
 
                     }
+                case 2:
             }
 
 
