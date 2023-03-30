@@ -4,11 +4,11 @@ Precisamos das classes:
 
 Eventos;
 
-Pessoas(PASTA)
+Pessoas(PASTA):
 *   Docente
 *   Discente;
 
-Main
+Main:
 * Menu
 * Instâncias
 * Popular as classes;
