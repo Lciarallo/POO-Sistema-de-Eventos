@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
@@ -138,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680206560531</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Classe Docente - correção">
+      <created>1680207510216</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680207510216</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Classe Docente - correção">
+      <created>1680207719928</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680207719928</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

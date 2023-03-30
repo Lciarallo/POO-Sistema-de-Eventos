@@ -112,6 +112,7 @@ public class Docente {
                         "Titulo: " + getTitulo() +"\n"+
                         "Especializacao: "+ getEspecializacao() +"\n" +
                         "Carga Horária: "+ getcargaHoraria() +"\n" +
+                        "Unidade curricular: " + getunidadeCurricular()+ "\n" +
                         "Turno: "+ getTurno() +"\n");
     }
 
