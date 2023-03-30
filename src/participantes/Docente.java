@@ -11,21 +11,21 @@ public class Docente {
     private String dataNascimento;
     private int cpf;
     private String Titulo;
-    private float CargaHorária;
+    private float CargaHoraria;
     private String Turno;
-    private String Especialização;
+    private String Especializacao;
     private String UnidadeCurricular;
 
     //Método construtor
 
-    public Docente(String nome, String dataNascimento, int cpf, String titulo, float cargaHorária, String turno, String especialização, String unidadeCurricular) {
+    public Docente(String nome, String dataNascimento, int cpf, String titulo, float CargaHoraria, String turno, String Especializacao, String unidadeCurricular) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         Titulo = titulo;
-        CargaHorária = cargaHorária;
+        CargaHoraria = CargaHoraria;
         Turno = turno;
-        Especialização = especialização;
+        Especializacao = Especializacao;
         UnidadeCurricular = unidadeCurricular;
     }
 
@@ -61,12 +61,12 @@ public class Docente {
         Titulo = titulo;
     }
 
-    public float getCargaHorária() {
-        return CargaHorária;
+    public float getCargaHoraria() {
+        return CargaHoraria;
     }
 
-    public void setCargaHorária(float cargaHorária) {
-        CargaHorária = cargaHorária;
+    public void setCargaHoraria(float CargaHoraria) {
+        CargaHoraria = CargaHoraria;
     }
 
     public String getTurno() {
@@ -77,12 +77,12 @@ public class Docente {
         Turno = turno;
     }
 
-    public String getEspecialização() {
-        return Especialização;
+    public String getEspecializacao() {
+        return Especializacao;
     }
 
-    public void setEspecialização(String especialização) {
-        Especialização = especialização;
+    public void setEspecializacao(String Especializacao) {
+        Especializacao = Especializacao;
     }
 
     public String getUnidadeCurricular() {
@@ -97,8 +97,8 @@ public class Docente {
         setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do Docente:"));
         setTitulo(JOptionPane.showInputDialog("Digite o título: "));
         setCpf(Integer.parseInt(String.valueOf(Integer.parseInt(  JOptionPane.showInputDialog("Digite o número de CPF do Docente:")))));
-        setCargaHorária(Long.parseLong(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:")));
-        setEspecialização(JOptionPane.showInputDialog("Digite o a Especialização do profesor:"));
+        setCargaHoraria(Long.parseLong(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:")));
+        setEspecializacao(JOptionPane.showInputDialog("Digite o a Especializacao do profesor:"));
         setTurno(JOptionPane.showInputDialog("Digite o turno do Profesor:"));
         JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
     }
@@ -109,8 +109,8 @@ public class Docente {
                         "Data de nascimento: " + getDataNascimento() + "\n" +
                         "CPF: "+ getCpf() +"\n" +
                         "Titulo: " + getTitulo() +
-                        "Especialização: "+ getEspecialização() +"\n" +
-                        "Carga Horária: "+ getCargaHorária() +"\n" +
+                        "Especializacao: "+ getEspecializacao() +"\n" +
+                        "Carga Horária: "+ getCargaHoraria() +"\n" +
                         "Turno: "+ getTurno() +"\n");
     }
 
