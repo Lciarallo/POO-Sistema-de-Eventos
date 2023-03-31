@@ -32,17 +32,17 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
 * Visualização de Participante cadastro
 
 
-### Tecnologias utilizadas;
+### Tecnologias utilizadas:
 <b>Linguagem de programação:</b><br> 
 * JAVA.
 * IDE: IntelliJ
 
-<b>Pessoas Contribuidoras:</b><br>
+### Pessoas Contribuidoras:
 1. DANIEL JOSÉ MARTINS JUNIOR
 1. LAISA KARINA DO NASCIMENTO
 1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
-<b>Pessoas Desenvolvedoras do Projeto:</b><br>
+### Pessoas Desenvolvedoras do Projeto:
 1. DANIEL JOSÉ MARTINS JUNIOR
 1. LAISA KARINA DO NASCIMENTO
 1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
@@ -61,26 +61,24 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
   <li>Local</li>
   <li>Horário de início e fim</li>
   <li>Limite de participantes</li>
-  <li>Interessados</li> </ul>
-  
-  
+  <li>Interessados</li> 
+ </ul>
+   
 <p>O proponente do evento informa os dados supracitados para cadastrar o evento no sistema.</p>
 <p>Para a comunidade acadêmica cadastrar-se em um evento na condição de participante, é necessário informar qual papel desempenha no campus (docente ou discente).</p>
-<p>Se discente deve informar: </p>
- 
- 
+<p>Se discente deve informar:</p>
+  
   <ul type="disc">
    <li>Nome Completo</li>
    <li>Data de nascimento</li>
    <li>Número da matrícula</li>
    <li>CPF</li>
    <li>Curso</li>
-   <li>Turno</li> </ul>
- 
-   
+   <li>Turno</li> 
+  </ul>
+    
 <p>Se docente deve informar:</p>
  
-
   <ul type="disc">
    <li>Nome Completo</li>
    <li>Data de nascimento</li>
@@ -89,22 +87,13 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
    <li>Carga Horária</li>
    <li>Turno</li> 
    <li>Especialização</li>
-   <li>Unidades Curriculares</li> </ul>
+   <li>Unidades Curriculares</li> 
+  </ul>
  
    
 <p>De modo geral, quando ocorre um evento, na mesa de recepção do evento, o participante deve informar seu CPF para comprovar sua participação.</p>
    
 <p>Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores.</p>
-
-
-* Funcionalidades da Aplicação:
-* Cadastro de Evento;
-* Cadastro de Participantes;
-* Inscrição de Participantes nos Eventos;
-* Registro de presença;
-* Agenda de eventos;
-* Busca de eventos por filtros característicos;
-* Relatório.
 
 <h3>Status do Projeto</h3>
 
@@ -116,22 +105,29 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
 * Visualização de Evento cadastrado
 * Visualização de Participante cadastro
 
+### Funcionalidades da Aplicação:
+* Cadastro de Evento;
+* Cadastro de Participantes;
+* Inscrição de Participantes nos Eventos;
+* Registro de presença;
+* Agenda de eventos;
+* Busca de eventos por filtros característicos;
+* Relatório.
 
 
-### Tecnologias utilizadas;
-<b>Linguagem de programação:</b><br>
-* JAVA.
+### Tecnologias utilizadas:
+* Linguagem de programação: JAVA
 * IDE: IntelliJ
 
-<b>Pessoas Contribuidoras:</b><br>
-1. DANIEL JOSÉ MARTINS JUNIOR
-1. LAISA KARINA DO NASCIMENTO
-1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+### Pessoas Contribuidoras:
+* DANIEL JOSÉ MARTINS JUNIOR
+* LAISA KARINA DO NASCIMENTO
+* LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
-<b>Pessoas Desenvolvedoras do Projeto:</b><br>
-1. DANIEL JOSÉ MARTINS JUNIOR
-1. LAISA KARINA DO NASCIMENTO
-1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+### Pessoas Desenvolvedoras do Projeto:
+* DANIEL JOSÉ MARTINS JUNIOR
+* LAISA KARINA DO NASCIMENTO
+* LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
 
 
