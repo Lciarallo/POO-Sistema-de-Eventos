@@ -8,7 +8,6 @@ Bem-vindo ao Event System, por favor selecione uma das opções abaixo:
 4 - Listar participantes cadastrados
 5 - Sair
 
-
 Se opção for:
 
 	1: chamar a função cadastrarEvento

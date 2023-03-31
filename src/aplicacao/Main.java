@@ -15,74 +15,36 @@ public class Main {
         Discente discente = new Discente();
         Docente docente = new Docente();
 
-        JOptionPane.showInternalMessageDialog(null,
-                "Bem vindo ao Event System!\nPor favor clique em 'ok' para continuar");
-        Object[] pessoa = { "Discente", "Docente", "Sair" };
-        Object[] pessoaEvento = { "Discente", "Docente", "Evento", "Sair" };
-        Object[] eventoOp = { "Sim", "Não" };
-        int op = 0;
+        // Menu
+        JOptionPane.showInternalMessageDialog(null, "Bem vindo ao Event System!\n" +
+                "Por favor clique em 'ok' para continuar");
 
-        while (op != 4) {
-            String option = JOptionPane.showInputDialog(null, """
-                    Insira a opção desejada:\s
-                    1 - Cadastrar Docente ou discente
-                    2 - Cadastrar Evento
-                    3 - Listar Eventos ou Pessoas
-                    4 - Sair
-                    """);
-            op = Integer.parseInt(option);
+        int op;
+
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog("""
+                    Selecione uma opção:
+                    1 - Cadastrar Evento
+                    2 - Cadastrar Participante
+                    3 - Listar evento cadastrado
+                    4 - Listar participante cadastrado
+                    5 - Sair"""));
 
             switch (op) {
-                case 1:
-                    op = JOptionPane.showOptionDialog(null, "Escolha uma opção a baixo: ", "Cadastro",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, pessoa, pessoa[0]);
-                    switch (op) {
-                        case 0:
-                            JOptionPane.showInternalMessageDialog(null, "Você selecionou Discente");
-                            discente.cadastrarDiscente();
-                            break;
-                        case 1:
-                            JOptionPane.showInternalMessageDialog(null, "Você selecionou Docente");
-                            docente.cadastrarDocente();
-                            break;
-                    }
-
-                case 2:
-                    evento.cadastrarEvento();
-                    break;
-
-                case 3:
-                    op = JOptionPane.showOptionDialog(null, "Escolha uma opção a baixo: ", "Listar Dados",
-                            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, pessoaEvento,
-                            pessoaEvento[0]);
-                    switch (op) {
-                        case 0:
-                            discente.mostrarDiscente();
-                            break;
-
-                        case 1:
-                            docente.mostrarDocente();
-                            break;
-
-                        case 2:
-                            op = JOptionPane.showOptionDialog(null, "Deseja Iniciar o Evento? ", "Iniciar Evento",
-                                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, eventoOp,
-                                    eventoOp[0]);
-                            if (op == 0) {
-                                evento.iniciarEvento();
-                                evento.mostrarEvento();
-                            } else
-                                evento.encerrarEvento();
-                                evento.mostrarEvento();
-
-                            break;
-                    }
-
-                case 4:
-                    break;
-
+                case 1 -> evento.cadastrarEvento();
+                case 2 -> {
+                    discente.cadastrarDiscente();
+                    docente.cadastrarDocente();
+                }
+                case 3 -> evento.mostrarEvento();
+                case 4 -> {
+                    discente.mostrarDiscente();
+                    docente.mostrarDocente();
+                }
+                case 5 -> JOptionPane.showMessageDialog(null, "Saindo...\n" +
+                        "Pressione 'ENTER' para sair.");
+                default -> JOptionPane.showMessageDialog(null, "Opção inválida!");
             }
-
-        }
+        }while (op != 5);
     }
 }

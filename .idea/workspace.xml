@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/aplicacao/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Discente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Discente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventos/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventos/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participantes/Discente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Discente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Docente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680204553743</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel">
+      <created>1680266269040</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680266269040</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +144,7 @@
     <MESSAGE value="30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="Classe Docente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classe Docente" />
+    <MESSAGE value="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel" />
+    <option name="LAST_COMMIT_MESSAGE" value="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel" />
   </component>
 </project>
