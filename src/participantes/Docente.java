@@ -90,7 +90,7 @@ public class Docente {
         setEspecializacao(JOptionPane.showInputDialog("Digite a especializacao do docente:"));
         setTurno(JOptionPane.showInputDialog("Digite o turno do docente:"));
         setUnidadeCurricular(JOptionPane.showInputDialog(null,"Digite a unidade curricular do docente:"));
-        JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
+        JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
     }
     public void mostrarDocente(){
         JOptionPane.showMessageDialog(null,
@@ -99,7 +99,7 @@ public class Docente {
                         "Data de nascimento: " + getDataNascimento() + "\n" +
                         "CPF: "+ getCpf() +"\n" +
                         "Título: " + getTitulo() +"\n"+
-                        "Carga Horária: "+ getCargaHoraria() +"\n" +
+                        "Carga Horária: "+ getCargaHoraria() + "h" + "\n" +
                         "Turno: "+ getTurno() +
                         "Especialização: "+ getEspecializacao() +"\n" +
                         "Unidade Curricular: " + getUnidadeCurricular() + "\n");

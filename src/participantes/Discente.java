@@ -70,7 +70,7 @@ public class Discente {
         setNumeroMatricula(Long.parseLong(JOptionPane.showInputDialog("Digite o número de matrícula do discente:")));
         setCurso(JOptionPane.showInputDialog("Digite o curso do aluno:"));
         setTurno(JOptionPane.showInputDialog("Digite o turno do aluno:"));
-        JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
+        JOptionPane.showMessageDialog(null, "Discente cadastrado com sucesso!");
     }
 
     public void mostrarDiscente(){

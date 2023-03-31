@@ -138,6 +138,10 @@ public class Evento {
         this.iniciado = true;
     }
 
+    public void encerrarEvento() {
+        this.iniciado = false;
+    }
+
     // Métodos da Classe Evento
     public void cadastrarEvento() {
         setNome(JOptionPane.showInputDialog(null, "Informe o Nome do Evento:"));
