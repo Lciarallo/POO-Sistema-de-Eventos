@@ -30,13 +30,25 @@ public class Main {
             switch (op) {
                 case 1 -> evento.cadastrarEvento();
                 case 2 -> {
-                    discente.cadastrarDiscente();
-                    docente.cadastrarDocente();
+                    int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
+                    Selecione o tipo de participante:
+                    1 - Cadastrar um discente
+                    2 - Cadastrar um docente"""));
+                    switch (opcao){
+                        case 1 -> discente.cadastrarDiscente();
+                        case 2 -> docente.cadastrarDocente();
+                    }
                 }
                 case 3 -> evento.mostrarEvento();
                 case 4 -> {
-                    discente.mostrarDiscente();
-                    docente.mostrarDocente();
+                    int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
+                    Selecione o tipo de participante:
+                    1 - Listar discente cadastrado
+                    2 - Listar docente cadastrado"""));
+                    switch (opcao){
+                        case 1 -> discente.mostrarDiscente();
+                        case 2 -> docente.mostrarDocente();
+                    }
                 }
                 case 5 -> JOptionPane.showMessageDialog(null, "Saindo...\n" +
                         "Pressione 'ENTER' para sair.");

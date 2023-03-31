@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel" />
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680273159018</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel">
+      <created>1680273563057</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680273563057</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,6 +154,7 @@
     <MESSAGE value="Classe Docente" />
     <MESSAGE value="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel" />
-    <option name="LAST_COMMIT_MESSAGE" value="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel" />
+    <option name="LAST_COMMIT_MESSAGE" value="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel" />
   </component>
 </project>
