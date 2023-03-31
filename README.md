@@ -5,5 +5,21 @@ Professor: Dr. Fernando Roberto Pereira.</p>
 
 
 <div align = "center">
- <img src="https://user-images.githubusercontent.com/129339161/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png" width="500" height="250">
+ <img src="https://github.com/Lciarallo/POO-Sistema-de-Eventos/issues/1#issue-1649870258" width="500" height="250">
+</div>
+
+<div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeyCuuaWU&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeyCuuaWU&#x2F;view?utm_content=DAFeyCuuaWU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">logo_event_system</a> de Daniel Júnior Martins
+
+https://www.canva.com/design/DAFeyCuuaWU/view
+
+
+<div align = "center">
+ <img src="https://www.canva.com/design/DAFeyCuuaWU/view" width="500" height="250">
 </div>
