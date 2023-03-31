@@ -16,6 +16,7 @@ public class Main {
         Docente docente = new Docente();
 
         // Menu
+        JOptionPane.showMessageDialog(null, "Sistema de Eventos!\nPressione 'ENTER' para continuar..");
         int op;
 
         do {
@@ -31,10 +32,10 @@ public class Main {
                 case 1 -> evento.cadastrarEvento();
                 case 2 -> {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
-                    Selecione o tipo de participante:
-                    1 - Cadastrar um discente
-                    2 - Cadastrar um docente"""));
-                    switch (opcao){
+                            Selecione o tipo de participante:
+                            1 - Cadastrar um discente
+                            2 - Cadastrar um docente"""));
+                    switch (opcao) {
                         case 1 -> discente.cadastrarDiscente();
                         case 2 -> docente.cadastrarDocente();
                     }
@@ -42,10 +43,10 @@ public class Main {
                 case 3 -> evento.mostrarEvento();
                 case 4 -> {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
-                    Selecione o tipo de participante:
-                    1 - Listar discente cadastrado
-                    2 - Listar docente cadastrado"""));
-                    switch (opcao){
+                            Selecione o tipo de participante:
+                            1 - Listar discente cadastrado
+                            2 - Listar docente cadastrado"""));
+                    switch (opcao) {
                         case 1 -> discente.mostrarDiscente();
                         case 2 -> docente.mostrarDocente();
                     }
@@ -54,6 +55,6 @@ public class Main {
                         "Pressione 'ENTER' para sair.");
                 default -> JOptionPane.showMessageDialog(null, "Opção inválida!");
             }
-        }while (op != 5);
+        } while (op != 5);
     }
 }
