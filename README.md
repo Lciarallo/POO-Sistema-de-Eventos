@@ -5,5 +5,5 @@ Professor: Dr. Fernando Roberto Pereira.</p>
 
 
 <div align = "center">
- <img src="https://github.com/Lciarallo/POO-Sistema-de-Eventos/issues/1#issue-1649870258" width="500" height="250">
+ <img src="https://user-images.githubusercontent.com/129339161/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png width="500" height="250">
 </div>
