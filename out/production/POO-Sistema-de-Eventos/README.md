@@ -1,32 +1,13 @@
-Plano de sistema:
+<h1>Projeto: “Sistema de Gestão de Eventos”</h1>
+<h2>Atividade Avaliativa da Unidade Curricular de Programação Orientada a Objetos - IFSC Canoinhas/SC</h2>
+<p>Trata-se da 1ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC. 
+Professor: Dr. Fernando Roberto Pereira.</p>
 
+<h3>Logo do Projeto</h3>
+<div align = "left">
+ <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
+ width="500" height="250">
+</div>
 
-Bem-vindo ao Event System, por favor selecione uma das opções abaixo:
-1 - Cadastrar Evento
-2 - Cadastrar Participante
-3 - Listar eventos cadastrados
-4 - Listar participantes cadastrados
-5 - Sair
-
-Se opção for:
-
-	1: chamar a função cadastrarEvento
-
-	2: Selecione uma das opções: 
-		1 - Cadastrar discente
-		2 - Cadastrar docente
-		3 - voltar ao menu principal
-		4 - opção inválida
-
-	3: chamar a função mostrarEventos
-
-	4: Selecione uma das opções: 
-		1 - Listar discente
-		2 - Listar docente
-		3 - voltar ao menu principal
-		4 - opção inválida
-
-	5: se (opção == 5), sair do laço de repetição
-
-	outro numero:  opção inválida!
-		
+<h3>Slogan do Projeto:</h3>
+<p><i>“Para um melhor controle dos seus eventos”</i></p>

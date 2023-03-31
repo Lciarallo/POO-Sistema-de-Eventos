@@ -9,8 +9,43 @@
  width="500" height="250">
 </div>
 
+
 <h3>Slogan do Projeto:</h3>
 <p><i>“Para um melhor controle dos seus eventos”</i></p>
+Funcionalidades da Aplicação:
+Cadastro de Evento;
+Cadastro de Participantes;
+Inscrição de Participantes nos Eventos;
+Registro de presença;
+Agenda de eventos;
+Busca de eventos por filtros característicos;
+Relatório.
+
+<h3>Status do Projeto</h3>
+
+<b>Em Andamento.</b>
+
+O projeto está dividido em etapas de implementação. Nesta primeira etapa foram desenvolvidas somente algumas funcionalidades do sistema descritas acima, são elas:
+* Cadastro de Evento
+* Cadastro de Participante
+* Visualização de Evento cadastrado
+* Visualização de Participante cadastro
+
+
+### Tecnologias utilizadas;
+<b>Linguagem de programação:</b><br> 
+* JAVA.
+* IDE: IntelliJ
+
+<b>Pessoas Contribuidoras:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+<b>Pessoas Desenvolvedoras do Projeto:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
 <h2>Descrição do Projeto</h2>
 <p>O Event System tem como objetivo auxiliar as instituições de ensino a fazerem a gerência de eventos acadêmicos (e.g., palestras, workshops, atividades de extensão, mostras e afins).</p>
@@ -60,7 +95,55 @@
 <p>De modo geral, quando ocorre um evento, na mesa de recepção do evento, o participante deve informar seu CPF para comprovar sua participação.</p>
    
 <p>Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores.</p>
-    
+
+<h1>Projeto: “Sistema de Gestão de Eventos”</h1>
+<h2>Atividade Avaliativa da Unidade Curricular de Programação Orientada a Objetos - IFSC Canoinhas/SC</h2>
+<p>Trata-se da 1ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC. 
+Professor: Dr. Fernando Roberto Pereira.</p>
+
+<h3>Logo do Projeto</h3>
+<div align = "left">
+ <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
+ width="500" height="250">
+</div>
+
+
+<h3>Slogan do Projeto:</h3>
+<p><i>“Para um melhor controle dos seus eventos”</i></p>
+Funcionalidades da Aplicação:
+Cadastro de Evento;
+Cadastro de Participantes;
+Inscrição de Participantes nos Eventos;
+Registro de presença;
+Agenda de eventos;
+Busca de eventos por filtros característicos;
+Relatório.
+
+<h3>Status do Projeto</h3>
+
+<b>Em Andamento.</b>
+
+O projeto está dividido em etapas de implementação. Nesta primeira etapa foram desenvolvidas somente algumas funcionalidades do sistema descritas acima, são elas:
+* Cadastro de Evento
+* Cadastro de Participante
+* Visualização de Evento cadastrado
+* Visualização de Participante cadastro
+
+
+### Tecnologias utilizadas;
+<b>Linguagem de programação:</b><br>
+* JAVA.
+* IDE: IntelliJ
+
+<b>Pessoas Contribuidoras:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+<b>Pessoas Desenvolvedoras do Projeto:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
 
 
