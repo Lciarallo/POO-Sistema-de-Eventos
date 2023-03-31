@@ -96,6 +96,16 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
    
 <p>Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores.</p>
 
+
+* Funcionalidades da Aplicação:
+* Cadastro de Evento;
+* Cadastro de Participantes;
+* Inscrição de Participantes nos Eventos;
+* Registro de presença;
+* Agenda de eventos;
+* Busca de eventos por filtros característicos;
+* Relatório.
+
 <h3>Status do Projeto</h3>
 
 <b>Em Andamento.</b>
@@ -106,14 +116,6 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
 * Visualização de Evento cadastrado
 * Visualização de Participante cadastro
 
-* Funcionalidades da Aplicação:
-* Cadastro de Evento;
-* Cadastro de Participantes;
-* Inscrição de Participantes nos Eventos;
-* Registro de presença;
-* Agenda de eventos;
-* Busca de eventos por filtros característicos;
-* Relatório.
 
 
 ### Tecnologias utilizadas;
