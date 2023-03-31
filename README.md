@@ -9,6 +9,6 @@ Professor: Dr. Fernando Roberto Pereira.</p>
  width="500" height="250">
 </div>
 
-# Slogan do Projeto:
+### Slogan do Projeto:
 
-#### “Para um melhor controle dos seus eventos”
+#### `“Para um melhor controle dos seus eventos”`
