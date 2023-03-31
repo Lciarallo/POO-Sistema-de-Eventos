@@ -106,6 +106,14 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
 * Visualização de Evento cadastrado
 * Visualização de Participante cadastro
 
+* Funcionalidades da Aplicação:
+* Cadastro de Evento;
+* Cadastro de Participantes;
+* Inscrição de Participantes nos Eventos;
+* Registro de presença;
+* Agenda de eventos;
+* Busca de eventos por filtros característicos;
+* Relatório.
 
 
 ### Tecnologias utilizadas;
