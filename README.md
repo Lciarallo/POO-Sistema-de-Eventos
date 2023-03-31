@@ -96,3 +96,34 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
    
 <p>Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores.</p>
 
+<h3>Status do Projeto</h3>
+
+<b>Em Andamento.</b>
+
+O projeto está dividido em etapas de implementação. Nesta primeira etapa foram desenvolvidas somente algumas funcionalidades do sistema descritas acima, são elas:
+* Cadastro de Evento
+* Cadastro de Participante
+* Visualização de Evento cadastrado
+* Visualização de Participante cadastro
+
+
+
+### Tecnologias utilizadas;
+<b>Linguagem de programação:</b><br>
+* JAVA.
+* IDE: IntelliJ
+
+<b>Pessoas Contribuidoras:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+<b>Pessoas Desenvolvedoras do Projeto:</b><br>
+1. DANIEL JOSÉ MARTINS JUNIOR
+1. LAISA KARINA DO NASCIMENTO
+1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+
+
+
+
