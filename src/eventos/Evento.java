@@ -19,7 +19,6 @@ public class Evento {
     private String categoria;
     private int limite_convidados;
     private int num_interessados;
-    private boolean iniciado = false;
 
     // Métodos getters e setters da Classe Evento
     public String getNome() {
@@ -126,21 +125,6 @@ public class Evento {
         this.num_interessados = num_interessados;
     }
 
-    public boolean getIniciado() {
-        return iniciado;
-    }
-
-    public void setIniciado(boolean iniciado) {
-        this.iniciado = iniciado;
-    }
-
-    public void iniciarEvento() {
-        this.iniciado = true;
-    }
-
-    public void encerrarEvento() {
-        this.iniciado = false;
-    }
 
     // Métodos da Classe Evento
     public void cadastrarEvento() {
@@ -165,7 +149,7 @@ public class Evento {
     public void mostrarEvento() {
 
         JOptionPane.showMessageDialog(null,
-                "Informações Sobre o Evento:\nEvento Iniciado: " + getIniciado() + "\n" + "Nome: " + getNome() + "\n"
+                "Informações Sobre o Evento:\nNome: " + getNome() + "\n"
                         + "Título: " + getTitulo() + "\n"
                         + "Data de Início: " + getData_inicio() + "\n" + "Data de Término: " + getData_fim() + "\n"
                         + "Local: " + getLocal() + "\n" + "Horário de Início: " + getHorario_inicio() + "h" + "\n"

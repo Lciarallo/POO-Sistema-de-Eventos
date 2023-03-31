@@ -2,7 +2,6 @@ package src.participantes;
 
 import javax.swing.*;
 
-// Classe de Responsabilidade do Daniel
 public class Discente {
 
     // Atributos da classe Discente

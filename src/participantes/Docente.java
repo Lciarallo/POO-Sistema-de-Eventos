@@ -2,7 +2,6 @@ package src.participantes;
 
 import javax.swing.*;
 
-// Classe de Responsabilidade do Luiz
 public class Docente {
 
     // Atributos da classe Docente
