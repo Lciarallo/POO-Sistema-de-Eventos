@@ -16,9 +16,6 @@ public class Main {
         Docente docente = new Docente();
 
         // Menu
-        JOptionPane.showInternalMessageDialog(null, "Bem vindo ao Event System!\n" +
-                "Por favor clique em 'ok' para continuar");
-
         int op;
 
         do {
