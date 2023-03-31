@@ -13,9 +13,6 @@ public class Discente {
     private String curso;
     private String turno;
 
-    // Método construtor
-
-
     // Métodos Getters e Setters da Classe Discente
     public String getNome() {
         return nome;
@@ -86,5 +83,4 @@ public class Discente {
                         "Curso: "+ getCurso() +"\n" +
                         "Turno: "+ getTurno() +"\n");
     }
-
 }

@@ -5,21 +5,17 @@ import javax.swing.*;
 // Classe de Responsabilidade do Luiz
 public class Docente {
 
-
     // Atributos da classe Docente
     private String nome;
     private String dataNascimento;
     private String cpf;
     private String titulo;
-    private String cargaHoraria;
-    private String Turno;
-    private String Especializacao;
+    private float cargaHoraria;
+    private String turno;
+    private String especializacao;
     private String unidadeCurricular;
 
-    //Método construtor
-
-
-
+    //Métodos getter e setter da Classe Docente
     public String getNome() {
         return nome;
     }
@@ -52,46 +48,48 @@ public class Docente {
         this.titulo = titulo;
     }
 
-    public String getcargaHoraria() {
+    public float getCargaHoraria() {
         return cargaHoraria;
     }
 
-    public void setcargaHoraria(String cargaHoraria) {
+    public void setCargaHoraria(float cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
 
     public String getTurno() {
-        return Turno;
+        return turno;
     }
 
     public void setTurno(String turno) {
-        Turno = turno;
+        this.turno = turno;
     }
 
     public String getEspecializacao() {
-        return Especializacao;
+        return especializacao;
     }
 
-    public void setEspecializacao(String Especializacao) {
-        this.Especializacao = Especializacao;
+    public void setEspecializacao(String especializacao) {
+        this.especializacao = especializacao;
     }
 
-    public String getunidadeCurricular() {
+    public String getUnidadeCurricular() {
         return unidadeCurricular;
     }
 
-    public void setunidadeCurricular(String unidadeCurricular) {
+    public void setUnidadeCurricular(String unidadeCurricular) {
         this.unidadeCurricular = unidadeCurricular;
     }
+
+    // Métodos da Classe Docente
     public void cadastrarDocente(){
-        setNome(JOptionPane.showInputDialog("Digite o nome do Docente:"));
-        setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do Docente:"));
-        setTitulo(JOptionPane.showInputDialog("Digite o título: "));
-        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do Docente:"));
-        setcargaHoraria(JOptionPane.showInputDialog("Digite a Carga Horária do Docente:"));
-        setEspecializacao(JOptionPane.showInputDialog("Digite o a Especializacao do Docente:"));
-        setTurno(JOptionPane.showInputDialog("Digite o turno do Docente:"));
-        setunidadeCurricular(JOptionPane.showInputDialog(null,"Digite a unidade curricular: "));
+        setNome(JOptionPane.showInputDialog("Digite o nome do docente:"));
+        setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do docente:"));
+        setTitulo(JOptionPane.showInputDialog("Digite o título do docente:"));
+        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do docente:"));
+        setCargaHoraria(Float.parseFloat(JOptionPane.showInputDialog("Digite a carga horária do docente:")));
+        setEspecializacao(JOptionPane.showInputDialog("Digite a especializacao do docente:"));
+        setTurno(JOptionPane.showInputDialog("Digite o turno do docente:"));
+        setUnidadeCurricular(JOptionPane.showInputDialog(null,"Digite a unidade curricular do docente:"));
         JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso!");
     }
     public void mostrarDocente(){
@@ -100,14 +98,10 @@ public class Docente {
                         "Nome: "+ getNome() +"\n" +
                         "Data de nascimento: " + getDataNascimento() + "\n" +
                         "CPF: "+ getCpf() +"\n" +
-                        "Titulo: " + getTitulo() +"\n"+
-                        "Especializacao: "+ getEspecializacao() +"\n" +
-                        "Carga Horária: "+ getcargaHoraria() +"\n" +
-                        "Unidade curricular: " + getunidadeCurricular()+ "\n" +
-                        "Turno: "+ getTurno() +"\n");
+                        "Título: " + getTitulo() +"\n"+
+                        "Carga Horária: "+ getCargaHoraria() +"\n" +
+                        "Turno: "+ getTurno() +
+                        "Especialização: "+ getEspecializacao() +"\n" +
+                        "Unidade Curricular: " + getUnidadeCurricular() + "\n");
     }
-
 }
-
-
-

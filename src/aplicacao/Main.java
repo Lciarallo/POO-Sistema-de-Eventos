@@ -1,5 +1,6 @@
 package src.aplicacao;
 
+import src.eventos.Evento;
 import src.participantes.Discente;
 import src.participantes.Docente;
 
@@ -9,6 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Instanciação dos objetos das classes Evento, Discente e Docente
+        Evento evento = new Evento();
         Discente discente = new Discente();
         Docente docente = new Docente();
 
@@ -17,11 +20,13 @@ public class Main {
         int op = 0;
 
         while (op != 4){
-            String option = JOptionPane.showInputDialog(null,"Insira a opção desejada: \n" +
-                    "1 - Cadastrar Docente ou discente\n" +
-                    "2 - Cadastrar Evento\n" +
-                    "3 - Listar Eventos ou Pessoas\n" +
-                    "4 - Sair\n");
+            String option = JOptionPane.showInputDialog(null, """
+                    Insira a opção desejada:\s
+                    1 - Cadastrar Docente ou discente
+                    2 - Cadastrar Evento
+                    3 - Listar Eventos ou Pessoas
+                    4 - Sair
+                    """);
             op = Integer.parseInt(option);
 
 
@@ -45,6 +50,8 @@ public class Main {
 
                     }
                 case 2:
+                    evento.cadastrarEvento();
+                    evento.mostrarEvento();
             }
 
 

@@ -1,11 +1,11 @@
-
 package src.eventos;
 
 import java.time.LocalTime;
-
 import javax.swing.JOptionPane;
 
 public class Evento {
+
+    // Atributos da Classe Evento
     private String nome;
     private String titulo;
     private String data_inicio;
@@ -21,25 +21,7 @@ public class Evento {
     private int num_interessados;
     private boolean iniciado = false;
 
-    public void cadastrarEvento() {
-        setNome(JOptionPane.showInputDialog(null, "Informe o Nome do Evento:"));
-        setTitulo(JOptionPane.showInputDialog(null, "Informe o Título do Evento:"));
-        setData_inicio(JOptionPane.showInputDialog(null, "Informe a Data de Início:"));
-        setData_fim(JOptionPane.showInputDialog(null, "Informe a Data de Término:"));
-        setLocal(JOptionPane.showInputDialog(null, "Informe o Local do Evento:"));
-        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início:")));
-        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término:")));
-        setCarga_horaria(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:")));
-        setOrganizadores(JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:"));
-        setDescricao(JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:"));
-        setCategoria(JOptionPane.showInputDialog(null, "Informe a Categoria do Evento:"));
-        setLimite_convidados(
-                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Participantes do Evento:")));
-        setNum_interessados(
-                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Interessados no Evento:")));
-        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
-    }
-
+    // Métodos getters e setters da Classe Evento
     public String getNome() {
         return nome;
     }
@@ -144,7 +126,7 @@ public class Evento {
         this.num_interessados = num_interessados;
     }
 
-    public boolean isIniciado() {
+    public boolean getIniciado() {
         return iniciado;
     }
 
@@ -156,10 +138,30 @@ public class Evento {
         this.iniciado = true;
     }
 
+    // Métodos da Classe Evento
+    public void cadastrarEvento() {
+        setNome(JOptionPane.showInputDialog(null, "Informe o Nome do Evento:"));
+        setTitulo(JOptionPane.showInputDialog(null, "Informe o Título do Evento:"));
+        setData_inicio(JOptionPane.showInputDialog(null, "Informe a Data de Início:"));
+        setData_fim(JOptionPane.showInputDialog(null, "Informe a Data de Término:"));
+        setLocal(JOptionPane.showInputDialog(null, "Informe o Local do Evento:"));
+        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início:")));
+        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término:")));
+        setCarga_horaria(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:")));
+        setOrganizadores(JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:"));
+        setDescricao(JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:"));
+        setCategoria(JOptionPane.showInputDialog(null, "Informe a Categoria do Evento:"));
+        setLimite_convidados(
+                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Participantes do Evento:")));
+        setNum_interessados(
+                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Interessados no Evento:")));
+        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+    }
+
     public void mostrarEvento() {
 
         JOptionPane.showMessageDialog(null,
-                "Informações Sobre o Evento:\nEvento Iniciado: " + isIniciado() + "\n" + "Nome: " + getNome() + "\n"
+                "Informações Sobre o Evento:\nEvento Iniciado: " + getIniciado() + "\n" + "Nome: " + getNome() + "\n"
                         + "Título: " + getTitulo() + "\n"
                         + "Data de Início: " + getData_inicio() + "\n" + "Data de Término: " + getData_fim() + "\n"
                         + "Local: " + getLocal() + "\n" + "Horário de Início: " + getHorario_inicio() + "h" + "\n"
@@ -171,5 +173,4 @@ public class Evento {
                         + "\n"
                         + "Número de Interessados: " + getNum_interessados());
     }
-
 }
