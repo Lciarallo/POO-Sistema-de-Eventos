@@ -1,32 +1,8 @@
-Plano de sistema:
-
-
-Bem-vindo ao Event System, por favor selecione uma das opções abaixo:
-1 - Cadastrar Evento
-2 - Cadastrar Participante
-3 - Listar eventos cadastrados
-4 - Listar participantes cadastrados
-5 - Sair
-
-Se opção for:
-
-	1: chamar a função cadastrarEvento
-
-	2: Selecione uma das opções: 
-		1 - Cadastrar discente
-		2 - Cadastrar docente
-		3 - voltar ao menu principal
-		4 - opção inválida
-
-	3: chamar a função mostrarEventos
-
-	4: Selecione uma das opções: 
-		1 - Listar discente
-		2 - Listar docente
-		3 - voltar ao menu principal
-		4 - opção inválida
-
-	5: se (opção == 5), sair do laço de repetição
-
-	outro numero:  opção inválida!
-		
+<div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeyCuuaWU&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeyCuuaWU&#x2F;view?utm_content=DAFeyCuuaWU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">logo_event_system</a> de Daniel Júnior Martins
