@@ -16,7 +16,9 @@ public class Main {
         Docente docente = new Docente();
 
         // Menu
-        JOptionPane.showMessageDialog(null, "Sistema de Eventos!\nPressione 'ENTER' para continuar..");
+        JOptionPane.showMessageDialog(null, "Sistema de Eventos!\n" +
+                "Pressione 'ENTER' para continuar..");
+
         int op;
 
         do {

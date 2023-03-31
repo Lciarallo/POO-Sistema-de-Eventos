@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="31/03/2023 - Correção na Main">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventos/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventos/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participantes/Discente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Discente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/participantes/Docente.java" afterDir="false" />
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="31/03/2023 - Alteração Eventos">
+      <change beforePath="$PROJECT_DIR$/src/aplicacao/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplicacao/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680274133012</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="31/03/2023 - Alteração Eventos">
+      <created>1680279991385</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680279991385</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +169,7 @@
     <MESSAGE value="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel" />
     <MESSAGE value="31/03/2023 - Correção na Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="31/03/2023 - Correção na Main" />
+    <MESSAGE value="31/03/2023 - Alteração Eventos" />
+    <option name="LAST_COMMIT_MESSAGE" value="31/03/2023 - Alteração Eventos" />
   </component>
 </project>
