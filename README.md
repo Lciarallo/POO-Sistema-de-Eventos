@@ -4,7 +4,7 @@
 Professor: Dr. Fernando Roberto Pereira.</p>
 
 <h3>Logo do Projeto</h3>
-<div align = "center">
+<div align = "left">
  <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
  width="500" height="250">
 </div>
