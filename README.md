@@ -12,40 +12,6 @@
 
 <h3>Slogan do Projeto:</h3>
 <p><i>“Para um melhor controle dos seus eventos”</i></p>
-Funcionalidades da Aplicação:
-Cadastro de Evento;
-Cadastro de Participantes;
-Inscrição de Participantes nos Eventos;
-Registro de presença;
-Agenda de eventos;
-Busca de eventos por filtros característicos;
-Relatório.
-
-<h3>Status do Projeto</h3>
-
-<b>Em Andamento.</b>
-
-O projeto está dividido em etapas de implementação. Nesta primeira etapa foram desenvolvidas somente algumas funcionalidades do sistema descritas acima, são elas:
-* Cadastro de Evento
-* Cadastro de Participante
-* Visualização de Evento cadastrado
-* Visualização de Participante cadastro
-
-
-### Tecnologias utilizadas:
-<b>Linguagem de programação:</b><br> 
-* JAVA.
-* IDE: IntelliJ
-
-### Pessoas Contribuidoras:
-1. DANIEL JOSÉ MARTINS JUNIOR
-1. LAISA KARINA DO NASCIMENTO
-1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
-
-### Pessoas Desenvolvedoras do Projeto:
-1. DANIEL JOSÉ MARTINS JUNIOR
-1. LAISA KARINA DO NASCIMENTO
-1. LUIZ EDUARDO DO NASCIMENTO CIARALLO
 
 <h2>Descrição do Projeto</h2>
 <p>O Event System tem como objetivo auxiliar as instituições de ensino a fazerem a gerência de eventos acadêmicos (e.g., palestras, workshops, atividades de extensão, mostras e afins).</p>
@@ -128,8 +94,3 @@ O projeto está dividido em etapas de implementação. Nesta primeira etapa fora
 * DANIEL JOSÉ MARTINS JUNIOR
 * LAISA KARINA DO NASCIMENTO
 * LUIZ EDUARDO DO NASCIMENTO CIARALLO
-
-
-
-
-
