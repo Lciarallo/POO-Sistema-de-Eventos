@@ -15,6 +15,11 @@ public class Main {
         Discente discente = new Discente();
         Docente docente = new Docente();
 
+        // Variáveis de Controle
+        int eventoCadastrado = 0;
+        int discenteCadastrado = 0;
+        int docenteCadastrado = 0;
+
         // Menu
         JOptionPane.showMessageDialog(null, "Sistema de Eventos!\n" +
                 "Pressione 'ENTER' para continuar..");
@@ -31,31 +36,72 @@ public class Main {
                     5 - Sair"""));
 
             switch (op) {
-                case 1 -> evento.cadastrarEvento();
-                case 2 -> {
+                case 1:
+                    evento.cadastrarEvento();
+                    eventoCadastrado++;
+                    break;
+
+                case 2: {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
                             Selecione o tipo de participante:
                             1 - Cadastrar um discente
                             2 - Cadastrar um docente"""));
                     switch (opcao) {
-                        case 1 -> discente.cadastrarDiscente();
-                        case 2 -> docente.cadastrarDocente();
+                        case 1:
+                            discente.cadastrarDiscente();
+                            discenteCadastrado++;
+                            break;
+                        case 2:
+                            docente.cadastrarDocente();
+                            docenteCadastrado++;
+                            break;
                     }
+
+                    break;
                 }
-                case 3 -> evento.mostrarEvento();
-                case 4 -> {
+
+                case 3:
+                    if (eventoCadastrado > 0) {
+                        evento.mostrarEvento();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Não há evento cadastrado!");
+                    }
+
+                    break;
+
+                case 4: {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
                             Selecione o tipo de participante:
                             1 - Listar discente cadastrado
                             2 - Listar docente cadastrado"""));
                     switch (opcao) {
-                        case 1 -> discente.mostrarDiscente();
-                        case 2 -> docente.mostrarDocente();
+                        case 1:
+                            if (discenteCadastrado > 0) {
+                                discente.mostrarDiscente();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Não há discente cadastrado!");
+                            }
+
+                            break;
+                        case 2:
+                            if (docenteCadastrado > 0) {
+                                docente.mostrarDocente();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Não há docente cadastrado!");
+                            }
+
+                            break;
                     }
+
+                    break;
                 }
-                case 5 -> JOptionPane.showMessageDialog(null, "Saindo...\n" +
-                        "Pressione 'ENTER' para sair.");
-                default -> JOptionPane.showMessageDialog(null, "Opção inválida!");
+                case 5:
+                    JOptionPane.showMessageDialog(null, "Saindo...\n" +
+                            "Pressione 'ENTER' para sair.");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção inválida!");
+                    break;
             }
         } while (op != 5);
     }
