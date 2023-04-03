@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="03/04/2023 - Update mensagens" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680293490845</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="03/04/2023 - Update mensagens">
+      <created>1680524922839</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680524922839</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +224,7 @@
     <MESSAGE value="31/03/2023 - Correção na Main" />
     <MESSAGE value="31/03/2023 - Alteração Eventos" />
     <MESSAGE value="Correçäo README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correçäo README" />
+    <MESSAGE value="03/04/2023 - Update mensagens" />
+    <option name="LAST_COMMIT_MESSAGE" value="03/04/2023 - Update mensagens" />
   </component>
 </project>
