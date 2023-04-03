@@ -133,8 +133,8 @@ public class Evento {
         setData_inicio(JOptionPane.showInputDialog(null, "Informe a Data de Início:"));
         setData_fim(JOptionPane.showInputDialog(null, "Informe a Data de Término:"));
         setLocal(JOptionPane.showInputDialog(null, "Informe o Local do Evento:"));
-        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início:")));
-        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término:")));
+        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início: no formato 'HH:mm'.")));
+        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término: no formato 'HH:mm'")));
         setCarga_horaria(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:")));
         setOrganizadores(JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:"));
         setDescricao(JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:"));
