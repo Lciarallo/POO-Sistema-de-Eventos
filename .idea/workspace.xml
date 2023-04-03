@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="03/04/2023 - Update mensagens" />
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="03/04/2023 - Revisão e testes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680524922839</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="03/04/2023 - Revisão e testes">
+      <created>1680525597498</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680525597498</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +232,7 @@
     <MESSAGE value="31/03/2023 - Alteração Eventos" />
     <MESSAGE value="Correçäo README" />
     <MESSAGE value="03/04/2023 - Update mensagens" />
-    <option name="LAST_COMMIT_MESSAGE" value="03/04/2023 - Update mensagens" />
+    <MESSAGE value="03/04/2023 - Revisão e testes" />
+    <option name="LAST_COMMIT_MESSAGE" value="03/04/2023 - Revisão e testes" />
   </component>
 </project>
