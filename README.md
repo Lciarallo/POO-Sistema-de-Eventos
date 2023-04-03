@@ -6,7 +6,7 @@
 <h3>Logo do Projeto</h3>
 <div align = "left">
  <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
- width="500" height="250">
+ width="500" height="250" alt="logo projeto">
 </div>
 
 
