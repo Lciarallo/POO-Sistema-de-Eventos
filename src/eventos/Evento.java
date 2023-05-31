@@ -1,7 +1,14 @@
 package src.eventos;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
+
+import src.participantes.Organizador;
+import src.participantes.Participante;
 
 public class Evento {
 
@@ -11,14 +18,35 @@ public class Evento {
     private String data_inicio;
     private String data_fim;
     private String local;
-    private LocalTime horario_inicio;
-    private LocalTime horario_fim;
-    private double carga_horaria;
-    private String organizadores;
+    private String horario_inicio;
+    private String carga_horaria;
     private String descricao;
     private String categoria;
-    private int limite_convidados;
-    private int num_interessados;
+    private int limite_participantes;
+
+    private List<Participante> participantes = new ArrayList<>();
+    private List<Organizador> organizadores = new ArrayList<>();
+
+    // Método Construtor
+
+    public Evento() {
+
+    }
+
+    public Evento(String nome, String titulo, String descricao,
+            String categoria, String local, String data_inicio, String data_fim,
+            String horario_inicio, String carga_horaria, int limite_participantes) {
+        this.nome = nome;
+        this.titulo = titulo;
+        this.data_inicio = data_inicio;
+        this.data_fim = data_fim;
+        this.local = local;
+        this.horario_inicio = horario_inicio;
+        this.carga_horaria = carga_horaria;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.limite_participantes = limite_participantes;
+    }
 
     // Métodos getters e setters da Classe Evento
     public String getNome() {
@@ -61,36 +89,20 @@ public class Evento {
         this.local = local;
     }
 
-    public LocalTime getHorario_inicio() {
+    public String getHorario_inicio() {
         return horario_inicio;
     }
 
-    public void setHorario_inicio(LocalTime horario_inicio) {
+    public void setHorario_inicio(String horario_inicio) {
         this.horario_inicio = horario_inicio;
     }
 
-    public LocalTime getHorario_fim() {
-        return horario_fim;
-    }
-
-    public void setHorario_fim(LocalTime horario_fim) {
-        this.horario_fim = horario_fim;
-    }
-
-    public double getCarga_horaria() {
+    public String getCarga_horaria() {
         return carga_horaria;
     }
 
-    public void setCarga_horaria(double carga_horaria) {
+    public void setCarga_horaria(String carga_horaria) {
         this.carga_horaria = carga_horaria;
-    }
-
-    public String getOrganizadores() {
-        return organizadores;
-    }
-
-    public void setOrganizadores(String organizadores) {
-        this.organizadores = organizadores;
     }
 
     public String getDescricao() {
@@ -109,56 +121,63 @@ public class Evento {
         this.categoria = categoria;
     }
 
-    public int getLimite_convidados() {
-        return limite_convidados;
+    public int getLimite_participantes() {
+        return limite_participantes;
     }
 
-    public void setLimite_convidados(int limite_convidados) {
-        this.limite_convidados = limite_convidados;
+    public void setLimite_participantes(int limite_participantes) {
+        this.limite_participantes = limite_participantes;
     }
 
-    public int getNum_interessados() {
-        return num_interessados;
+    public List<Participante> getParticipantes() {
+        return participantes;
     }
 
-    public void setNum_interessados(int num_interessados) {
-        this.num_interessados = num_interessados;
+    public void setParticipantes(List<Participante> participantes) {
+        this.participantes = participantes;
     }
 
-
-    // Métodos da Classe Evento
-    public void cadastrarEvento() {
-        setNome(JOptionPane.showInputDialog(null, "Informe o Nome do Evento:"));
-        setTitulo(JOptionPane.showInputDialog(null, "Informe o Título do Evento:"));
-        setData_inicio(JOptionPane.showInputDialog(null, "Informe a Data de Início:"));
-        setData_fim(JOptionPane.showInputDialog(null, "Informe a Data de Término:"));
-        setLocal(JOptionPane.showInputDialog(null, "Informe o Local do Evento:"));
-        setHorario_inicio(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Início: no formato 'HH:mm'.")));
-        setHorario_fim(LocalTime.parse(JOptionPane.showInputDialog(null, "Informe o Horário de Término: no formato 'HH:mm'")));
-        setCarga_horaria(Double.parseDouble(JOptionPane.showInputDialog(null, "Informe a Carga Horária do Evento:")));
-        setOrganizadores(JOptionPane.showInputDialog(null, "Informe os Organizadores do Evento:"));
-        setDescricao(JOptionPane.showInputDialog(null, "Informe a Descrição do Evento:"));
-        setCategoria(JOptionPane.showInputDialog(null, "Informe a Categoria do Evento:"));
-        setLimite_convidados(
-                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Participantes do Evento:")));
-        setNum_interessados(
-                Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o Número de Interessados no Evento:")));
-        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+    public List<Organizador> getOrganizadores() {
+        return organizadores;
     }
 
-    public void mostrarEvento() {
-
-        JOptionPane.showMessageDialog(null,
-                "Informações Sobre o Evento:\nNome: " + getNome() + "\n"
-                        + "Título: " + getTitulo() + "\n"
-                        + "Data de Início: " + getData_inicio() + "\n" + "Data de Término: " + getData_fim() + "\n"
-                        + "Local: " + getLocal() + "\n" + "Horário de Início: " + getHorario_inicio() + "h" + "\n"
-                        + "Horário de Término: " + getHorario_fim() + "h" + "\n" + "Carga Horária: "
-                        + getCarga_horaria() + "h"
-                        + "\n"
-                        + "Organizadores: " + getOrganizadores() + "\n" + "Descrição: " + getDescricao() + "\n"
-                        + "Categoria: " + getCategoria() + "\n" + "Número de Participantes: " + getLimite_convidados()
-                        + "\n"
-                        + "Número de Interessados: " + getNum_interessados());
+    public void setOrganizadores(List<Organizador> organizadores) {
+        this.organizadores = organizadores;
     }
+
+    public boolean validarEvento() {
+        boolean valido = true;
+
+        LocalDate dataAtual = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);
+
+        if (dataInicio.isBefore(dataAtual)) {
+            valido = false;
+        }
+
+        if (valido) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    // Alterar
+    public void inscreverParticipante(Participante participante) {
+
+        if (getParticipantes().size() >= getLimite_participantes()) {
+            JOptionPane.showMessageDialog(null,
+                    "Não é possível realizar a inscrição. O evento está com todas as vagas preenchidas.");
+            return;
+        } else {
+            participantes.add(participante);
+        }
+    }
+
+    // Registrar Presença
+
 }

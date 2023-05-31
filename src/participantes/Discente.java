@@ -2,6 +2,8 @@ package src.participantes;
 
 import javax.swing.*;
 
+//Impelmentar Herança com Participante
+
 public class Discente {
 
     // Atributos da classe Discente

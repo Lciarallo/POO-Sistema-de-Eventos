@@ -1,22 +1,18 @@
 package src.aplicacao;
 
-import src.eventos.Evento;
 import src.participantes.Discente;
 import src.participantes.Docente;
-
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Instanciação dos objetos das classes Evento, Discente e Docente
-        Evento evento = new Evento();
+        // Instanciação dos objetos das classes Discente e Docente
         Discente discente = new Discente();
         Docente docente = new Docente();
 
         // Variáveis de Controle
-        int eventoCadastrado = 0;
         int discenteCadastrado = 0;
         int docenteCadastrado = 0;
 
@@ -31,14 +27,16 @@ public class Main {
                     Selecione uma opção:
                     1 - Cadastrar Evento
                     2 - Cadastrar Participante
-                    3 - Listar evento cadastrado
-                    4 - Listar participante cadastrado
-                    5 - Sair"""));
+                    3 - Inscrever Participante no Evento
+                    4 - Registrar Presença do participante
+                    5 - Buscar por Evento
+                    6 - Agenda de Eventos
+                    7 - Relatório
+                    8 - Sair"""));
 
             switch (op) {
                 case 1 -> {
-                    evento.cadastrarEvento();
-                    eventoCadastrado++;
+
                 }
                 case 2 -> {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
@@ -58,12 +56,9 @@ public class Main {
 
                 }
                 case 3 -> {
-                    if (eventoCadastrado > 0) {
-                        evento.mostrarEvento();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Não há evento cadastrado!");
-                    }
+
                 }
+
                 case 4 -> {
                     int opcao = Integer.parseInt(JOptionPane.showInputDialog("""
                             Selecione o tipo de participante:
@@ -86,7 +81,7 @@ public class Main {
                         }
                     }
                 }
-                case 5 -> JOptionPane.showMessageDialog(null, "Saindo...\n" +
+                case 8 -> JOptionPane.showMessageDialog(null, "Saindo...\n" +
                         "Pressione 'ENTER' para sair.");
                 default -> JOptionPane.showMessageDialog(null, "Opção inválida!");
             }
