@@ -4,42 +4,26 @@ import javax.swing.*;
 
 //Impelmentar Herança com Participante
 
-public class Docente {
+public class Docente extends Participante{
 
     // Atributos da classe Docente
-    private String nome;
-    private String dataNascimento;
-    private String cpf;
     private String titulo;
     private float cargaHoraria;
     private String turno;
     private String especializacao;
     private String unidadeCurricular;
 
+    public Docente(String nome, String data_de_nascimento, String cpf, String titulo, float cargaHoraria, String turno, String especializacao, String unidadeCurricular) {
+        super(nome, data_de_nascimento, cpf);
+        this.titulo = titulo;
+        this.cargaHoraria = cargaHoraria;
+        this.turno = turno;
+        this.especializacao = especializacao;
+        this.unidadeCurricular = unidadeCurricular;
+    }
+
     //Métodos getter e setter da Classe Docente
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -82,22 +66,13 @@ public class Docente {
     }
 
     // Métodos da Classe Docente
-    public void cadastrarDocente(){
-        setNome(JOptionPane.showInputDialog("Digite o nome do docente:"));
-        setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do docente:"));
-        setTitulo(JOptionPane.showInputDialog("Digite o título do docente:"));
-        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do docente:"));
-        setCargaHoraria(Float.parseFloat(JOptionPane.showInputDialog("Digite a carga horária do docente:")));
-        setEspecializacao(JOptionPane.showInputDialog("Digite a especializacao do docente:"));
-        setTurno(JOptionPane.showInputDialog("Digite o turno do docente:"));
-        setUnidadeCurricular(JOptionPane.showInputDialog(null,"Digite a unidade curricular do docente:"));
-        JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
-    }
-    public void mostrarDocente(){
+
+
+    public void listarDocente(){
         JOptionPane.showMessageDialog(null,
                 "\nDados do Docente:\n" +
                         "Nome: "+ getNome() +"\n" +
-                        "Data de nascimento: " + getDataNascimento() + "\n" +
+                        "Data de nascimento: " + getData_de_nascimento() + "\n" +
                         "CPF: "+ getCpf() +"\n" +
                         "Título: " + getTitulo() +"\n"+
                         "Carga Horária: "+ getCargaHoraria() + "h" + "\n" +

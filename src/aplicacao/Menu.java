@@ -12,7 +12,9 @@ import javax.swing.border.EmptyBorder;
 
 import src.eventos.ControleEventos;
 import src.eventos.Evento;
+import src.forms.cadastroforms.CadastroDocente;
 import src.forms.cadastroforms.CadastroEvento;
+import src.participantes.Docente;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -29,7 +31,10 @@ public class Menu extends JFrame {
     ControleEventos cEventos = new ControleEventos();
     // EventoForm eventoForm = new EventoForm(cEventos.getEventos());
 
+
+
     // ----------- Listas ---------------
+    List<Docente> docentes;
     List<Evento> eventosNaoOcorridos = new ArrayList<>();
     ArrayList<JButton> botoes = new ArrayList<>();
 
@@ -81,13 +86,16 @@ public class Menu extends JFrame {
                 CadastroEvento formulario = new CadastroEvento(cEventos.getEventos());
                 formulario.setVisible(true);
             }
+
         });
+        setVisible(true);
 
         // ----------- Cadastrar Participante -------------------------
         btnCadastrarParticipante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // código
+                CadastroDocente cadastroDocente = new CadastroDocente(docentes);
+                cadastroDocente.setVisible(true);
 
             }
         });
