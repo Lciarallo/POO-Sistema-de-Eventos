@@ -1,10 +1,12 @@
 package src.participantes;
 
+import java.util.List;
+
 import javax.swing.*;
 
 //Impelmentar Herança com Participante
 
-public class Docente extends Participante{
+public class Docente extends Participante {
 
     // Atributos da classe Docente
     private String titulo;
@@ -13,7 +15,8 @@ public class Docente extends Participante{
     private String especializacao;
     private String unidadeCurricular;
 
-    public Docente(String nome, String data_de_nascimento, String cpf, String titulo, float cargaHoraria, String turno, String especializacao, String unidadeCurricular) {
+    public Docente(String nome, String data_de_nascimento, String cpf, String titulo, float cargaHoraria, String turno,
+            String especializacao, String unidadeCurricular) {
         super(nome, data_de_nascimento, cpf);
         this.titulo = titulo;
         this.cargaHoraria = cargaHoraria;
@@ -22,8 +25,7 @@ public class Docente extends Participante{
         this.unidadeCurricular = unidadeCurricular;
     }
 
-    //Métodos getter e setter da Classe Docente
-
+    // Métodos getter e setter da Classe Docente
 
     public String getTitulo() {
         return titulo;
@@ -67,17 +69,17 @@ public class Docente extends Participante{
 
     // Métodos da Classe Docente
 
+    public void listarDocente(List<Docente> docentes) {
 
-    public void listarDocente(){
-        JOptionPane.showMessageDialog(null,
-                "\nDados do Docente:\n" +
-                        "Nome: "+ getNome() +"\n" +
-                        "Data de nascimento: " + getData_de_nascimento() + "\n" +
-                        "CPF: "+ getCpf() +"\n" +
-                        "Título: " + getTitulo() +"\n"+
-                        "Carga Horária: "+ getCargaHoraria() + "h" + "\n" +
-                        "Turno: "+ getTurno() +
-                        "Especialização: "+ getEspecializacao() +"\n" +
-                        "Unidade Curricular: " + getUnidadeCurricular() + "\n");
+        super.listarParticipantes(docentes);
+
+        for (Docente d : docentes) {
+            JOptionPane.showMessageDialog(null,
+                    "\nDocentes:\n" + "Título: " + d.getTitulo() + "\n" +
+                            "Carga Horária: " + d.getCargaHoraria() + "h" + "\n" +
+                            "Turno: " + d.getTurno() +
+                            "Especialização: " + d.getEspecializacao() + "\n" +
+                            "Unidade Curricular: " + d.getUnidadeCurricular() + "\n");
+        }
     }
 }

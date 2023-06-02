@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import src.participantes.Organizador;
+import src.participantes.Participante;
+
 public class ControleEventos {
 
     private List<Evento> eventos = new ArrayList<>();
@@ -13,6 +16,25 @@ public class ControleEventos {
 
     public List<Evento> getEventos() {
         return eventos;
+    }
+
+    public void listarEventoCompleto(List<Evento> eventos, List<Organizador> organizadores) {
+
+        String aux = "";
+        for (Evento e : eventos) {
+            for (Organizador o : organizadores) {
+
+                aux = aux + "Indice: " + eventos.indexOf(e) + "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
+                        + "\nDescrição: " + e.getDescricao()
+                        + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
+                        + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim()
+                        + "\nHorário: " + e.getHorario_inicio() + "h" + "\nCarga Horária: " + e.getCarga_horaria() + "h"
+                        + "\nLimite de Participantes" + e.getLimite_participantes() + "\nOrganizador: " + o.getNome();
+            }
+        }
+
+        JOptionPane.showMessageDialog(null,
+                "Lista de Eventos:\n" + aux);
     }
 
     public void listarEventos(List<Evento> eventos) {
@@ -44,9 +66,15 @@ public class ControleEventos {
         return eventosNaoOcorridos;
     }
 
-    // ListarEventoComParticipantes
+    public void ListarEventoComParticipantes(List<Evento> eventos) {
+        for (Evento evento : eventos) {
 
-    // ListarEventoComParticipantesPresentes
+            for (Participante participante : evento.getParticipantes()) {
+                JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n"
+                        + "Participantes: " + participante.getNome());
+            }
+        }
+    }
 
     // Buscar Evento
 

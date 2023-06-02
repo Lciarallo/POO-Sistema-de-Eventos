@@ -12,9 +12,10 @@ import javax.swing.border.EmptyBorder;
 
 import src.eventos.ControleEventos;
 import src.eventos.Evento;
-import src.forms.cadastroforms.CadastroDocente;
-import src.forms.cadastroforms.CadastroEvento;
-import src.participantes.Docente;
+import src.views.InscricaoEventoForm;
+import src.views.cadastroforms.CadastroEvento;
+import src.views.cadastroforms.CadastroOrganizador;
+import src.views.cadastroforms.CadastroParticipante;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -29,14 +30,14 @@ public class Menu extends JFrame {
 
     // -------------- Instância dos Objetos ----------------------
     ControleEventos cEventos = new ControleEventos();
-    // EventoForm eventoForm = new EventoForm(cEventos.getEventos());
-
-
+    Evento evento = new Evento();
 
     // ----------- Listas ---------------
-    List<Docente> docentes;
     List<Evento> eventosNaoOcorridos = new ArrayList<>();
     ArrayList<JButton> botoes = new ArrayList<>();
+
+    // ---------- Variáveis de Controle -----------------------
+    int organizadorCadastrado = 0;
 
     public Menu() {
 
@@ -61,6 +62,7 @@ public class Menu extends JFrame {
         panel.add(op);
         panel.add(buttonPanel);
 
+        JButton btnCadastrarOrganizador = new JButton("Cadastrar Organizador");
         JButton btnCadastrarEvento = new JButton("Cadastrar Evento");
         JButton btnCadastrarParticipante = new JButton("Cadastrar Participante");
         JButton btnInscreverParticipante = new JButton("Inscrever Participante no Evento");
@@ -68,34 +70,51 @@ public class Menu extends JFrame {
         JButton btnBuscarEvento = new JButton("Buscar por Evento");
         JButton btnAgendaEventos = new JButton("Agenda de Eventos");
         JButton btnRelatorio = new JButton("Relatório");
-        JButton btnSair = new JButton("Sair");
 
-        botoes.addAll(Arrays.asList(btnCadastrarEvento, btnCadastrarParticipante, btnInscreverParticipante,
-                btnRegistrarPresenca, btnBuscarEvento, btnAgendaEventos, btnRelatorio, btnSair));
+        botoes.addAll(Arrays.asList(btnCadastrarOrganizador, btnCadastrarEvento, btnCadastrarParticipante,
+                btnInscreverParticipante,
+                btnRegistrarPresenca, btnBuscarEvento, btnAgendaEventos, btnRelatorio));
 
         for (JButton botao : botoes) {
             botao.setSelected(true);
             botao.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
             buttonPanel.add(botao);
         }
+
+        // ------------ Cadastrar Organizador ------------------------
+        btnCadastrarOrganizador.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                CadastroOrganizador cadastroOrganizador = new CadastroOrganizador(evento.getOrganizadores());
+                cadastroOrganizador.setVisible(true);
+                organizadorCadastrado++;
+            }
+        });
+
         // ----------- Cadastrar Evento -------------------------
         btnCadastrarEvento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                CadastroEvento formulario = new CadastroEvento(cEventos.getEventos());
-                formulario.setVisible(true);
+                if (organizadorCadastrado > 0) {
+                    CadastroEvento formulario = new CadastroEvento(cEventos.getEventos(), evento.getOrganizadores());
+                    formulario.setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Um organizador deve ser cadastrado!");
+                }
+
             }
 
         });
-        setVisible(true);
 
         // ----------- Cadastrar Participante -------------------------
         btnCadastrarParticipante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CadastroDocente cadastroDocente = new CadastroDocente(docentes);
-                cadastroDocente.setVisible(true);
+                CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());
+                cadastroParticipante.setVisible(true);
 
             }
         });
@@ -106,7 +125,6 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
-                System.out.println(cEventos.getEventos().size());
 
                 if (eventosNaoOcorridos.size() <= 0) {
                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
@@ -114,33 +132,9 @@ public class Menu extends JFrame {
 
                 else {
 
-                    String indexEvento = JOptionPane.showInputDialog(null, "Qual evento deseja-se inscrever?");
-                    int indiceEvento = Integer.parseInt(indexEvento);
-
-                    if (indiceEvento < 0 || indiceEvento >= cEventos.getEventos().size()) {
-                        JOptionPane.showMessageDialog(null, "Índice de evento inválido.");
-                    } else {
-                        /*
-                         * listar participantes cadastrados
-                         * 
-                         * // JComboBox<String> comboBox = EventoForm.getComboBox();
-                         * // comboBox.getSelectedIndex();
-                         * 
-                         * String indexPart = JOptionPane.showInputDialog(null,
-                         * "Qual participante deseja-se inscrever?")
-                         * int indiceParticipante = Integer.parseInt(indexPart);
-                         * 
-                         * if (indiceParticipante < 0 || indiceParticipante >= participantes.size()) {
-                         * JOptionPane.showMessageDialog(null, "Índice de participante inválido.");
-                         * }
-                         * else {
-                         * eventos.get(indiceEvento);
-                         * participantes.get(indiceParticipante);
-                         * evento.inscreverParticipante(indiceEvento, indiceParticipante);
-                         * JOptionPane.showMessageDialog(null, "Inscrição realizada com sucesso!");
-                         * }
-                         */
-                    }
+                    InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
+                            evento.getParticipantes());
+                    inscricaoEventoForm.setVisible(true);
 
                 }
             }

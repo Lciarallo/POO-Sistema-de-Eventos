@@ -1,7 +1,8 @@
-package src.forms.cadastroforms;
+package src.views.cadastroforms;
 
 import javax.swing.*;
 import src.eventos.Evento;
+import src.participantes.Organizador;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,15 +21,15 @@ public class CadastroEvento extends JFrame {
     private JTextField textFieldHorario_inicio;
     private JTextField textFieldCarga_horaria;
     private JTextField textFieldLimite_participantes;
+    private JComboBox<String> fieldOrganizadores;
 
-    public CadastroEvento(List<Evento> eventos) {
+    public CadastroEvento(List<Evento> eventos, List<Organizador> organizadores) {
 
         setTitle("Cadastro de Evento");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        panel.setPreferredSize(new Dimension(450, 400));
+        panel.setPreferredSize(new Dimension(500, 400));
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -134,6 +135,23 @@ public class CadastroEvento extends JFrame {
         constraints.gridy = 9;
         panel.add(textFieldLimite_participantes, constraints);
 
+        JLabel labelOrganizadores = new JLabel("Organizadores:");
+        constraints.gridx = 0;
+        constraints.gridy = 10;
+        panel.add(labelOrganizadores, constraints);
+
+        fieldOrganizadores = new JComboBox<>();
+        constraints.gridx = 1;
+        constraints.gridy = 10;
+        panel.add(fieldOrganizadores, constraints);
+
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (Organizador organizador : organizadores) {
+            model.addElement(organizador.getNome());
+        }
+
+        fieldOrganizadores.setModel(model);
+
         JButton buttonCadastrar = new JButton("Cadastrar");
         constraints.gridx = 1;
         constraints.gridy = 11;
@@ -192,10 +210,26 @@ public class CadastroEvento extends JFrame {
 
         if (evento.validarEvento()) {
             eventos.add(evento);
+
+            String nomeOrganizador = (String) fieldOrganizadores.getSelectedItem();
+            Organizador organizadorSelecionado = encontrarOrganizadorPorNome(nomeOrganizador,
+                    evento.getOrganizadores());
+            evento.getOrganizadores().add(organizadorSelecionado);
+
             return true;
         } else {
             return false;
         }
 
+    }
+
+    private Organizador encontrarOrganizadorPorNome(String nome, List<Organizador> organizadores) {
+
+        for (Organizador organizador : organizadores) {
+            if (organizador.getNome().equals(nome)) {
+                return organizador;
+            }
+        }
+        return null;
     }
 }

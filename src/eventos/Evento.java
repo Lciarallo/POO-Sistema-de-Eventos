@@ -5,8 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import src.participantes.Organizador;
 import src.participantes.Participante;
 
@@ -166,17 +164,6 @@ public class Evento {
 
     }
 
-    // Alterar
-    public void inscreverParticipante(Participante participante) {
-
-        if (getParticipantes().size() >= getLimite_participantes()) {
-            JOptionPane.showMessageDialog(null,
-                    "Não é possível realizar a inscrição. O evento está com todas as vagas preenchidas.");
-            return;
-        } else {
-            participantes.add(participante);
-        }
-    }
 
     // Registrar Presença
 
