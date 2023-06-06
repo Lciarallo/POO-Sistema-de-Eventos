@@ -177,6 +177,9 @@ public class Evento {
         participante.listarParticipantes(participantes);
         i = Integer.parseInt(JOptionPane.showInputDialog("Insira o id do participante:"));
         presenca.add(participantes.get(i));
-
     }
+
+
+
+
 }

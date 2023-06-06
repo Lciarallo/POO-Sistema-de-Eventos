@@ -10,6 +10,7 @@ import src.participantes.Participante;
 
 public class ControleEventos {
 
+    private Evento evento = new Evento();
     private List<Evento> eventos = new ArrayList<>();
 
     // Métodos
@@ -78,8 +79,18 @@ public class ControleEventos {
 
     // Buscar Evento
 
+    public void pesquisarEvento(List<Evento> eventos){
+        String pesquisa;
+        pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
+        for (Evento evento : eventos){
+            if (pesquisa.equals(evento.getNome())){
+                JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n");
+            }
+        }
+    }
+
+}
     // Gerar Relatório
 
     // Agenda de Eventos
 
-}
