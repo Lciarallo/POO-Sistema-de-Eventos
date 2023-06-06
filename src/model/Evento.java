@@ -24,7 +24,7 @@ public class Evento {
     private int limite_participantes;
 
     private List<Participante> participantes = new ArrayList<>();
-    private List<Participante> partcipantesPresentes = new ArrayList<>();
+    private List<Participante> participantesPresentes = new ArrayList<>();
     private List<Organizador> organizadores = new ArrayList<>();
     private Participante participante;
 
@@ -146,6 +146,14 @@ public class Evento {
         this.organizadores = organizadores;
     }
 
+    public List<Participante> getParticipantesPresentes() {
+        return participantesPresentes;
+    }
+
+    public void setParticipantesPresentes(List<Participante> participantesPresentes) {
+        this.participantesPresentes = participantesPresentes;
+    }
+
     public boolean validarEvento() {
         boolean valido = true;
 
@@ -173,7 +181,7 @@ public class Evento {
         int i;
         participante.listarParticipantes(participantes);
         i = Integer.parseInt(JOptionPane.showInputDialog("Insira o id do participante:"));
-        partcipantesPresentes.add(participantes.get(i));
+        participantesPresentes.add(participantes.get(i));
     }
 
 }

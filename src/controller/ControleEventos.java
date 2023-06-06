@@ -79,6 +79,16 @@ public class ControleEventos {
         }
     }
 
+    public void ListarEventoComParticipantesPresentes(List<Evento> eventos) {
+        for (Evento evento : eventos) {
+
+            for (Participante participante : evento.getParticipantesPresentes()) {
+                JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n"
+                        + "Participantes Presentes: " + participante.getNome());
+            }
+        }
+    }
+
     // Buscar Evento
 
     public void pesquisarEvento(List<Evento> eventos) {
