@@ -163,7 +163,7 @@ public class Evento {
 
         LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);
 
-        if (dataInicio.isBefore(dataAtual)) {
+        if (dataInicio.isBefore(dataAtual) || getLimite_participantes() <= getParticipantes().size()) {
             valido = false;
         }
 

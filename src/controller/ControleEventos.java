@@ -51,22 +51,22 @@ public class ControleEventos {
                 "Lista de Eventos:\n" + aux);
     }
 
-    public List<Evento> listarEventosNaoOcorridos(List<Evento> eventos) {
+    public List<Evento> listarEventosDisponivelParaInscricao(List<Evento> eventos) {
 
-        List<Evento> eventosNaoOcorridos = new ArrayList<>();
+        List<Evento> eventosDisponiveis = new ArrayList<>();
         for (Evento e : eventos) {
 
             if (e.validarEvento()) {
-                eventosNaoOcorridos.add(e);
+                eventosDisponiveis.add(e);
             }
         }
 
-        if (eventosNaoOcorridos.size() > 0) {
+        if (eventosDisponiveis.size() > 0) {
 
-            listarEventos(eventosNaoOcorridos);
+            listarEventos(eventosDisponiveis);
         }
 
-        return eventosNaoOcorridos;
+        return eventosDisponiveis;
     }
 
     public void ListarEventoComParticipantes(List<Evento> eventos) {

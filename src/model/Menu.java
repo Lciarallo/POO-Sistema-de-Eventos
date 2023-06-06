@@ -32,7 +32,7 @@ public class Menu extends JFrame {
     Evento evento = new Evento();
 
     // ----------- Listas ---------------
-    List<Evento> eventosNaoOcorridos = new ArrayList<>();
+    List<Evento> eventosDisponiveis = new ArrayList<>();
     ArrayList<JButton> botoes = new ArrayList<>();
 
     // ---------- Variáveis de Controle -----------------------
@@ -137,15 +137,15 @@ public class Menu extends JFrame {
                     JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição!");
                 } else {
 
-                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+                    eventosDisponiveis = cEventos.listarEventosDisponivelParaInscricao(cEventos.getEventos());
 
-                    if (eventosNaoOcorridos.size() <= 0) {
+                    if (eventosDisponiveis.size() <= 0) {
                         JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
                     }
 
                     else {
 
-                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
+                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosDisponiveis,
                                 evento.getParticipantes());
                         inscricaoEventoForm.setVisible(true);
 
