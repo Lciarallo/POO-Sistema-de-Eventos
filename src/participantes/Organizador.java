@@ -1,8 +1,11 @@
 package src.participantes;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.swing.JOptionPane;
+
+import src.model.Participante;
 
 public class Organizador extends Participante {
 
@@ -43,6 +46,23 @@ public class Organizador extends Participante {
                     "Organizadores:\nÁrea de Atuação: " + o.getArea_de_atuacao() + "\n"
                             + "Departamento: " + o.getDepartamento());
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
+        Organizador that = (Organizador) o;
+        return Objects.equals(getNome(), that.getNome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getNome());
     }
 
 }

@@ -1,4 +1,4 @@
-package src.aplicacao;
+package src.model;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -10,8 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
-import src.eventos.ControleEventos;
-import src.eventos.Evento;
+import src.controller.ControleEventos;
 import src.views.InscricaoEventoForm;
 import src.views.cadastroforms.CadastroEvento;
 import src.views.cadastroforms.CadastroOrganizador;
@@ -38,6 +37,8 @@ public class Menu extends JFrame {
 
     // ---------- Variáveis de Controle -----------------------
     int organizadorCadastrado = 0;
+    int eventoCadastrado = 0;
+    int participanteCadastrado = 0;
 
     public Menu() {
 
@@ -100,9 +101,10 @@ public class Menu extends JFrame {
                 if (organizadorCadastrado > 0) {
                     CadastroEvento formulario = new CadastroEvento(cEventos.getEventos(), evento.getOrganizadores());
                     formulario.setVisible(true);
+                    eventoCadastrado++;
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Um organizador deve ser cadastrado!");
+                    JOptionPane.showMessageDialog(null, "Não há organizadores cadastrados!");
                 }
 
             }
@@ -113,8 +115,15 @@ public class Menu extends JFrame {
         btnCadastrarParticipante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());
-                cadastroParticipante.setVisible(true);
+
+                if (eventoCadastrado > 0) {
+                    cEventos.listarEventoCompleto(cEventos.getEventos(), evento.getOrganizadores());
+                    CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());
+                    cadastroParticipante.setVisible(true);
+                    participanteCadastrado++;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há eventos cadastrados!");
+                }
 
             }
         });
@@ -124,18 +133,23 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+                if (participanteCadastrado <= 0) {
+                    JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição!");
+                } else {
 
-                if (eventosNaoOcorridos.size() <= 0) {
-                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
-                }
+                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
 
-                else {
+                    if (eventosNaoOcorridos.size() <= 0) {
+                        JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
+                    }
 
-                    InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
-                            evento.getParticipantes());
-                    inscricaoEventoForm.setVisible(true);
+                    else {
 
+                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
+                                evento.getParticipantes());
+                        inscricaoEventoForm.setVisible(true);
+
+                    }
                 }
             }
         });

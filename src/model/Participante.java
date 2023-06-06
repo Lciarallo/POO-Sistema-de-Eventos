@@ -1,6 +1,7 @@
-package src.participantes;
+package src.model;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.swing.JOptionPane;
 
@@ -51,5 +52,22 @@ public class Participante {
                             + "Data de nascimento: " + p.getData_de_nascimento() + "\n"
                             + "CPF: " + p.getCpf());
         }
+    }
+
+    // Para conseguir selecionar mais de um organizador
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Participante participante = (Participante) o;
+        ;
+        return Objects.equals(nome, participante.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
     }
 }

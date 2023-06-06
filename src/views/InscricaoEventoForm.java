@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import src.eventos.Evento;
-import src.participantes.Participante;
+import src.model.Evento;
+import src.model.Participante;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

@@ -1,15 +1,13 @@
-package src.eventos;
+package src.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import src.participantes.Organizador;
-import src.participantes.Participante;
-
-import javax.swing.*;
 
 public class Evento {
 
@@ -26,10 +24,9 @@ public class Evento {
     private int limite_participantes;
 
     private List<Participante> participantes = new ArrayList<>();
-    private List<Participante> presenca = new ArrayList<>();
+    private List<Participante> partcipantesPresentes = new ArrayList<>();
     private List<Organizador> organizadores = new ArrayList<>();
     private Participante participante;
-
 
     // Método Construtor
 
@@ -38,8 +35,8 @@ public class Evento {
     }
 
     public Evento(String nome, String titulo, String descricao,
-                  String categoria, String local, String data_inicio, String data_fim,
-                  String horario_inicio, String carga_horaria, int limite_participantes) {
+            String categoria, String local, String data_inicio, String data_fim,
+            String horario_inicio, String carga_horaria, int limite_participantes) {
         this.nome = nome;
         this.titulo = titulo;
         this.data_inicio = data_inicio;
@@ -170,16 +167,13 @@ public class Evento {
 
     }
 
-
     // Registrar Presença
+
     public void registrarPresenca() {
         int i;
         participante.listarParticipantes(participantes);
         i = Integer.parseInt(JOptionPane.showInputDialog("Insira o id do participante:"));
-        presenca.add(participantes.get(i));
+        partcipantesPresentes.add(participantes.get(i));
     }
-
-
-
 
 }

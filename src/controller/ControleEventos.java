@@ -1,16 +1,16 @@
-package src.eventos;
+package src.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import src.model.Evento;
+import src.model.Participante;
 import src.participantes.Organizador;
-import src.participantes.Participante;
 
 public class ControleEventos {
 
-    private Evento evento = new Evento();
     private List<Evento> eventos = new ArrayList<>();
 
     // Métodos
@@ -21,21 +21,23 @@ public class ControleEventos {
 
     public void listarEventoCompleto(List<Evento> eventos, List<Organizador> organizadores) {
 
-        String aux = "";
         for (Evento e : eventos) {
-            for (Organizador o : organizadores) {
+            String aux = "\nIndice: " + eventos.indexOf(e) + "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
+                    + "\nDescrição: " + e.getDescricao()
+                    + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
+                    + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim()
+                    + "\nHorário: " + e.getHorario_inicio() + "h" + "\nCarga Horária: " + e.getCarga_horaria() + "h"
+                    + "\nLimite de Participantes: " + e.getLimite_participantes() + "\n";
 
-                aux = aux + "Indice: " + eventos.indexOf(e) + "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
-                        + "\nDescrição: " + e.getDescricao()
-                        + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
-                        + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim()
-                        + "\nHorário: " + e.getHorario_inicio() + "h" + "\nCarga Horária: " + e.getCarga_horaria() + "h"
-                        + "\nLimite de Participantes" + e.getLimite_participantes() + "\nOrganizador: " + o.getNome();
+            String x = "\nOrganizadores:";
+            List<Organizador> organizadoresAssociados = e.getOrganizadores();
+            for (Organizador o : organizadoresAssociados) {
+                x += "\n" + o.getNome();
             }
+
+            JOptionPane.showMessageDialog(null, "Lista de Eventos:\n" + aux + x + "\n");
         }
 
-        JOptionPane.showMessageDialog(null,
-                "Lista de Eventos:\n" + aux);
     }
 
     public void listarEventos(List<Evento> eventos) {
@@ -79,18 +81,18 @@ public class ControleEventos {
 
     // Buscar Evento
 
-    public void pesquisarEvento(List<Evento> eventos){
+    public void pesquisarEvento(List<Evento> eventos) {
         String pesquisa;
         pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
-        for (Evento evento : eventos){
-            if (pesquisa.equals(evento.getNome())){
+        for (Evento evento : eventos) {
+            if (pesquisa.equals(evento.getNome())) {
                 JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n");
             }
         }
     }
 
-}
     // Gerar Relatório
 
     // Agenda de Eventos
 
+}

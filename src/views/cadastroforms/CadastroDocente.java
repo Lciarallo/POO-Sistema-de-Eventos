@@ -1,7 +1,7 @@
 package src.views.cadastroforms;
 
+import src.model.Participante;
 import src.participantes.Docente;
-import src.participantes.Participante;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,12 +1,15 @@
 package src.views.cadastroforms;
 
 import javax.swing.*;
-import src.eventos.Evento;
+
+import src.model.Evento;
 import src.participantes.Organizador;
+import src.views.SelecaoOrganizadores;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CadastroEvento extends JFrame {
@@ -21,15 +24,23 @@ public class CadastroEvento extends JFrame {
     private JTextField textFieldHorario_inicio;
     private JTextField textFieldCarga_horaria;
     private JTextField textFieldLimite_participantes;
-    private JComboBox<String> fieldOrganizadores;
+
+    private List<Organizador> todosOrganizadores;
+    private DefaultListModel<Organizador> listModel;
+    private List<Organizador> organizadoresSelecionados;
+
+    private SelecaoOrganizadores selecaoOrganizadores;
 
     public CadastroEvento(List<Evento> eventos, List<Organizador> organizadores) {
+
+        this.todosOrganizadores = new ArrayList<>(organizadores);
+        listModel = new DefaultListModel<>();
 
         setTitle("Cadastro de Evento");
 
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
-        panel.setPreferredSize(new Dimension(500, 400));
+        panel.setPreferredSize(new Dimension(500, 500));
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.HORIZONTAL;
@@ -85,7 +96,7 @@ public class CadastroEvento extends JFrame {
         constraints.gridy = 4;
         panel.add(textFieldLocal, constraints);
 
-        JLabel labelData_inicio = new JLabel("Data de início:");
+        JLabel labelData_inicio = new JLabel("Data de início (dd/mm/yyyy): ");
         constraints.gridx = 0;
         constraints.gridy = 5;
         panel.add(labelData_inicio, constraints);
@@ -140,17 +151,13 @@ public class CadastroEvento extends JFrame {
         constraints.gridy = 10;
         panel.add(labelOrganizadores, constraints);
 
-        fieldOrganizadores = new JComboBox<>();
+        JButton pesquisar = new JButton();
         constraints.gridx = 1;
         constraints.gridy = 10;
-        panel.add(fieldOrganizadores, constraints);
+        ImageIcon icon = new ImageIcon("src/img/lupa.png");
+        pesquisar.setIcon(icon);
 
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for (Organizador organizador : organizadores) {
-            model.addElement(organizador.getNome());
-        }
-
-        fieldOrganizadores.setModel(model);
+        panel.add(pesquisar, constraints);
 
         JButton buttonCadastrar = new JButton("Cadastrar");
         constraints.gridx = 1;
@@ -168,6 +175,24 @@ public class CadastroEvento extends JFrame {
                     JOptionPane.showMessageDialog(null, "Erro ao cadastrar Evento!");
                 }
                 setVisible(false);
+
+            }
+        });
+
+        pesquisar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                selecaoOrganizadores = new SelecaoOrganizadores(null, todosOrganizadores);
+                selecaoOrganizadores.setVisible(true);
+
+                organizadoresSelecionados = selecaoOrganizadores.getOrganizadoresSelecionados();
+                if (organizadoresSelecionados != null) {
+                    listModel.clear(); // Limpar a lista de organizadores antes de adicionar os selecionados
+                    organizadoresSelecionados.forEach(listModel::addElement);
+                } else {
+                    listModel.clear(); // Limpar a lista de organizadores caso nenhum seja selecionado
+                }
 
             }
         });
@@ -209,27 +234,16 @@ public class CadastroEvento extends JFrame {
                 carga_horaria, limite);
 
         if (evento.validarEvento()) {
+
+            evento.getOrganizadores().addAll(organizadoresSelecionados);
             eventos.add(evento);
-
-            String nomeOrganizador = (String) fieldOrganizadores.getSelectedItem();
-            Organizador organizadorSelecionado = encontrarOrganizadorPorNome(nomeOrganizador,
-                    evento.getOrganizadores());
-            evento.getOrganizadores().add(organizadorSelecionado);
-
             return true;
-        } else {
+        }
+
+        else {
+
             return false;
         }
 
-    }
-
-    private Organizador encontrarOrganizadorPorNome(String nome, List<Organizador> organizadores) {
-
-        for (Organizador organizador : organizadores) {
-            if (organizador.getNome().equals(nome)) {
-                return organizador;
-            }
-        }
-        return null;
     }
 }
