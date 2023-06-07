@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Adição da função registrarPresença() em Evento.">
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Adição da função pesquisarEvento() em ControleEvento.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventos/ControleEventos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventos/ControleEventos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eventos/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventos/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Evento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686011248511</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adição da função pesquisarEvento() em ControleEvento.">
+      <created>1686012679875</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686012679875</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +267,7 @@
     <MESSAGE value="03/04/2023 - Revisão e testes" />
     <MESSAGE value="31/05/2023 Adição do cadastro docente e alteralção da classe docente." />
     <MESSAGE value="Adição da função registrarPresença() em Evento." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adição da função registrarPresença() em Evento." />
+    <MESSAGE value="Adição da função pesquisarEvento() em ControleEvento." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adição da função pesquisarEvento() em ControleEvento." />
   </component>
 </project>

@@ -178,10 +178,14 @@ public class Evento {
     // Registrar Presença
 
     public void registrarPresenca() {
-        int i;
+        String i;
         participante.listarParticipantes(participantes);
-        i = Integer.parseInt(JOptionPane.showInputDialog("Insira o id do participante:"));
-        participantesPresentes.add(participantes.get(i));
+        i = JOptionPane.showInputDialog("Insira o cpf do participante:");
+        for (Participante participante : participantesPresentes) {
+            if (i.equals(participante.getCpf())) {
+                participantesPresentes.add(participante);
+            }
+        }
     }
 
 }
