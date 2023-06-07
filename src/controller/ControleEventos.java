@@ -18,6 +18,7 @@ public class ControleEventos {
     public List<Evento> getEventos() {
         return eventos;
     }
+    
 
     public void listarEventoCompleto(List<Evento> eventos, List<Organizador> organizadores) {
 
@@ -88,8 +89,6 @@ public class ControleEventos {
             }
         }
     }
-
-    // Buscar Evento
 
     public void pesquisarEvento(List<Evento> eventos) {
         String pesquisa;

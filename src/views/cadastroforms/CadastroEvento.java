@@ -30,6 +30,7 @@ public class CadastroEvento extends JFrame {
     private List<Organizador> organizadoresSelecionados;
 
     private SelecaoOrganizadores selecaoOrganizadores;
+    private boolean botaoPesquisarClicado = false;
 
     public CadastroEvento(List<Evento> eventos, List<Organizador> organizadores) {
 
@@ -168,13 +169,20 @@ public class CadastroEvento extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (cadastrarEvento(eventos)) {
-                    JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
-                    limparCampos();
+                if (botaoPesquisarClicado) {
+                    if (cadastrarEvento(eventos)) {
+                        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+                        limparCampos();
+                        setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(CadastroEvento.this, "Insira uma data válida!",
+                                "Erro ao cadastrar evento",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar Evento!");
+                    JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
+                            JOptionPane.WARNING_MESSAGE);
                 }
-                setVisible(false);
 
             }
         });
@@ -193,6 +201,8 @@ public class CadastroEvento extends JFrame {
                 } else {
                     listModel.clear(); // Limpar a lista de organizadores caso nenhum seja selecionado
                 }
+
+                botaoPesquisarClicado = true;
 
             }
         });
@@ -234,7 +244,6 @@ public class CadastroEvento extends JFrame {
                 carga_horaria, limite);
 
         if (evento.validarEvento()) {
-
             evento.getOrganizadores().addAll(organizadoresSelecionados);
             eventos.add(evento);
             return true;

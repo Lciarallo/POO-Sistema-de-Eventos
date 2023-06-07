@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import src.controller.ControleEventos;
-import src.views.InscricaoEventoForm;
+import src.views.InscricaoEvento;
 import src.views.cadastroforms.CadastroEvento;
 import src.views.cadastroforms.CadastroOrganizador;
 import src.views.cadastroforms.CadastroParticipante;
@@ -145,7 +145,7 @@ public class Menu extends JFrame {
 
                     else {
 
-                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosDisponiveis,
+                        InscricaoEvento inscricaoEventoForm = new InscricaoEvento(eventosDisponiveis,
                                 evento.getParticipantes());
                         inscricaoEventoForm.setVisible(true);
 

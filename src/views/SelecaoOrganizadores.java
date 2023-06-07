@@ -41,7 +41,13 @@ public class SelecaoOrganizadores extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 organizadoresSelecionados = list.getSelectedValuesList();
-                dispose();
+
+                if (organizadoresSelecionados.isEmpty()) {
+                    JOptionPane.showMessageDialog(SelecaoOrganizadores.this, "Selecione pelo menos um organizador.",
+                            "Aviso", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    dispose();
+                }
             }
         });
 

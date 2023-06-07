@@ -6,8 +6,6 @@ import javax.swing.*;
 
 import src.model.Participante;
 
-//Impelmentar Herança com Participante
-
 public class Docente extends Participante {
 
     // Atributos da classe Docente
