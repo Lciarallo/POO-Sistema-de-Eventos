@@ -1,4 +1,4 @@
-package src.model;
+package src.views;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import src.controller.ControleEventos;
-import src.views.InscricaoEvento;
+import src.model.Evento;
 import src.views.cadastroforms.CadastroEvento;
 import src.views.cadastroforms.CadastroOrganizador;
 import src.views.cadastroforms.CadastroParticipante;

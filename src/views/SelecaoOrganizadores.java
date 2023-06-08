@@ -2,7 +2,7 @@ package src.views;
 
 import javax.swing.*;
 
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

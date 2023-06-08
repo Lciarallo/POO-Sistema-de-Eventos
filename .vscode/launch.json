@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Menu",
             "request": "launch",
+            "mainClass": "src.views.Menu",
+            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
             "mainClass": "src.model.Menu",
             "projectName": "POO-Sistema-de-Eventos_a698f5c9"
         },

@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 
 public class Evento {
 

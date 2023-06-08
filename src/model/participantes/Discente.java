@@ -1,4 +1,4 @@
-package src.participantes;
+package src.model.participantes;
 
 import javax.swing.*;
 
@@ -64,7 +64,7 @@ public class Discente {
     }
 
     // Métodos da Classe Discente
-    public void cadastrarDiscente(){
+    public void cadastrarDiscente() {
         setNome(JOptionPane.showInputDialog("Digite o nome do discente:"));
         setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do discente:"));
         setCpf(JOptionPane.showInputDialog("Digite o número de CPF do discente:"));
@@ -74,14 +74,14 @@ public class Discente {
         JOptionPane.showMessageDialog(null, "Discente cadastrado com sucesso!");
     }
 
-    public void mostrarDiscente(){
+    public void mostrarDiscente() {
         JOptionPane.showMessageDialog(null,
                 "\nDados do Discente:\n" +
-                        "Nome: "+ getNome() +"\n" +
+                        "Nome: " + getNome() + "\n" +
                         "Data de nascimento: " + getDataNascimento() + "\n" +
-                        "CPF: "+ getCpf() +"\n" +
-                        "Número de matrícula: "+ getNumeroMatricula() +"\n" +
-                        "Curso: "+ getCurso() +"\n" +
-                        "Turno: "+ getTurno() +"\n");
+                        "CPF: " + getCpf() + "\n" +
+                        "Número de matrícula: " + getNumeroMatricula() + "\n" +
+                        "Curso: " + getCurso() + "\n" +
+                        "Turno: " + getTurno() + "\n");
     }
 }

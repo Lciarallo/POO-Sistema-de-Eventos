@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import src.model.Evento;
 import src.model.Participante;
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 
 public class ControleEventos {
 
@@ -18,7 +18,6 @@ public class ControleEventos {
     public List<Evento> getEventos() {
         return eventos;
     }
-    
 
     public void listarEventoCompleto(List<Evento> eventos, List<Organizador> organizadores) {
 

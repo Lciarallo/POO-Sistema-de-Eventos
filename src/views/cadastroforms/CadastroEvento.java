@@ -3,7 +3,7 @@ package src.views.cadastroforms;
 import javax.swing.*;
 
 import src.model.Evento;
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 import src.views.SelecaoOrganizadores;
 
 import java.awt.*;
@@ -179,6 +179,8 @@ public class CadastroEvento extends JFrame {
                                 "Erro ao cadastrar evento",
                                 JOptionPane.WARNING_MESSAGE);
                     }
+
+                    // verificar se todos os campos foram preenchidos
                 } else {
                     JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
                             JOptionPane.WARNING_MESSAGE);
