@@ -169,7 +169,8 @@ public class CadastroEvento extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (botaoPesquisarClicado) {
+                if (validarCampos() && botaoPesquisarClicado) {
+
                     if (cadastrarEvento(eventos)) {
                         JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
                         limparCampos();
@@ -180,7 +181,6 @@ public class CadastroEvento extends JFrame {
                                 JOptionPane.WARNING_MESSAGE);
                     }
 
-                    // verificar se todos os campos foram preenchidos
                 } else {
                     JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
                             JOptionPane.WARNING_MESSAGE);
@@ -226,6 +226,43 @@ public class CadastroEvento extends JFrame {
         textFieldCarga_horaria.setText("");
         textFieldLimite_participantes.setText("");
 
+    }
+
+    private boolean validarCampos() {
+        if (textFieldNome.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldTitulo.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldDescricao.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCategoria.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldLocal.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldData_inicio.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldData_fim.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldHorario_inicio.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCarga_horaria.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldLimite_participantes.getText().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public boolean cadastrarEvento(List<Evento> eventos) {

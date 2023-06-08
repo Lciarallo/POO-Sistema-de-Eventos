@@ -123,10 +123,17 @@ public class CadastroDocente extends JFrame {
         buttonCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CadastrarDocente(participantes);
-                JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
-                limparCampos();
-                setVisible(false);
+
+                if (validarCampos()) {
+                    CadastrarDocente(participantes);
+                    JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
+                    limparCampos();
+                    setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(CadastroDocente.this, "Preencha todos os campos.", "Aviso",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+
             }
         });
 
@@ -145,6 +152,31 @@ public class CadastroDocente extends JFrame {
         textFieldCarga_horaria.setText("");
         textFieldEspecializacao.setText("");
 
+    }
+
+    private boolean validarCampos() {
+        if (textFieldNome.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldTitulo.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldData_de_nascimento.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCpf.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldTurno.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCarga_horaria.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldEspecializacao.getText().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public void CadastrarDocente(List<Participante> participantes) {

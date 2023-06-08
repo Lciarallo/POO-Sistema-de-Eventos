@@ -98,10 +98,17 @@ public class CadastroOrganizador extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                cadastrarOrganizador(organizadores);
-                JOptionPane.showMessageDialog(null, "Organizador cadastrado com sucesso!");
-                limparCampos();
-                setVisible(false);
+                if (validarCampos()) {
+
+                    cadastrarOrganizador(organizadores);
+                    JOptionPane.showMessageDialog(null, "Organizador cadastrado com sucesso!");
+                    limparCampos();
+                    setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(CadastroOrganizador.this, "Preencha todos os campos.", "Aviso",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+
             }
         });
 
@@ -112,9 +119,31 @@ public class CadastroOrganizador extends JFrame {
     }
 
     private void limparCampos() {
+        textFieldNome.setText("");
+        textFieldData_nascimento.setText("");
+        textFieldCpf.setText("");
         textFieldDepartamento.setText("");
         textFieldArea_de_atuacao.setText("");
 
+    }
+
+    private boolean validarCampos() {
+        if (textFieldNome.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldData_nascimento.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCpf.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldDepartamento.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldArea_de_atuacao.getText().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public void cadastrarOrganizador(List<Organizador> organizadores) {
