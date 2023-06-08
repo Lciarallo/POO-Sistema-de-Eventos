@@ -1,4 +1,4 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import src.model.Participante;
 import src.model.participantes.Docente;

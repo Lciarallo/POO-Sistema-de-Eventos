@@ -1,10 +1,10 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import javax.swing.*;
 
 import src.model.Evento;
 import src.model.participantes.Organizador;
-import src.views.SelecaoOrganizadores;
+import src.view.SelecaoOrganizadores;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

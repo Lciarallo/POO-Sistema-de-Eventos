@@ -1,4 +1,4 @@
-package src.views;
+package src.view;
 
 public class RegistrarPresenca {
     

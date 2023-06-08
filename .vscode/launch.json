@@ -8,6 +8,27 @@
             "type": "java",
             "name": "Menu",
             "request": "launch",
+            "mainClass": "src.view.aplicacao.Menu",
+            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "src.views.aplicacao.Menu",
+            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "src.views.Aplicacao.Menu",
+            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
             "mainClass": "src.views.Menu",
             "projectName": "POO-Sistema-de-Eventos_a698f5c9"
         },
