@@ -1,4 +1,4 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -13,10 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import src.model.participantes.Organizador;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import src.participantes.Organizador;
 
 public class CadastroOrganizador extends JFrame {
 

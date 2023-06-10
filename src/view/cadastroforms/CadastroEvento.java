@@ -1,14 +1,16 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import javax.swing.*;
 
 import src.model.Evento;
-import src.participantes.Organizador;
-import src.views.SelecaoOrganizadores;
+import src.model.participantes.Organizador;
+import src.view.SelecaoOrganizadores;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class CadastroEvento extends JFrame {
     private List<Organizador> organizadoresSelecionados;
 
     private SelecaoOrganizadores selecaoOrganizadores;
+    private boolean botaoPesquisarClicado = false;
 
     public CadastroEvento(List<Evento> eventos, List<Organizador> organizadores) {
 
@@ -168,13 +171,22 @@ public class CadastroEvento extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (cadastrarEvento(eventos)) {
-                    JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
-                    limparCampos();
+                if (validarCampos() && botaoPesquisarClicado) {
+
+                    if (cadastrarEvento(eventos)) {
+                        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+                        limparCampos();
+                        setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(CadastroEvento.this, "Insira uma data válida!",
+                                "Erro ao cadastrar evento",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar Evento!");
+                    JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
+                            JOptionPane.WARNING_MESSAGE);
                 }
-                setVisible(false);
 
             }
         });
@@ -193,6 +205,8 @@ public class CadastroEvento extends JFrame {
                 } else {
                     listModel.clear(); // Limpar a lista de organizadores caso nenhum seja selecionado
                 }
+
+                botaoPesquisarClicado = true;
 
             }
         });
@@ -216,34 +230,114 @@ public class CadastroEvento extends JFrame {
 
     }
 
-    public boolean cadastrarEvento(List<Evento> eventos) {
-
-        String nome = textFieldNome.getText();
-        String titulo = textFieldTitulo.getText();
-        String descricao = textFieldDescricao.getText();
-        String categoria = textFieldCategoria.getText();
-        String local = textFieldLocal.getText();
-        String data_inicio = textFieldData_inicio.getText();
-        String data_fim = textFieldData_fim.getText();
-        String horario_inicio = textFieldHorario_inicio.getText();
-        String carga_horaria = textFieldCarga_horaria.getText();
-        String limite_participantes = textFieldLimite_participantes.getText();
-        int limite = Integer.parseInt(limite_participantes);
-
-        Evento evento = new Evento(nome, titulo, descricao, categoria, local, data_inicio, data_fim, horario_inicio,
-                carga_horaria, limite);
-
-        if (evento.validarEvento()) {
-
-            evento.getOrganizadores().addAll(organizadoresSelecionados);
-            eventos.add(evento);
-            return true;
-        }
-
-        else {
-
+    private boolean validarCampos() {
+        if (textFieldNome.getText().isEmpty()) {
             return false;
         }
+        if (textFieldTitulo.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldDescricao.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCategoria.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldLocal.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldData_inicio.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldData_fim.getText().isEmpty()) {
+            return false;
+        }
+
+        if (textFieldHorario_inicio.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldCarga_horaria.getText().isEmpty()) {
+            return false;
+        }
+        if (textFieldLimite_participantes.getText().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean cadastrarEvento(List<Evento> eventos) {
+
+        String mensagem = "Tipo de dado inválido: Campo ";
+        String campo = "";
+
+        boolean retorno = true;
+
+        String nome = "";
+        String titulo = "";
+        String descricao = "";
+        String categoria = "";
+        String local = "";
+        String data_inicio = "";
+        String data_fim = "";
+        String horario_inicio = "";
+        String carga_horaria = "";
+        float cargaHoraria = 0;
+        String limite_participantes = "";
+        int limite = 0;
+        LocalDate dataini, datafim;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        try {
+
+            campo = "Nome inválido";
+            nome = textFieldNome.getText();
+            campo = "Título inválido";
+            titulo = textFieldTitulo.getText();
+            campo = "Descrição inválida";
+            descricao = textFieldDescricao.getText();
+            campo = "Categoria inválido";
+            categoria = textFieldCategoria.getText();
+            campo = "Local inválido";
+            local = textFieldLocal.getText();
+            campo = "Data Inicial inválida";
+            data_inicio = textFieldData_inicio.getText();
+            dataini = LocalDate.parse(data_inicio, formatter);
+            campo = "Data Final inválida";
+            data_fim = textFieldData_fim.getText();
+            datafim = LocalDate.parse(data_fim, formatter);
+            campo = "Horário Inicial inválido";
+            horario_inicio = textFieldHorario_inicio.getText();
+            campo = "Carga Horária inválida";
+            carga_horaria = textFieldCarga_horaria.getText();
+            campo = "Carga Horária inválida";
+            cargaHoraria = Float.parseFloat(carga_horaria);
+            campo = "Limite de Participantes inválido";
+            limite_participantes = textFieldLimite_participantes.getText();
+            campo = "Limite de Participantes inválido";
+            limite = Integer.parseInt(limite_participantes);
+
+        } catch (Exception ex) {
+            retorno = false;
+            JOptionPane.showMessageDialog(CadastroEvento.this, mensagem + campo, "Aviso",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (retorno) {
+            Evento evento = new Evento(nome, titulo, descricao, categoria, local, data_inicio, data_fim, horario_inicio,
+                    cargaHoraria, limite);
+            if (evento.validarEvento()) {
+                evento.getOrganizadores().addAll(organizadoresSelecionados);
+                eventos.add(evento);
+            } else {
+                JOptionPane.showMessageDialog(CadastroEvento.this, "Intervalo de datas inválido", "Aviso",
+                        JOptionPane.WARNING_MESSAGE);
+                retorno = false;
+            }
+        }
+
+        return retorno;
 
     }
 }

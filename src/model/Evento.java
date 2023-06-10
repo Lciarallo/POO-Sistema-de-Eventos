@@ -5,9 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 
 public class Evento {
 
@@ -18,7 +16,7 @@ public class Evento {
     private String data_fim;
     private String local;
     private String horario_inicio;
-    private String carga_horaria;
+    private float carga_horaria;
     private String descricao;
     private String categoria;
     private int limite_participantes;
@@ -26,7 +24,6 @@ public class Evento {
     private List<Participante> participantes = new ArrayList<>();
     private List<Participante> participantesPresentes = new ArrayList<>();
     private List<Organizador> organizadores = new ArrayList<>();
-    private Participante participante;
 
     // Método Construtor
 
@@ -36,7 +33,7 @@ public class Evento {
 
     public Evento(String nome, String titulo, String descricao,
             String categoria, String local, String data_inicio, String data_fim,
-            String horario_inicio, String carga_horaria, int limite_participantes) {
+            String horario_inicio, float carga_horaria, int limite_participantes) {
         this.nome = nome;
         this.titulo = titulo;
         this.data_inicio = data_inicio;
@@ -98,11 +95,11 @@ public class Evento {
         this.horario_inicio = horario_inicio;
     }
 
-    public String getCarga_horaria() {
+    public float getCarga_horaria() {
         return carga_horaria;
     }
 
-    public void setCarga_horaria(String carga_horaria) {
+    public void setCarga_horaria(float carga_horaria) {
         this.carga_horaria = carga_horaria;
     }
 
@@ -162,8 +159,10 @@ public class Evento {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);
+        LocalDate dataFim = LocalDate.parse(getData_fim(), formatter);
 
-        if (dataInicio.isBefore(dataAtual)) {
+        if (dataInicio.isBefore(dataAtual) || dataFim.isBefore(dataInicio)
+                || getLimite_participantes() <= getParticipantes().size()) {
             valido = false;
         }
 
@@ -174,9 +173,5 @@ public class Evento {
         }
 
     }
-
-    // Registrar Presença
-
-
 
 }

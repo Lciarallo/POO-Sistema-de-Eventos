@@ -1,4 +1,4 @@
-package src.views;
+package src.view;
 
 import src.model.Evento;
 import src.model.Participante;

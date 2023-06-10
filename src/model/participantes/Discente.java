@@ -1,4 +1,4 @@
-package src.participantes;
+package src.model.participantes;
 
 import javax.swing.*;
 

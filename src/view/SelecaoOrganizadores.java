@@ -1,8 +1,8 @@
-package src.views;
+package src.view;
 
 import javax.swing.*;
 
-import src.participantes.Organizador;
+import src.model.participantes.Organizador;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -39,8 +39,16 @@ public class SelecaoOrganizadores extends JDialog {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 organizadoresSelecionados = list.getSelectedValuesList();
-                dispose();
+
+                if (organizadoresSelecionados.isEmpty()) {
+                    JOptionPane.showMessageDialog(SelecaoOrganizadores.this, "Selecione pelo menos um organizador!",
+                            "Aviso",
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
+                    dispose();
+                }
             }
         });
 
@@ -63,7 +71,7 @@ public class SelecaoOrganizadores extends JDialog {
     private class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<Object> {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index,
-                                                      boolean isSelected, boolean cellHasFocus) {
+                boolean isSelected, boolean cellHasFocus) {
             setComponentOrientation(list.getComponentOrientation());
             setFont(list.getFont());
             setBackground(list.getBackground());

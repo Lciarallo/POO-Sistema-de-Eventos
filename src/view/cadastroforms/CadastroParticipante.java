@@ -1,4 +1,4 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

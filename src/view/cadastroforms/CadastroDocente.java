@@ -1,7 +1,7 @@
-package src.views.cadastroforms;
+package src.view.cadastroforms;
 
 import src.model.Participante;
-import src.participantes.Docente;
+import src.model.participantes.Docente;
 
 import javax.swing.*;
 import java.awt.*;
@@ -123,10 +123,13 @@ public class CadastroDocente extends JFrame {
         buttonCadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CadastrarDocente(participantes);
-                JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
-                limparCampos();
-                setVisible(false);
+
+                if (CadastrarDocente(participantes)) {
+
+                    JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
+                    limparCampos();
+                    setVisible(false);
+                }
             }
         });
 
@@ -147,22 +150,50 @@ public class CadastroDocente extends JFrame {
 
     }
 
-    public void CadastrarDocente(List<Participante> participantes) {
-        String nome = textFieldNome.getText();
-        String titulo = textFieldTitulo.getText();
-        String Data_de_nascimento = textFieldData_de_nascimento.getText();
-        String cpf = textFieldCpf.getText();
-        String UnidadeCurricular = textUnidadeCurricular.getText();
-        String CargaHoraria = textFieldCarga_horaria.getText();
-        float cargaH = Float.parseFloat(CargaHoraria);
+    public boolean CadastrarDocente(List<Participante> participantes) {
 
-        String Especializacao = textFieldEspecializacao.getText();
-        String turno = textFieldTurno.getText();
+        String mensagem = "Tipo de dado inválido: Campo ";
+        String campo = "";
 
-        Docente docente = new Docente(nome, Data_de_nascimento, cpf, titulo, cargaH, turno, Especializacao,
-                UnidadeCurricular);
+        boolean retorno = true;
 
-        participantes.add(docente);
+        String nome = "";
+        String titulo = "";
+        String Data_de_nascimento = "";
+        String cpf = "";
+        String UnidadeCurricular = "";
+        String CargaHoraria = "";
+        float cargaH = 0;
+        String Especializacao = "";
+        String turno = "";
+
+        try {
+
+            nome = textFieldNome.getText();
+            titulo = textFieldTitulo.getText();
+            Data_de_nascimento = textFieldData_de_nascimento.getText();
+            cpf = textFieldCpf.getText();
+            UnidadeCurricular = textUnidadeCurricular.getText();
+            campo = "Carga Horária Inválida";
+            CargaHoraria = textFieldCarga_horaria.getText();
+            cargaH = Float.parseFloat(CargaHoraria);
+            Especializacao = textFieldEspecializacao.getText();
+            turno = textFieldTurno.getText();
+
+        } catch (Exception ex) {
+            retorno = false;
+            JOptionPane.showMessageDialog(CadastroDocente.this, mensagem + campo, "Aviso",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
+        if (retorno) {
+            Docente docente = new Docente(nome, Data_de_nascimento, cpf, titulo, cargaH, turno, Especializacao,
+                    UnidadeCurricular);
+
+            participantes.add(docente);
+        }
+
+        return retorno;
 
     }
 

@@ -11,11 +11,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import src.controller.ControleEventos;
-import src.views.InscricaoEventoForm;
-import src.views.RegistroPresencaForm;
-import src.views.cadastroforms.CadastroEvento;
-import src.views.cadastroforms.CadastroOrganizador;
-import src.views.cadastroforms.CadastroParticipante;
+import src.view.cadastroforms.CadastroOrganizador;
+import src.view.cadastroforms.CadastroParticipante;
+import src.view.InscricaoEventoForm;
+import src.view.RegistroPresencaForm;
+import src.view.cadastroforms.CadastroEvento;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
