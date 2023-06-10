@@ -142,6 +142,14 @@ public class Evento {
         return organizadores;
     }
 
+    public List<Participante> getParticipantesPresentes() {
+        return participantesPresentes;
+    }
+
+    public void setParticipantesPresentes(List<Participante> participantesPresentes) {
+        this.participantesPresentes = participantesPresentes;
+    }
+
     public void setOrganizadores(List<Organizador> organizadores) {
         this.organizadores = organizadores;
     }
@@ -169,15 +177,6 @@ public class Evento {
 
     // Registrar Presença
 
-    public void registrarPresenca() {
-        String i;
-        participante.listarParticipantes(participantes);
-        i = JOptionPane.showInputDialog("Insira o cpf do participante:");
-        for (Participante participante : participantesPresentes){
-            if (i.equals(participante.getCpf())){
-                participantesPresentes.add(participante);
-            }
-        }
-    }
+
 
 }

@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import src.controller.ControleEventos;
 import src.views.InscricaoEventoForm;
+import src.views.RegistroPresencaForm;
 import src.views.cadastroforms.CadastroEvento;
 import src.views.cadastroforms.CadastroOrganizador;
 import src.views.cadastroforms.CadastroParticipante;
@@ -152,7 +153,35 @@ public class Menu extends JFrame {
                     }
                 }
             }
+
         });
+        btnRegistrarPresenca.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if (participanteCadastrado <= 0) {
+                    JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição de presença!");
+                }
+                else {
+                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+
+                    if (eventosNaoOcorridos.size() <= 0) {
+                        JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
+                    }
+
+
+                    else {
+
+                        RegistroPresencaForm registroPresencaForm = new RegistroPresencaForm(eventosNaoOcorridos,evento.getParticipantes(),evento.getParticipantesPresentes());
+                        registroPresencaForm.setVisible(true);
+
+                    }
+                }
+            }
+
+        });
+
+
 
         getContentPane().add(panel, BorderLayout.CENTER);
         setLocationRelativeTo(null);

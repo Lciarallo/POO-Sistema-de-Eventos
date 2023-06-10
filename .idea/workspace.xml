@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Adição da função pesquisarEvento() em ControleEvento.">
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Criação de interface gráfica registroPresencaForm.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BuscarEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BuscarEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/registroPresencaForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistroPresencaForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -237,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686012679875</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Criação de interface gráfica registroPresencaForm.java">
+      <created>1686405447107</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686405447107</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +281,12 @@
     <MESSAGE value="31/05/2023 Adição do cadastro docente e alteralção da classe docente." />
     <MESSAGE value="Adição da função registrarPresença() em Evento." />
     <MESSAGE value="Adição da função pesquisarEvento() em ControleEvento." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adição da função pesquisarEvento() em ControleEvento." />
+    <MESSAGE value="Criação de interface gráfica registroPresencaForm.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação de interface gráfica registroPresencaForm.java" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/POO_Sistema_de_Eventos$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1686184276560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>src.model.*</FILTER>
+    </SUITE>
   </component>
 </project>

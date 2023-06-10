@@ -31,7 +31,6 @@ public class SelecaoOrganizadores extends JDialog {
         list.setCellRenderer(new CheckboxListCellRenderer());
 
         JLabel labelSelecionar = new JLabel("Aperte CTRL + click para selecionar mais de um organizador");
-
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.add(new JScrollPane(list), BorderLayout.CENTER);
@@ -64,7 +63,7 @@ public class SelecaoOrganizadores extends JDialog {
     private class CheckboxListCellRenderer extends JCheckBox implements ListCellRenderer<Object> {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index,
-                boolean isSelected, boolean cellHasFocus) {
+                                                      boolean isSelected, boolean cellHasFocus) {
             setComponentOrientation(list.getComponentOrientation());
             setFont(list.getFont());
             setBackground(list.getBackground());

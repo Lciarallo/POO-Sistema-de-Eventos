@@ -9,15 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class    registroPresencaForm extends JFrame {
+public class RegistroPresencaForm extends JFrame {
     private static JComboBox<String> fieldEventos;
     private static JTextField fieldParticipantes;
     private static JComboBox<String> fieldPresente;
     private Participante participante;
 
 
-    public registroPresencaForm(List<Evento> eventos, List<Participante> participantes,List<Participante> participantesPresentes) {
-        setTitle("Registro de presença");
+    public RegistroPresencaForm(List<Evento> eventos, List<Participante> participantes, List<Participante> participantesPresentes) {
+            setTitle("Registro de presença");
 
 
         JPanel panel = new JPanel();
@@ -85,7 +85,6 @@ public class    registroPresencaForm extends JFrame {
                 participantesPresentes.add(participante);
                 participanteEncontrado = true;
                 break;
-
             }
         }
 
@@ -94,8 +93,8 @@ public class    registroPresencaForm extends JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Participante não encontrado pelo CPF, por favor tente outro!");
         }
-
     }
+
 
     private int encontrarEventoPorNome(String nome, List<Evento> eventos) {
         for (int i = 0; i < eventos.size(); i++) {
