@@ -85,6 +85,7 @@ public class    registroPresencaForm extends JFrame {
                 participantesPresentes.add(participante);
                 participanteEncontrado = true;
                 break;
+
             }
         }
 
@@ -93,6 +94,7 @@ public class    registroPresencaForm extends JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Participante não encontrado pelo CPF, por favor tente outro!");
         }
+
     }
 
     private int encontrarEventoPorNome(String nome, List<Evento> eventos) {
