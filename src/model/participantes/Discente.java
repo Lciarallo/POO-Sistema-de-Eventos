@@ -9,9 +9,6 @@ import src.model.Participante;
 public class Discente extends Participante {
 
     //Atributos
-    private String nome;
-    private String data_de_nascimento;
-    private String cpf;
     private long numero_de_matricula;
     private String curso;
     private String turno;
