@@ -38,7 +38,7 @@ public class BuscarEvento extends JFrame {
         JButton buttonPesquisarEvento = new JButton("Pesquisar Evento");
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2; // Aumenta a largura do botão para ocupar duas colunas
+        constraints.gridwidth = 2; 
         panel.add(buttonPesquisarEvento, constraints);
         buttonPesquisarEvento.addActionListener(new ActionListener() {
             @Override

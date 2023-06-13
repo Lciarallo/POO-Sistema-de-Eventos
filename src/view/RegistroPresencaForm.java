@@ -58,7 +58,7 @@ public class RegistroPresencaForm extends JFrame {
         JButton buttonRegistrarPresenca = new JButton("Registrar Presença");
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2; // Aumenta a largura do botão para ocupar duas colunas
+        constraints.gridwidth = 2; 
         panel.add(buttonRegistrarPresenca, constraints);
         buttonRegistrarPresenca.addActionListener(new ActionListener() {
             @Override

@@ -164,18 +164,17 @@ public class Menu extends JFrame {
 
                 if (participanteCadastrado <= 0) {
                     JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição de presença!");
-                }
-                else {
+                } else {
                     eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
 
                     if (eventosNaoOcorridos.size() <= 0) {
                         JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
                     }
 
-
                     else {
 
-                        RegistroPresencaForm registroPresencaForm = new RegistroPresencaForm(eventosNaoOcorridos,evento.getParticipantes(),evento.getParticipantesPresentes());
+                        RegistroPresencaForm registroPresencaForm = new RegistroPresencaForm(eventosNaoOcorridos,
+                                evento.getParticipantes(), evento.getParticipantesPresentes());
                         registroPresencaForm.setVisible(true);
 
                     }
@@ -184,23 +183,19 @@ public class Menu extends JFrame {
 
         });
         // ----------- Buscar Evento -------------------------
-        btnRegistrarPresenca.addActionListener(new ActionListener() {
+        btnBuscarEvento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(eventosNaoOcorridos.size() <= 0){
+                if (eventosNaoOcorridos.size() <= 0) {
                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
-                }
-                else {
+                } else {
                     BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
                 }
 
             }
         });
 
-
-
-
-            getContentPane().add(panel, BorderLayout.CENTER);
+        getContentPane().add(panel, BorderLayout.CENTER);
         setLocationRelativeTo(null);
 
         setVisible(true);
