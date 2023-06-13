@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import src.controller.ControleEventos;
 import src.model.Evento;
+import src.view.BuscarEvento;
 import src.view.cadastroforms.CadastroOrganizador;
 import src.view.cadastroforms.CadastroParticipante;
 import src.view.InscricaoEventoForm;
@@ -156,6 +157,7 @@ public class Menu extends JFrame {
             }
 
         });
+        // ----------- Registrar Presença do Participante -------------------------
         btnRegistrarPresenca.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -181,10 +183,24 @@ public class Menu extends JFrame {
             }
 
         });
+        // ----------- Buscar Evento -------------------------
+        btnRegistrarPresenca.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(eventosNaoOcorridos.size() <= 0){
+                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
+                }
+                else {
+                    BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
+                }
+
+            }
+        });
 
 
 
-        getContentPane().add(panel, BorderLayout.CENTER);
+
+            getContentPane().add(panel, BorderLayout.CENTER);
         setLocationRelativeTo(null);
 
         setVisible(true);

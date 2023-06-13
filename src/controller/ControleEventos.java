@@ -81,8 +81,7 @@ public class ControleEventos {
 
     // Buscar Evento
 
-    public void pesquisarEvento(List<Evento> eventos) {
-        String pesquisa;
+    public void pesquisarEvento(List<Evento> eventos, String pesquisa) {
         pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
         for (Evento evento : eventos) {
             if (pesquisa.equals(evento.getNome())) {
