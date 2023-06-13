@@ -8,6 +8,11 @@ import javax.swing.JOptionPane;
 import src.model.Evento;
 import src.model.Participante;
 import src.model.participantes.Organizador;
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+
 
 public class ControleEventos {
 
@@ -101,8 +106,28 @@ public class ControleEventos {
         }
     }
 
-    // Gerar Relatório
+    // Outros atributos e métodos da classe Evento
+    public void relatorioEventos(List<Evento> eventos, List<Organizador> organizadores) {
 
-    // Agenda de Eventos
+        for (Evento e : eventos) {
+            String aux = "\nIndice: " + eventos.indexOf(e) + "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
+                    + "\nDescrição: " + e.getDescricao()
+                    + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
+                    + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim()
+                    + "\nHorário: " + e.getHorario_inicio() + "h" + "\nCarga Horária: " + e.getCarga_horaria() + "h"
+                    + "\nLimite de Participantes: " + e.getLimite_participantes() + "\n"
+                    + "\nParticipantes Inscritos: " + e.getParticipantes() + "\n"
+                    + "\nParticipantes Presentes: " + e.getParticipantesPresentes() + "\n";
+
+            String x = "\nOrganizadores:";
+            List<Organizador> organizadoresAssociados = e.getOrganizadores();
+            for (Organizador o : organizadoresAssociados) {
+                x += "\n" + o.getNome();
+            }
+
+            JOptionPane.showMessageDialog(null, "Lista de Eventos:\n" + aux + x + "\n");
+        }
+
+    }
 
 }
