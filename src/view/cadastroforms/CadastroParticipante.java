@@ -51,7 +51,8 @@ public class CadastroParticipante extends JFrame {
         buttonCadastrarDiscente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                CadastroDiscente cadastroDiscente = new CadastroDiscente(participantes);
+                cadastroDiscente.setVisible(true);
             }
         });
 
