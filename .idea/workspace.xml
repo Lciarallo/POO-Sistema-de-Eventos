@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/participantes/Discente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/participantes/Discente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/participantes/Docente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -229,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680525945728</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior">
+      <created>1686687438622</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1686687438623</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +250,7 @@
     <MESSAGE value="Correçäo README" />
     <MESSAGE value="03/04/2023 - Update mensagens" />
     <MESSAGE value="03/04/2023 - Revisão e testes" />
-    <option name="LAST_COMMIT_MESSAGE" value="03/04/2023 - Revisão e testes" />
+    <MESSAGE value="13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior" />
+    <option name="LAST_COMMIT_MESSAGE" value="13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior" />
   </component>
 </project>
