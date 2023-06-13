@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" filepath="$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" filepath="$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" />
     </modules>
   </component>
 </project>

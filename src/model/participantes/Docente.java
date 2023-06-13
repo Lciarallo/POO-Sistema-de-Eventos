@@ -1,6 +1,6 @@
 package src.model.participantes;
 
-import java.util.List;
+import  java.util.List;
 
 import javax.swing.*;
 

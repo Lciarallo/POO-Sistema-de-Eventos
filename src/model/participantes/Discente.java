@@ -1,50 +1,36 @@
 package src.model.participantes;
 
+import  java.util.List;
+
 import javax.swing.*;
 
-//Impelmentar Herança com Participante
+import src.model.Participante;
 
-public class Discente {
+public class Discente extends Participante {
 
-    // Atributos da classe Discente
+    //Atributos
     private String nome;
-    private String dataNascimento;
+    private String data_de_nascimento;
     private String cpf;
-    private long numeroMatricula;
+    private long numero_de_matricula;
     private String curso;
     private String turno;
 
-    // Métodos Getters e Setters da Classe Discente
-    public String getNome() {
-        return nome;
+    //Método Construtor
+    public Discente(String nome, String data_de_nascimento, String cpf, long numero_de_matricula, String curso, String turno) {
+        super(nome, data_de_nascimento, cpf);
+        this.numero_de_matricula = numero_de_matricula;
+        this.curso = curso;
+        this.turno = turno;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    //Métodos Getters e Setters
+    public long getNumero_de_matricula() {
+        return numero_de_matricula;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public long getNumeroMatricula() {
-        return numeroMatricula;
-    }
-
-    public void setNumeroMatricula(long numeroMatricula) {
-        this.numeroMatricula = numeroMatricula;
+    public void setNumero_de_matricula(long numero_de_matricula) {
+        this.numero_de_matricula = numero_de_matricula;
     }
 
     public String getCurso() {
@@ -64,24 +50,17 @@ public class Discente {
     }
 
     // Métodos da Classe Discente
-    public void cadastrarDiscente(){
-        setNome(JOptionPane.showInputDialog("Digite o nome do discente:"));
-        setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do discente:"));
-        setCpf(JOptionPane.showInputDialog("Digite o número de CPF do discente:"));
-        setNumeroMatricula(Long.parseLong(JOptionPane.showInputDialog("Digite o número de matrícula do discente:")));
-        setCurso(JOptionPane.showInputDialog("Digite o curso do aluno:"));
-        setTurno(JOptionPane.showInputDialog("Digite o turno do aluno:"));
-        JOptionPane.showMessageDialog(null, "Discente cadastrado com sucesso!");
+    public void listarDiscente(List<Discente> discentes) {
+
+        super.listarParticipantes(discentes);
+
+        for (Discente d : discentes ) {
+            JOptionPane.showMessageDialog(null,
+                    "\nDiscentes:\n" + "Número de Matrícula: " + d.getNumero_de_matricula() + "\n" +
+                            "Curso: " + d.getCurso() + "\n" +
+                            "Turno: " + d.getTurno() + "\n");
+        }
     }
 
-    public void mostrarDiscente(){
-        JOptionPane.showMessageDialog(null,
-                "\nDados do Discente:\n" +
-                        "Nome: "+ getNome() +"\n" +
-                        "Data de nascimento: " + getDataNascimento() + "\n" +
-                        "CPF: "+ getCpf() +"\n" +
-                        "Número de matrícula: "+ getNumeroMatricula() +"\n" +
-                        "Curso: "+ getCurso() +"\n" +
-                        "Turno: "+ getTurno() +"\n");
-    }
+
 }

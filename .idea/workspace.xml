@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Criação de interface gráfica registroPresencaForm.java">
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/aplicacao/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BuscarEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BuscarEvento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/registroPresencaForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistroPresencaForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/participantes/Discente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/participantes/Discente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/participantes/Docente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/participantes/Docente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +46,6 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -49,6 +55,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documentos\ADS - IFSC\UC's 2023.1\Programação Orientada a Objetos\POO-Sistema-de-Eventos\src\view\aplicacao" />
       <recent name="C:\Users\luize\IdeaProjects\POO-Sistema-de-Eventos\imagem" />
     </key>
   </component>
@@ -222,35 +229,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680525945728</updated>
     </task>
-    <task id="LOCAL-00024" summary="31/05/2023 Adição do cadastro docente e alteralção da classe docente.">
-      <created>1685578513019</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1685578513019</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Adição da função registrarPresença() em Evento.">
-      <created>1686011248511</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1686011248511</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Adição da função pesquisarEvento() em ControleEvento.">
-      <created>1686012679875</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1686012679875</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Criação de interface gráfica registroPresencaForm.java">
-      <created>1686405447107</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1686405447107</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -278,15 +257,6 @@
     <MESSAGE value="Correçäo README" />
     <MESSAGE value="03/04/2023 - Update mensagens" />
     <MESSAGE value="03/04/2023 - Revisão e testes" />
-    <MESSAGE value="31/05/2023 Adição do cadastro docente e alteralção da classe docente." />
-    <MESSAGE value="Adição da função registrarPresença() em Evento." />
-    <MESSAGE value="Adição da função pesquisarEvento() em ControleEvento." />
-    <MESSAGE value="Criação de interface gráfica registroPresencaForm.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação de interface gráfica registroPresencaForm.java" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/POO_Sistema_de_Eventos$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1686184276560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>src.model.*</FILTER>
-    </SUITE>
+    <option name="LAST_COMMIT_MESSAGE" value="03/04/2023 - Revisão e testes" />
   </component>
 </project>
