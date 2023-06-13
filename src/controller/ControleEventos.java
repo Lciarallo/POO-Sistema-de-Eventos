@@ -85,7 +85,18 @@ public class ControleEventos {
         pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
         for (Evento evento : eventos) {
             if (pesquisa.equals(evento.getNome())) {
-                JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n");
+                JOptionPane.showMessageDialog(null,
+                        "Evento: " + evento.getNome() + "\n" +
+                        "Categoria: " + evento.getCategoria() + "\n" +
+                        "Data Início: " + evento.getData_inicio() + "\n" +
+                        "Data Fim: " + evento.getData_fim() + "\n" +
+                        "Descrição: " + evento.getDescricao() + "\n" +
+                        "Titulo: " + evento.getTitulo() + "\n" +
+                        "Local do Evento: " + evento.getLocal() + "\n" +
+                        "Limite de participantes: " + evento.getLimite_participantes() + "\n" +
+                        "Carga Horária: " + evento.getCarga_horaria() + "\n" +
+                        "Horário Inicio: " + evento.getHorario_inicio() + "\n");
+
             }
         }
     }
