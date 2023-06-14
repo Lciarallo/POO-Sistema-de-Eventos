@@ -31,7 +31,7 @@ _“Para um melhor controle dos seus eventos”_
 
 <h3>Diagrama de Classe UML</h3>
 <div align = "left">
-  <img src="src/img/diagramaEventos.png"
+  <img src="src/img/diagramaClasseEvento.png"
   width="500" height="250" alt="diagrama UML">
 </div>
 
