@@ -106,7 +106,6 @@ public class ControleEventos {
         }
     }
 
-    // Outros atributos e métodos da classe Evento
     public void relatorioEventos(List<Evento> eventos, List<Organizador> organizadores) {
 
         for (Evento e : eventos) {
@@ -128,6 +127,17 @@ public class ControleEventos {
             JOptionPane.showMessageDialog(null, "Lista de Eventos:\n" + aux + x + "\n");
         }
 
+    }
+
+    public void mostrarAgenda(List<Evento> eventos){
+
+        for (Evento e : eventos) {
+            String aux = "\nIndice: " + eventos.indexOf(e) + "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
+                    + "\nDescrição: " + e.getDescricao()
+                    + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
+                    + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim() + "\n";
+
+        }
     }
 
 }
