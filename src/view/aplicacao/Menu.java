@@ -189,8 +189,6 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
-
                 if (eventoCadastrado > 0) {
                     BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
 
@@ -208,7 +206,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                cEventos.mostrarAgenda(eventosNaoOcorridos);
+                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
             }
         });
 

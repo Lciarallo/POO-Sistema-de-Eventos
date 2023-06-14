@@ -46,16 +46,4 @@ public class ControleEventos {
         return eventosNaoOcorridos;
     }
 
-
-    public void mostrarAgenda(List<Evento> eventos) {
-
-        for (Evento e : eventos) {
-            String aux = "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
-                    + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
-                    + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim() + "\n";
-
-            JOptionPane.showMessageDialog(null, "Agenda de Eventos: \n" + aux);
-
-        }
-    }
 }
