@@ -17,7 +17,6 @@ import src.view.cadastroforms.CadastroOrganizador;
 import src.view.cadastroforms.CadastroParticipante;
 import src.view.InscricaoEvento;
 import src.view.RegistroPresenca;
-import src.view.RelatorioEventos;
 import src.view.cadastroforms.CadastroEvento;
 
 import java.awt.BorderLayout;
@@ -215,15 +214,7 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
-
-                if (eventoCadastrado > 0 || evento.getParticipantesPresentes().size() > 0) {
-                    RelatorioEventos relatorioEventos = new RelatorioEventos(eventosNaoOcorridos);
-
-                    relatorioEventos.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para relatório!");
-                }
+                cEventos.relatorioEventos(eventosNaoOcorridos);
             }
         });
 

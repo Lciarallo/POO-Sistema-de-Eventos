@@ -1,6 +1,7 @@
 package src.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -44,6 +45,22 @@ public class ControleEventos {
         }
 
         return eventosNaoOcorridos;
+    }
+
+    public void relatorioEventos(List<Evento> eventos) {
+
+        Collections.sort(eventos, (evento1, evento2) -> Integer.compare(evento1.getParticipantes().size(),
+                evento2.getParticipantes().size()));
+
+        String aux = "";
+
+        for (Evento e : eventos) {
+            aux += "\n" + eventos.indexOf(e) + " " + e.getNome() + " "
+                    + e.getParticipantes().size() + " participantes";
+        }
+
+        JOptionPane.showMessageDialog(null, "Eventos:\n" + aux);
+
     }
 
 }
