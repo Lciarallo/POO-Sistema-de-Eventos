@@ -18,7 +18,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import src.model.Evento;
-import src.model.Participante;
 import src.model.participantes.Organizador;
 
 public class RelatorioEventos extends JFrame {

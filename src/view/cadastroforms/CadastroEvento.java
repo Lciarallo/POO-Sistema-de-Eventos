@@ -177,7 +177,7 @@ public class CadastroEvento extends JFrame {
                         JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
                         limparCampos();
                         setVisible(false);
-                    } 
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
@@ -196,10 +196,10 @@ public class CadastroEvento extends JFrame {
 
                 organizadoresSelecionados = selecaoOrganizadores.getOrganizadoresSelecionados();
                 if (organizadoresSelecionados != null) {
-                    listModel.clear(); // Limpar a lista de organizadores antes de adicionar os selecionados
+                    listModel.clear();
                     organizadoresSelecionados.forEach(listModel::addElement);
                 } else {
-                    listModel.clear(); // Limpar a lista de organizadores caso nenhum seja selecionado
+                    listModel.clear();
                 }
 
                 botaoPesquisarClicado = true;
