@@ -1,0 +1,219 @@
+Index: src/view/aplicacao/Menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.view.aplicacao;\n\nimport javax.swing.BorderFactory;\nimport javax.swing.ImageIcon;\nimport javax.swing.JButton;\nimport javax.swing.JFrame;\nimport javax.swing.JLabel;\nimport javax.swing.JOptionPane;\nimport javax.swing.JPanel;\nimport javax.swing.SwingUtilities;\nimport javax.swing.border.EmptyBorder;\n\nimport src.controller.ControleEventos;\nimport src.model.Evento;\nimport src.view.BuscarEvento;\nimport src.view.cadastroforms.CadastroOrganizador;\nimport src.view.cadastroforms.CadastroParticipante;\nimport src.view.InscricaoEventoForm;\nimport src.view.RegistroPresencaForm;\nimport src.view.cadastroforms.CadastroEvento;\n\nimport java.awt.BorderLayout;\nimport java.awt.FlowLayout;\nimport java.awt.GridLayout;\nimport java.awt.event.ActionEvent;\nimport java.awt.event.ActionListener;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class Menu extends JFrame {\n\n    // -------------- Instância dos Objetos ----------------------\n    ControleEventos cEventos = new ControleEventos();\n    Evento evento = new Evento();\n\n    // ----------- Listas ---------------\n    List<Evento> eventosNaoOcorridos = new ArrayList<>();\n    ArrayList<JButton> botoes = new ArrayList<>();\n\n    // ---------- Variáveis de Controle -----------------------\n    int organizadorCadastrado = 0;\n    int eventoCadastrado = 0;\n    int participanteCadastrado = 0;\n\n    public Menu() {\n\n        setTitle(\"Sistema de Controle de Eventos\");\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        setSize(600, 600);\n\n        ImageIcon imageIcon = new ImageIcon(\"src/img/logo.png\");\n\n        JPanel panel = new JPanel(new FlowLayout(10, 10, 10));\n        panel.setBorder(new EmptyBorder(10, 40, 10, 40));\n\n        JPanel buttonPanel = new JPanel(new GridLayout(0, 2, 12, 12));\n        buttonPanel.setBorder(new EmptyBorder(20, 20, 10, 40));\n\n        JLabel op = new JLabel(\"Escolha uma opção:\");\n        JLabel label = new JLabel(imageIcon);\n        label.checkImage(getIconImage(), 600, 200, label);\n        label.setBorder(new EmptyBorder(10, 20, 10, 20));\n\n        panel.add(label);\n        panel.add(op);\n        panel.add(buttonPanel);\n\n        JButton btnCadastrarOrganizador = new JButton(\"Cadastrar Organizador\");\n        JButton btnCadastrarEvento = new JButton(\"Cadastrar Evento\");\n        JButton btnCadastrarParticipante = new JButton(\"Cadastrar Participante\");\n        JButton btnInscreverParticipante = new JButton(\"Inscrever Participante no Evento\");\n        JButton btnRegistrarPresenca = new JButton(\"Registrar Presença do participante\");\n        JButton btnBuscarEvento = new JButton(\"Buscar por Evento\");\n        JButton btnAgendaEventos = new JButton(\"Agenda de Eventos\");\n        JButton btnRelatorio = new JButton(\"Relatório\");\n\n        botoes.addAll(Arrays.asList(btnCadastrarOrganizador, btnCadastrarEvento, btnCadastrarParticipante,\n                btnInscreverParticipante,\n                btnRegistrarPresenca, btnBuscarEvento, btnAgendaEventos, btnRelatorio));\n\n        for (JButton botao : botoes) {\n            botao.setSelected(true);\n            botao.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));\n            buttonPanel.add(botao);\n        }\n\n        // ------------ Cadastrar Organizador ------------------------\n        btnCadastrarOrganizador.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                CadastroOrganizador cadastroOrganizador = new CadastroOrganizador(evento.getOrganizadores());\n                cadastroOrganizador.setVisible(true);\n                organizadorCadastrado++;\n            }\n        });\n\n        // ----------- Cadastrar Evento -------------------------\n        btnCadastrarEvento.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (organizadorCadastrado > 0) {\n                    CadastroEvento formulario = new CadastroEvento(cEventos.getEventos(), evento.getOrganizadores());\n                    formulario.setVisible(true);\n                    eventoCadastrado++;\n\n                } else {\n                    JOptionPane.showMessageDialog(null, \"Não há organizadores cadastrados!\");\n                }\n\n            }\n\n        });\n\n        // ----------- Cadastrar Participante -------------------------\n        btnCadastrarParticipante.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (eventoCadastrado > 0) {\n                    cEventos.listarEventoCompleto(cEventos.getEventos(), evento.getOrganizadores());\n                    CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());\n                    cadastroParticipante.setVisible(true);\n                    participanteCadastrado++;\n                } else {\n                    JOptionPane.showMessageDialog(null, \"Não há eventos cadastrados!\");\n                }\n\n            }\n        });\n\n        // ----------- Inscrever Participante -------------------------\n        btnInscreverParticipante.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (participanteCadastrado <= 0) {\n                    JOptionPane.showMessageDialog(null, \"Não há participantes disponíveis para inscrição!\");\n                } else {\n\n                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());\n\n                    if (eventosNaoOcorridos.size() <= 0) {\n                        JOptionPane.showMessageDialog(null, \"Não há eventos disponíveis para inscrição!\");\n                    }\n\n                    else {\n\n                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,\n                                evento.getParticipantes());\n                        inscricaoEventoForm.setVisible(true);\n\n                    }\n                }\n            }\n\n        });\n        // ----------- Registrar Presença do Participante -------------------------\n        btnRegistrarPresenca.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (participanteCadastrado <= 0) {\n                    JOptionPane.showMessageDialog(null, \"Não há participantes disponíveis para inscrição de presença!\");\n                }\n                else {\n                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());\n\n                    if (eventosNaoOcorridos.size() <= 0) {\n                        JOptionPane.showMessageDialog(null, \"Não há eventos disponíveis para inscrição!\");\n                    }\n\n\n                    else {\n\n                        RegistroPresencaForm registroPresencaForm = new RegistroPresencaForm(eventosNaoOcorridos,evento.getParticipantes(),evento.getParticipantesPresentes());\n                        registroPresencaForm.setVisible(true);\n\n                    }\n                }\n            }\n\n        });\n        // ----------- Buscar Evento -------------------------\n        btnRegistrarPresenca.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n                if(eventosNaoOcorridos.size() <= 0){\n                    JOptionPane.showMessageDialog(null, \"Não há eventos disponíveis para busca!\");\n                }\n                else {\n                    BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);\n                }\n\n            }\n        });\n\n\n\n\n            getContentPane().add(panel, BorderLayout.CENTER);\n        setLocationRelativeTo(null);\n\n        setVisible(true);\n\n    }\n\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                new Menu();\n            }\n        });\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/view/aplicacao/Menu.java b/src/view/aplicacao/Menu.java
+--- a/src/view/aplicacao/Menu.java	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ b/src/view/aplicacao/Menu.java	(date 1686711262942)
+@@ -184,14 +184,15 @@
+ 
+         });
+         // ----------- Buscar Evento -------------------------
+-        btnRegistrarPresenca.addActionListener(new ActionListener() {
++        btnBuscarEvento.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                if(eventosNaoOcorridos.size() <= 0){
++                if(eventosNaoOcorridos.size() <= -1){
+                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
+                 }
+                 else {
+                     BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
++                    buscarEvento.setVisible(true);
+                 }
+ 
+             }
+Index: out/production/POO-Sistema-de-Eventos/.idea/POO-Sistema-de-Eventos.iml
+===================================================================
+diff --git a/out/production/POO-Sistema-de-Eventos/.idea/POO-Sistema-de-Eventos.iml b/out/production/POO-Sistema-de-Eventos/.idea/POO-Sistema-de-Eventos.iml
+deleted file mode 100644
+--- a/out/production/POO-Sistema-de-Eventos/.idea/POO-Sistema-de-Eventos.iml	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ /dev/null	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
+@@ -1,11 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: out/production/POO-Sistema-de-Eventos/.idea/.gitignore
+===================================================================
+diff --git a/out/production/POO-Sistema-de-Eventos/.idea/.gitignore b/out/production/POO-Sistema-de-Eventos/.idea/.gitignore
+deleted file mode 100644
+--- a/out/production/POO-Sistema-de-Eventos/.idea/.gitignore	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ /dev/null	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: out/production/POO-Sistema-de-Eventos/.idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/out/production/POO-Sistema-de-Eventos/.idea/inspectionProfiles/Project_Default.xml b/out/production/POO-Sistema-de-Eventos/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/out/production/POO-Sistema-de-Eventos/.idea/inspectionProfiles/Project_Default.xml	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ /dev/null	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="HtmlDeprecatedAttribute" enabled="false" level="WARNING" enabled_by_default="false" />
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: out/production/POO-Sistema-de-Eventos/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectModuleManager\">\n    <modules>\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml\" filepath=\"$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml\" />\n    </modules>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/out/production/POO-Sistema-de-Eventos/.idea/modules.xml b/out/production/POO-Sistema-de-Eventos/.idea/modules.xml
+--- a/out/production/POO-Sistema-de-Eventos/.idea/modules.xml	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ b/out/production/POO-Sistema-de-Eventos/.idea/modules.xml	(date 1686694533009)
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" filepath="$PROJECT_DIR$/.idea/POO-Sistema-de-Eventos.iml" />
++      <module fileurl="file://$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" filepath="$PROJECT_DIR$/src/view/aplicacao/.idea/POO-Sistema-de-Eventos.iml" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8\" name=\"Changes\" comment=\"13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/model/participantes/Discente.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/participantes/Discente.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/view/cadastroforms/CadastroParticipante.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/view/cadastroforms/CadastroParticipante.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Ni32GVMsRyz0icvv665zgfvZsg\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"ignore.virus.scanning.warn.message\": \"true\",\n    \"jdk.selected.JAVA_MODULE\": \"19\",\n    \"project.structure.last.edited\": \"Project\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.0\",\n    \"settings.editor.selected.configurable\": \"project.propCompiler\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\danie\\OneDrive\\Documentos\\ADS - IFSC\\UC's 2023.1\\Programação Orientada a Objetos\\POO-Sistema-de-Eventos\\src\\view\\aplicacao\" />\n      <recent name=\"C:\\Users\\luize\\IdeaProjects\\POO-Sistema-de-Eventos\\imagem\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Menu\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8\" name=\"Changes\" comment=\"\" />\n      <created>1680132869128</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1680132869128</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"t\">\n      <created>1680135671513</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680135671513</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"t\">\n      <created>1680136050715</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680136050715</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"t\">\n      <created>1680136261500</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680136261500</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior\">\n      <created>1680186309068</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186309068</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel\">\n      <created>1680186540661</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186540661</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186797779</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186797779</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186855082</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186855082</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186965049</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186965049</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Classe Docente\">\n      <created>1680204553743</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680204553743</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel\">\n      <created>1680266269040</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680266269040</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel\">\n      <created>1680273159017</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680273159018</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel\">\n      <created>1680273563057</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680273563057</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"31/03/2023 - Correção na Main\">\n      <created>1680274133012</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680274133012</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"31/03/2023 - Alteração Eventos\">\n      <created>1680279991385</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680279991385</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"31/03/2023 - Alteração Eventos\">\n      <created>1680290108470</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290108470</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"Correçäo README\">\n      <created>1680290453861</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290453861</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"Correçäo README\">\n      <created>1680290628108</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290628108</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"Correçäo README\">\n      <created>1680293257809</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293257809</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"Correçäo README\">\n      <created>1680293324109</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293324109</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"Correçäo README\">\n      <created>1680293490845</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293490845</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"03/04/2023 - Update mensagens\">\n      <created>1680524922839</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680524922839</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"03/04/2023 - Revisão e testes\">\n      <created>1680525597498</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680525597498</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"03/04/2023 - Revisão e testes\">\n      <created>1680525945728</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680525945728</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior\">\n      <created>1686687438622</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1686687438623</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"13/06/2023 - Criação da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\">\n      <created>1686688021462</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1686688021462</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\">\n      <created>1686692405443</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1686692405443</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"27\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"t\" />\n    <MESSAGE value=\"30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior\" />\n    <MESSAGE value=\"30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"Classe Docente\" />\n    <MESSAGE value=\"31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 - Correção na Main\" />\n    <MESSAGE value=\"31/03/2023 - Alteração Eventos\" />\n    <MESSAGE value=\"Correçäo README\" />\n    <MESSAGE value=\"03/04/2023 - Update mensagens\" />\n    <MESSAGE value=\"03/04/2023 - Revisão e testes\" />\n    <MESSAGE value=\"13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior\" />\n    <MESSAGE value=\"13/06/2023 - Criação da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\" />\n    <MESSAGE value=\"13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ b/.idea/workspace.xml	(date 1686711150065)
+@@ -4,11 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior">
++    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Correção pesquisarEvento()">
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/model/participantes/Discente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/participantes/Discente.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/view/cadastroforms/CadastroParticipante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/cadastroforms/CadastroParticipante.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/.idea/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/.idea/POO-Sistema-de-Eventos.iml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/view/aplicacao/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/aplicacao/Menu.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -24,7 +27,6 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -34,30 +36,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "main",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "jdk.selected.JAVA_MODULE": "19",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "project.propCompiler"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\danie\OneDrive\Documentos\ADS - IFSC\UC's 2023.1\Programação Orientada a Objetos\POO-Sistema-de-Eventos\src\view\aplicacao" />
+       <recent name="C:\Users\luize\IdeaProjects\POO-Sistema-de-Eventos\imagem" />
+     </key>
+-  </component>
+-  <component name="RunManager">
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="Application.Menu" />
+-      </list>
+-    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -250,7 +245,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1686692405443</updated>
+     </task>
+-    <option name="localTasksCounter" value="27" />
++    <task id="LOCAL-00027" summary="Correção pesquisarEvento()">
++      <created>1686697013084</created>
++      <option name="number" value="00027" />
++      <option name="presentableId" value="LOCAL-00027" />
++      <option name="project" value="LOCAL" />
++      <updated>1686697013084</updated>
++    </task>
++    <option name="localTasksCounter" value="28" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -281,6 +283,12 @@
+     <MESSAGE value="13/06/2023 - Atualização da Classe Docente na Model&#10;&#10;By Daniel José Martins Junior" />
+     <MESSAGE value="13/06/2023 - Criação da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior" />
+     <MESSAGE value="13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior" />
+-    <option name="LAST_COMMIT_MESSAGE" value="13/06/2023 - Alteração da Classe CadastroDiscente&#10;&#10;by Daniel José Martins Junior" />
++    <MESSAGE value="Correção pesquisarEvento()" />
++    <option name="LAST_COMMIT_MESSAGE" value="Correção pesquisarEvento()" />
++  </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/POO_Sistema_de_Eventos$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1686184276560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>src.model.*</FILTER>
++    </SUITE>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" project-jdk-name=\"19\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 7a9fa00c4e72a94fffa162f6b3c515ebed4e7f64)
++++ b/.idea/misc.xml	(date 1686696134099)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="19" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos" />
+   </component>
+ </project>
+\ No newline at end of file

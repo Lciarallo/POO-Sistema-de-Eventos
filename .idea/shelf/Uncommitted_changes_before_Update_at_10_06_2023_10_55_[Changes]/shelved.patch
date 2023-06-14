@@ -1,0 +1,776 @@
+Index: src/views/RegistrarPresenca.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/RegistrarPresenca.java b/src/view/RegistrarPresenca.java
+rename from src/views/RegistrarPresenca.java
+rename to src/view/RegistrarPresenca.java
+--- a/src/views/RegistrarPresenca.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/RegistrarPresenca.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.views;
++package src.view;
+ 
+ public class RegistrarPresenca {
+     
+Index: src/model/Evento.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.model;\n\nimport java.time.LocalDate;\nimport java.time.format.DateTimeFormatter;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport javax.swing.JOptionPane;\n\nimport src.participantes.Organizador;\n\npublic class Evento {\n\n    // Atributos da Classe Evento\n    private String nome;\n    private String titulo;\n    private String data_inicio;\n    private String data_fim;\n    private String local;\n    private String horario_inicio;\n    private String carga_horaria;\n    private String descricao;\n    private String categoria;\n    private int limite_participantes;\n\n    private List<Participante> participantes = new ArrayList<>();\n    private List<Participante> participantesPresentes = new ArrayList<>();\n    private List<Organizador> organizadores = new ArrayList<>();\n    private Participante participante;\n\n    // Método Construtor\n\n    public Evento() {\n\n    }\n\n    public Evento(String nome, String titulo, String descricao,\n            String categoria, String local, String data_inicio, String data_fim,\n            String horario_inicio, String carga_horaria, int limite_participantes) {\n        this.nome = nome;\n        this.titulo = titulo;\n        this.data_inicio = data_inicio;\n        this.data_fim = data_fim;\n        this.local = local;\n        this.horario_inicio = horario_inicio;\n        this.carga_horaria = carga_horaria;\n        this.descricao = descricao;\n        this.categoria = categoria;\n        this.limite_participantes = limite_participantes;\n    }\n\n    // Métodos getters e setters da Classe Evento\n    public String getNome() {\n        return nome;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public String getTitulo() {\n        return titulo;\n    }\n\n    public void setTitulo(String titulo) {\n        this.titulo = titulo;\n    }\n\n    public String getData_inicio() {\n        return data_inicio;\n    }\n\n    public void setData_inicio(String data_inicio) {\n        this.data_inicio = data_inicio;\n    }\n\n    public String getData_fim() {\n        return data_fim;\n    }\n\n    public void setData_fim(String data_fim) {\n        this.data_fim = data_fim;\n    }\n\n    public String getLocal() {\n        return local;\n    }\n\n    public void setLocal(String local) {\n        this.local = local;\n    }\n\n    public String getHorario_inicio() {\n        return horario_inicio;\n    }\n\n    public void setHorario_inicio(String horario_inicio) {\n        this.horario_inicio = horario_inicio;\n    }\n\n    public String getCarga_horaria() {\n        return carga_horaria;\n    }\n\n    public void setCarga_horaria(String carga_horaria) {\n        this.carga_horaria = carga_horaria;\n    }\n\n    public String getDescricao() {\n        return descricao;\n    }\n\n    public void setDescricao(String descricao) {\n        this.descricao = descricao;\n    }\n\n    public String getCategoria() {\n        return categoria;\n    }\n\n    public void setCategoria(String categoria) {\n        this.categoria = categoria;\n    }\n\n    public int getLimite_participantes() {\n        return limite_participantes;\n    }\n\n    public void setLimite_participantes(int limite_participantes) {\n        this.limite_participantes = limite_participantes;\n    }\n\n    public List<Participante> getParticipantes() {\n        return participantes;\n    }\n\n    public void setParticipantes(List<Participante> participantes) {\n        this.participantes = participantes;\n    }\n\n    public List<Organizador> getOrganizadores() {\n        return organizadores;\n    }\n\n    public void setOrganizadores(List<Organizador> organizadores) {\n        this.organizadores = organizadores;\n    }\n\n    public boolean validarEvento() {\n        boolean valido = true;\n\n        LocalDate dataAtual = LocalDate.now();\n\n        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\n\n        LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);\n\n        if (dataInicio.isBefore(dataAtual)) {\n            valido = false;\n        }\n\n        if (valido) {\n            return true;\n        } else {\n            return false;\n        }\n\n    }\n\n    // Registrar Presença\n\n    public void registrarPresenca() {\n        String i;\n        participante.listarParticipantes(participantes);\n        i = JOptionPane.showInputDialog(\"Insira o cpf do participante:\");\n        for (Participante participante : participantesPresentes){\n            if (i.equals(participante.getCpf())){\n                participantesPresentes.add(participante);\n            }\n        }\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/model/Evento.java b/src/model/Evento.java
+--- a/src/model/Evento.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/Evento.java	(date 1686405218348)
+@@ -7,7 +7,7 @@
+ 
+ import javax.swing.JOptionPane;
+ 
+-import src.participantes.Organizador;
++import src.model.participantes.Organizador;
+ 
+ public class Evento {
+ 
+@@ -146,6 +146,14 @@
+         this.organizadores = organizadores;
+     }
+ 
++    public List<Participante> getParticipantesPresentes() {
++        return participantesPresentes;
++    }
++
++    public void setParticipantesPresentes(List<Participante> participantesPresentes) {
++        this.participantesPresentes = participantesPresentes;
++    }
++
+     public boolean validarEvento() {
+         boolean valido = true;
+ 
+@@ -155,7 +163,7 @@
+ 
+         LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);
+ 
+-        if (dataInicio.isBefore(dataAtual)) {
++        if (dataInicio.isBefore(dataAtual) || getLimite_participantes() <= getParticipantes().size()) {
+             valido = false;
+         }
+ 
+@@ -173,8 +181,8 @@
+         String i;
+         participante.listarParticipantes(participantes);
+         i = JOptionPane.showInputDialog("Insira o cpf do participante:");
+-        for (Participante participante : participantesPresentes){
+-            if (i.equals(participante.getCpf())){
++        for (Participante participante : participantesPresentes) {
++            if (i.equals(participante.getCpf())) {
+                 participantesPresentes.add(participante);
+             }
+         }
+Index: src/views/BuscarEvento.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/BuscarEvento.java b/src/view/BuscarEvento.java
+rename from src/views/BuscarEvento.java
+rename to src/view/BuscarEvento.java
+--- a/src/views/BuscarEvento.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/BuscarEvento.java	(date 1686405218348)
+@@ -1,5 +1,5 @@
+-package src.views;
++package src.view;
+ 
+ public class BuscarEvento {
+-    
++
+ }
+Index: .vscode/launch.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n    // Use o IntelliSense para saber mais sobre os atributos possíveis.\n    // Focalizar para exibir as descrições dos atributos existentes.\n    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387\n    \"version\": \"0.2.0\",\n    \"configurations\": [\n        {\n            \"type\": \"java\",\n            \"name\": \"Menu\",\n            \"request\": \"launch\",\n            \"mainClass\": \"src.model.Menu\",\n            \"projectName\": \"POO-Sistema-de-Eventos_a698f5c9\"\n        },\n        {\n            \"type\": \"java\",\n            \"name\": \"Current File\",\n            \"request\": \"launch\",\n            \"mainClass\": \"${file}\"\n        },\n        {\n            \"type\": \"java\",\n            \"name\": \"Menu\",\n            \"request\": \"launch\",\n            \"mainClass\": \"src.aplicacao.Menu\",\n            \"projectName\": \"POO-Sistema-de-Eventos_a698f5c9\"\n        },\n        {\n            \"type\": \"java\",\n            \"name\": \"CadastroEvento\",\n            \"request\": \"launch\",\n            \"mainClass\": \"src.views.cadastroforms.CadastroEvento\",\n            \"projectName\": \"POO-Sistema-de-Eventos_a698f5c9\"\n        }\n    ]\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+--- a/.vscode/launch.json	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/.vscode/launch.json	(date 1686405218348)
+@@ -5,6 +5,34 @@
+     "version": "0.2.0",
+     "configurations": [
+         {
++            "type": "java",
++            "name": "Menu",
++            "request": "launch",
++            "mainClass": "src.view.aplicacao.Menu",
++            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
++        },
++        {
++            "type": "java",
++            "name": "Menu",
++            "request": "launch",
++            "mainClass": "src.views.aplicacao.Menu",
++            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
++        },
++        {
++            "type": "java",
++            "name": "Menu",
++            "request": "launch",
++            "mainClass": "src.views.Aplicacao.Menu",
++            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
++        },
++        {
++            "type": "java",
++            "name": "Menu",
++            "request": "launch",
++            "mainClass": "src.views.Menu",
++            "projectName": "POO-Sistema-de-Eventos_a698f5c9"
++        },
++        {
+             "type": "java",
+             "name": "Menu",
+             "request": "launch",
+Index: src/views/SelecaoOrganizadores.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/SelecaoOrganizadores.java b/src/view/SelecaoOrganizadores.java
+rename from src/views/SelecaoOrganizadores.java
+rename to src/view/SelecaoOrganizadores.java
+--- a/src/views/SelecaoOrganizadores.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/SelecaoOrganizadores.java	(date 1686405218348)
+@@ -1,8 +1,8 @@
+-package src.views;
++package src.view;
+ 
+ import javax.swing.*;
+ 
+-import src.participantes.Organizador;
++import src.model.participantes.Organizador;
+ 
+ import java.awt.*;
+ import java.awt.event.ActionEvent;
+@@ -41,7 +41,13 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 organizadoresSelecionados = list.getSelectedValuesList();
+-                dispose();
++
++                if (organizadoresSelecionados.isEmpty()) {
++                    JOptionPane.showMessageDialog(SelecaoOrganizadores.this, "Selecione pelo menos um organizador.",
++                            "Aviso", JOptionPane.WARNING_MESSAGE);
++                } else {
++                    dispose();
++                }
+             }
+         });
+ 
+Index: src/views/InscricaoEventoForm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/InscricaoEventoForm.java b/src/view/InscricaoEvento.java
+rename from src/views/InscricaoEventoForm.java
+rename to src/view/InscricaoEvento.java
+--- a/src/views/InscricaoEventoForm.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/InscricaoEvento.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.views;
++package src.view;
+ 
+ import javax.swing.BorderFactory;
+ import javax.swing.DefaultComboBoxModel;
+@@ -20,12 +20,12 @@
+ import java.awt.Insets;
+ import java.util.List;
+ 
+-public class InscricaoEventoForm extends JFrame {
++public class InscricaoEvento extends JFrame {
+ 
+     private static JComboBox<String> fieldEventos;
+     private static JComboBox<String> fieldParticipantes;
+ 
+-    public InscricaoEventoForm(List<Evento> eventos, List<Participante> participantes) {
++    public InscricaoEvento(List<Evento> eventos, List<Participante> participantes) {
+ 
+         setTitle("Inscrição de Participantes");
+ 
+Index: src/model/Menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/model/Menu.java b/src/view/aplicacao/Menu.java
+rename from src/model/Menu.java
+rename to src/view/aplicacao/Menu.java
+--- a/src/model/Menu.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/aplicacao/Menu.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.model;
++package src.view.aplicacao;
+ 
+ import javax.swing.BorderFactory;
+ import javax.swing.ImageIcon;
+@@ -11,10 +11,11 @@
+ import javax.swing.border.EmptyBorder;
+ 
+ import src.controller.ControleEventos;
+-import src.views.InscricaoEventoForm;
+-import src.views.cadastroforms.CadastroEvento;
+-import src.views.cadastroforms.CadastroOrganizador;
+-import src.views.cadastroforms.CadastroParticipante;
++import src.model.Evento;
++import src.view.InscricaoEvento;
++import src.view.cadastroforms.CadastroEvento;
++import src.view.cadastroforms.CadastroOrganizador;
++import src.view.cadastroforms.CadastroParticipante;
+ 
+ import java.awt.BorderLayout;
+ import java.awt.FlowLayout;
+@@ -32,7 +33,7 @@
+     Evento evento = new Evento();
+ 
+     // ----------- Listas ---------------
+-    List<Evento> eventosNaoOcorridos = new ArrayList<>();
++    List<Evento> eventosDisponiveis = new ArrayList<>();
+     ArrayList<JButton> botoes = new ArrayList<>();
+ 
+     // ---------- Variáveis de Controle -----------------------
+@@ -137,15 +138,15 @@
+                     JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição!");
+                 } else {
+ 
+-                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
++                    eventosDisponiveis = cEventos.listarEventosDisponivelParaInscricao(cEventos.getEventos());
+ 
+-                    if (eventosNaoOcorridos.size() <= 0) {
++                    if (eventosDisponiveis.size() <= 0) {
+                         JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
+                     }
+ 
+                     else {
+ 
+-                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
++                        InscricaoEvento inscricaoEventoForm = new InscricaoEvento(eventosDisponiveis,
+                                 evento.getParticipantes());
+                         inscricaoEventoForm.setVisible(true);
+ 
+Index: src/views/cadastroforms/CadastroOrganizador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/cadastroforms/CadastroOrganizador.java b/src/view/cadastroforms/CadastroOrganizador.java
+rename from src/views/cadastroforms/CadastroOrganizador.java
+rename to src/view/cadastroforms/CadastroOrganizador.java
+--- a/src/views/cadastroforms/CadastroOrganizador.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/cadastroforms/CadastroOrganizador.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.views.cadastroforms;
++package src.view.cadastroforms;
+ 
+ import java.awt.Dimension;
+ import java.awt.GridBagConstraints;
+@@ -13,11 +13,12 @@
+ import javax.swing.JOptionPane;
+ import javax.swing.JPanel;
+ import javax.swing.JTextField;
++
++import src.model.participantes.Organizador;
++
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ 
+-import src.participantes.Organizador;
+-
+ public class CadastroOrganizador extends JFrame {
+ 
+     private JTextField textFieldNome;
+@@ -97,10 +98,17 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                cadastrarOrganizador(organizadores);
+-                JOptionPane.showMessageDialog(null, "Organizador cadastrado com sucesso!");
+-                limparCampos();
+-                setVisible(false);
++                if (validarCampos()) {
++
++                    cadastrarOrganizador(organizadores);
++                    JOptionPane.showMessageDialog(null, "Organizador cadastrado com sucesso!");
++                    limparCampos();
++                    setVisible(false);
++                } else {
++                    JOptionPane.showMessageDialog(CadastroOrganizador.this, "Preencha todos os campos.", "Aviso",
++                            JOptionPane.WARNING_MESSAGE);
++                }
++
+             }
+         });
+ 
+@@ -111,11 +119,33 @@
+     }
+ 
+     private void limparCampos() {
++        textFieldNome.setText("");
++        textFieldData_nascimento.setText("");
++        textFieldCpf.setText("");
+         textFieldDepartamento.setText("");
+         textFieldArea_de_atuacao.setText("");
+ 
+     }
+ 
++    private boolean validarCampos() {
++        if (textFieldNome.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldData_nascimento.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldCpf.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldDepartamento.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldArea_de_atuacao.getText().isEmpty()) {
++            return false;
++        }
++        return true;
++    }
++
+     public void cadastrarOrganizador(List<Organizador> organizadores) {
+ 
+         String nome = textFieldNome.getText();
+Index: src/views/cadastroforms/CadastroEvento.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/cadastroforms/CadastroEvento.java b/src/view/cadastroforms/CadastroEvento.java
+rename from src/views/cadastroforms/CadastroEvento.java
+rename to src/view/cadastroforms/CadastroEvento.java
+--- a/src/views/cadastroforms/CadastroEvento.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/cadastroforms/CadastroEvento.java	(date 1686405218348)
+@@ -1,10 +1,10 @@
+-package src.views.cadastroforms;
++package src.view.cadastroforms;
+ 
+ import javax.swing.*;
+ 
+ import src.model.Evento;
+-import src.participantes.Organizador;
+-import src.views.SelecaoOrganizadores;
++import src.model.participantes.Organizador;
++import src.view.SelecaoOrganizadores;
+ 
+ import java.awt.*;
+ import java.awt.event.ActionEvent;
+@@ -30,6 +30,7 @@
+     private List<Organizador> organizadoresSelecionados;
+ 
+     private SelecaoOrganizadores selecaoOrganizadores;
++    private boolean botaoPesquisarClicado = false;
+ 
+     public CadastroEvento(List<Evento> eventos, List<Organizador> organizadores) {
+ 
+@@ -168,13 +169,22 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                if (cadastrarEvento(eventos)) {
+-                    JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
+-                    limparCampos();
+-                } else {
+-                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar Evento!");
++                if (validarCampos() && botaoPesquisarClicado) {
++
++                    if (cadastrarEvento(eventos)) {
++                        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
++                        limparCampos();
++                        setVisible(false);
++                    } else {
++                        JOptionPane.showMessageDialog(CadastroEvento.this, "Insira uma data válida!",
++                                "Erro ao cadastrar evento",
++                                JOptionPane.WARNING_MESSAGE);
++                    }
++
++                } else {
++                    JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",
++                            JOptionPane.WARNING_MESSAGE);
+                 }
+-                setVisible(false);
+ 
+             }
+         });
+@@ -194,6 +204,8 @@
+                     listModel.clear(); // Limpar a lista de organizadores caso nenhum seja selecionado
+                 }
+ 
++                botaoPesquisarClicado = true;
++
+             }
+         });
+ 
+@@ -216,6 +228,43 @@
+ 
+     }
+ 
++    private boolean validarCampos() {
++        if (textFieldNome.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldTitulo.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldDescricao.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldCategoria.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldLocal.getText().isEmpty()) {
++            return false;
++        }
++
++        if (textFieldData_inicio.getText().isEmpty()) {
++            return false;
++        }
++
++        if (textFieldData_fim.getText().isEmpty()) {
++            return false;
++        }
++
++        if (textFieldHorario_inicio.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldCarga_horaria.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldLimite_participantes.getText().isEmpty()) {
++            return false;
++        }
++        return true;
++    }
++
+     public boolean cadastrarEvento(List<Evento> eventos) {
+ 
+         String nome = textFieldNome.getText();
+@@ -234,7 +283,6 @@
+                 carga_horaria, limite);
+ 
+         if (evento.validarEvento()) {
+-
+             evento.getOrganizadores().addAll(organizadoresSelecionados);
+             eventos.add(evento);
+             return true;
+Index: src/views/cadastroforms/CadastroParticipante.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/cadastroforms/CadastroParticipante.java b/src/view/cadastroforms/CadastroParticipante.java
+rename from src/views/cadastroforms/CadastroParticipante.java
+rename to src/view/cadastroforms/CadastroParticipante.java
+--- a/src/views/cadastroforms/CadastroParticipante.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/cadastroforms/CadastroParticipante.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.views.cadastroforms;
++package src.view.cadastroforms;
+ 
+ import java.awt.Dimension;
+ import java.awt.GridBagConstraints;
+Index: src/views/cadastroforms/CadastroDocente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/cadastroforms/CadastroDocente.java b/src/view/cadastroforms/CadastroDocente.java
+rename from src/views/cadastroforms/CadastroDocente.java
+rename to src/view/cadastroforms/CadastroDocente.java
+--- a/src/views/cadastroforms/CadastroDocente.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/view/cadastroforms/CadastroDocente.java	(date 1686405218348)
+@@ -1,7 +1,7 @@
+-package src.views.cadastroforms;
++package src.view.cadastroforms;
+ 
+ import src.model.Participante;
+-import src.participantes.Docente;
++import src.model.participantes.Docente;
+ 
+ import javax.swing.*;
+ import java.awt.*;
+@@ -123,10 +123,17 @@
+         buttonCadastrar.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                CadastrarDocente(participantes);
+-                JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
+-                limparCampos();
+-                setVisible(false);
++
++                if (validarCampos()) {
++                    CadastrarDocente(participantes);
++                    JOptionPane.showMessageDialog(null, "Docente cadastrado com sucesso!");
++                    limparCampos();
++                    setVisible(false);
++                } else {
++                    JOptionPane.showMessageDialog(CadastroDocente.this, "Preencha todos os campos.", "Aviso",
++                            JOptionPane.WARNING_MESSAGE);
++                }
++
+             }
+         });
+ 
+@@ -147,6 +154,31 @@
+ 
+     }
+ 
++    private boolean validarCampos() {
++        if (textFieldNome.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldTitulo.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldData_de_nascimento.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldCpf.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldTurno.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldCarga_horaria.getText().isEmpty()) {
++            return false;
++        }
++        if (textFieldEspecializacao.getText().isEmpty()) {
++            return false;
++        }
++        return true;
++    }
++
+     public void CadastrarDocente(List<Participante> participantes) {
+         String nome = textFieldNome.getText();
+         String titulo = textFieldTitulo.getText();
+Index: src/participantes/Organizador.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/participantes/Organizador.java b/src/model/participantes/Organizador.java
+rename from src/participantes/Organizador.java
+rename to src/model/participantes/Organizador.java
+--- a/src/participantes/Organizador.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/participantes/Organizador.java	(date 1686405218348)
+@@ -1,7 +1,6 @@
+-package src.participantes;
++package src.model.participantes;
+ 
+ import java.util.List;
+-import java.util.Objects;
+ 
+ import javax.swing.JOptionPane;
+ 
+@@ -48,21 +47,4 @@
+         }
+     }
+ 
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o)
+-            return true;
+-        if (o == null || getClass() != o.getClass())
+-            return false;
+-        if (!super.equals(o))
+-            return false;
+-        Organizador that = (Organizador) o;
+-        return Objects.equals(getNome(), that.getNome());
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(super.hashCode(), getNome());
+-    }
+-
+ }
+Index: src/participantes/Docente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/participantes/Docente.java b/src/model/participantes/Docente.java
+rename from src/participantes/Docente.java
+rename to src/model/participantes/Docente.java
+--- a/src/participantes/Docente.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/participantes/Docente.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.participantes;
++package src.model.participantes;
+ 
+ import java.util.List;
+ 
+@@ -6,8 +6,6 @@
+ 
+ import src.model.Participante;
+ 
+-//Impelmentar Herança com Participante
+-
+ public class Docente extends Participante {
+ 
+     // Atributos da classe Docente
+Index: src/controller/ControleEventos.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.controller;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport javax.swing.JOptionPane;\n\nimport src.model.Evento;\nimport src.model.Participante;\nimport src.participantes.Organizador;\n\npublic class ControleEventos {\n\n    private List<Evento> eventos = new ArrayList<>();\n\n    // Métodos\n\n    public List<Evento> getEventos() {\n        return eventos;\n    }\n\n    public void listarEventoCompleto(List<Evento> eventos, List<Organizador> organizadores) {\n\n        for (Evento e : eventos) {\n            String aux = \"\\nIndice: \" + eventos.indexOf(e) + \"\\nNome: \" + e.getNome() + \"\\nTítulo: \" + e.getTitulo()\n                    + \"\\nDescrição: \" + e.getDescricao()\n                    + \"\\nCategoria: \" + e.getCategoria() + \"\\nLocal: \" + e.getLocal() + \"\\nData de início: \"\n                    + e.getData_inicio() + \"\\nData de encerramento:\" + e.getData_fim()\n                    + \"\\nHorário: \" + e.getHorario_inicio() + \"h\" + \"\\nCarga Horária: \" + e.getCarga_horaria() + \"h\"\n                    + \"\\nLimite de Participantes: \" + e.getLimite_participantes() + \"\\n\";\n\n            String x = \"\\nOrganizadores:\";\n            List<Organizador> organizadoresAssociados = e.getOrganizadores();\n            for (Organizador o : organizadoresAssociados) {\n                x += \"\\n\" + o.getNome();\n            }\n\n            JOptionPane.showMessageDialog(null, \"Lista de Eventos:\\n\" + aux + x + \"\\n\");\n        }\n\n    }\n\n    public void listarEventos(List<Evento> eventos) {\n\n        String aux = \"\";\n        for (Evento e : eventos) {\n            aux = aux + eventos.indexOf(e) + \" \" + e.getNome() + \" \" + e.getData_inicio() + \"\\n\";\n        }\n\n        JOptionPane.showMessageDialog(null,\n                \"Lista de Eventos:\\n\" + aux);\n    }\n\n    public List<Evento> listarEventosNaoOcorridos(List<Evento> eventos) {\n\n        List<Evento> eventosNaoOcorridos = new ArrayList<>();\n        for (Evento e : eventos) {\n\n            if (e.validarEvento()) {\n                eventosNaoOcorridos.add(e);\n            }\n        }\n\n        if (eventosNaoOcorridos.size() > 0) {\n\n            listarEventos(eventosNaoOcorridos);\n        }\n\n        return eventosNaoOcorridos;\n    }\n\n    public void ListarEventoComParticipantes(List<Evento> eventos) {\n        for (Evento evento : eventos) {\n\n            for (Participante participante : evento.getParticipantes()) {\n                JOptionPane.showMessageDialog(null, \"Evento: \" + evento.getNome() + \"\\n\"\n                        + \"Participantes: \" + participante.getNome());\n            }\n        }\n    }\n\n    // Buscar Evento\n\n    public void pesquisarEvento(List<Evento> eventos) {\n        String pesquisa;\n        pesquisa = JOptionPane.showInputDialog(\"Insira o nome do evento que queira pesquisar:\");\n        for (Evento evento : eventos) {\n            if (pesquisa.equals(evento.getNome())) {\n                JOptionPane.showMessageDialog(null, \"Evento: \" + evento.getNome() + \"\\n\");\n            }\n        }\n    }\n\n    // Gerar Relatório\n\n    // Agenda de Eventos\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/controller/ControleEventos.java b/src/controller/ControleEventos.java
+--- a/src/controller/ControleEventos.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/controller/ControleEventos.java	(date 1686405218348)
+@@ -7,7 +7,7 @@
+ 
+ import src.model.Evento;
+ import src.model.Participante;
+-import src.participantes.Organizador;
++import src.model.participantes.Organizador;
+ 
+ public class ControleEventos {
+ 
+@@ -51,22 +51,22 @@
+                 "Lista de Eventos:\n" + aux);
+     }
+ 
+-    public List<Evento> listarEventosNaoOcorridos(List<Evento> eventos) {
++    public List<Evento> listarEventosDisponivelParaInscricao(List<Evento> eventos) {
+ 
+-        List<Evento> eventosNaoOcorridos = new ArrayList<>();
++        List<Evento> eventosDisponiveis = new ArrayList<>();
+         for (Evento e : eventos) {
+ 
+             if (e.validarEvento()) {
+-                eventosNaoOcorridos.add(e);
++                eventosDisponiveis.add(e);
+             }
+         }
+ 
+-        if (eventosNaoOcorridos.size() > 0) {
++        if (eventosDisponiveis.size() > 0) {
+ 
+-            listarEventos(eventosNaoOcorridos);
++            listarEventos(eventosDisponiveis);
+         }
+ 
+-        return eventosNaoOcorridos;
++        return eventosDisponiveis;
+     }
+ 
+     public void ListarEventoComParticipantes(List<Evento> eventos) {
+@@ -79,7 +79,15 @@
+         }
+     }
+ 
+-    // Buscar Evento
++    public void ListarEventoComParticipantesPresentes(List<Evento> eventos) {
++        for (Evento evento : eventos) {
++
++            for (Participante participante : evento.getParticipantesPresentes()) {
++                JOptionPane.showMessageDialog(null, "Evento: " + evento.getNome() + "\n"
++                        + "Participantes Presentes: " + participante.getNome());
++            }
++        }
++    }
+ 
+     public void pesquisarEvento(List<Evento> eventos) {
+         String pesquisa;
+Index: src/participantes/Discente.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/participantes/Discente.java b/src/model/participantes/Discente.java
+rename from src/participantes/Discente.java
+rename to src/model/participantes/Discente.java
+--- a/src/participantes/Discente.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/participantes/Discente.java	(date 1686405218348)
+@@ -1,4 +1,4 @@
+-package src.participantes;
++package src.model.participantes;
+ 
+ import javax.swing.*;
+ 
+@@ -64,7 +64,7 @@
+     }
+ 
+     // Métodos da Classe Discente
+-    public void cadastrarDiscente(){
++    public void cadastrarDiscente() {
+         setNome(JOptionPane.showInputDialog("Digite o nome do discente:"));
+         setDataNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do discente:"));
+         setCpf(JOptionPane.showInputDialog("Digite o número de CPF do discente:"));
+@@ -74,14 +74,14 @@
+         JOptionPane.showMessageDialog(null, "Discente cadastrado com sucesso!");
+     }
+ 
+-    public void mostrarDiscente(){
++    public void mostrarDiscente() {
+         JOptionPane.showMessageDialog(null,
+                 "\nDados do Discente:\n" +
+-                        "Nome: "+ getNome() +"\n" +
++                        "Nome: " + getNome() + "\n" +
+                         "Data de nascimento: " + getDataNascimento() + "\n" +
+-                        "CPF: "+ getCpf() +"\n" +
+-                        "Número de matrícula: "+ getNumeroMatricula() +"\n" +
+-                        "Curso: "+ getCurso() +"\n" +
+-                        "Turno: "+ getTurno() +"\n");
++                        "CPF: " + getCpf() + "\n" +
++                        "Número de matrícula: " + getNumeroMatricula() + "\n" +
++                        "Curso: " + getCurso() + "\n" +
++                        "Turno: " + getTurno() + "\n");
+     }
+ }
+Index: src/model/Participante.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.model;\n\nimport java.util.List;\nimport java.util.Objects;\n\nimport javax.swing.JOptionPane;\n\npublic class Participante {\n\n    private String nome;\n    private String data_de_nascimento;\n    private String cpf;\n\n    // Método Construtor\n    public Participante(String nome, String data_de_nascimento, String cpf) {\n        this.nome = nome;\n        this.data_de_nascimento = data_de_nascimento;\n        this.cpf = cpf;\n    }\n\n    // Métodos Getters e Setters\n    public String getNome() {\n        return nome;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public String getData_de_nascimento() {\n        return data_de_nascimento;\n    }\n\n    public void setData_de_nascimento(String data_de_nascimento) {\n        this.data_de_nascimento = data_de_nascimento;\n    }\n\n    public String getCpf() {\n        return cpf;\n    }\n\n    public void setCpf(String cpf) {\n        this.cpf = cpf;\n    }\n\n    // Métodos\n    public void listarParticipantes(List<? extends Participante> participantes) {\n\n        for (Participante p : participantes) {\n            JOptionPane.showMessageDialog(null,\n                    \"Participantes:\\nNome: \" + p.getNome() + \"\\n\"\n                            + \"Data de nascimento: \" + p.getData_de_nascimento() + \"\\n\"\n                            + \"CPF: \" + p.getCpf());\n        }\n    }\n\n    // Para conseguir selecionar mais de um organizador\n    @Override\n    public boolean equals(Object o) {\n        if (this == o)\n            return true;\n        if (o == null || getClass() != o.getClass())\n            return false;\n        Participante participante = (Participante) o;\n        ;\n        return Objects.equals(nome, participante.nome);\n    }\n\n    @Override\n    public int hashCode() {\n        return Objects.hash(nome);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/model/Participante.java b/src/model/Participante.java
+--- a/src/model/Participante.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/Participante.java	(date 1686405218348)
+@@ -1,8 +1,6 @@
+ package src.model;
+ 
+ import java.util.List;
+-import java.util.Objects;
+-
+ import javax.swing.JOptionPane;
+ 
+ public class Participante {
+@@ -54,20 +52,4 @@
+         }
+     }
+ 
+-    // Para conseguir selecionar mais de um organizador
+-    @Override
+-    public boolean equals(Object o) {
+-        if (this == o)
+-            return true;
+-        if (o == null || getClass() != o.getClass())
+-            return false;
+-        Participante participante = (Participante) o;
+-        ;
+-        return Objects.equals(nome, participante.nome);
+-    }
+-
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(nome);
+-    }
+ }

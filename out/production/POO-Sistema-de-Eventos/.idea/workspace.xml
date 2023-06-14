@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Criação de interface gráfica registroPresencaForm.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BuscarEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BuscarEvento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistrarPresenca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SelecaoOrganizadores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/registroPresencaForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/RegistroPresencaForm.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Ni32GVMsRyz0icvv665zgfvZsg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\luize\IdeaProjects\POO-Sistema-de-Eventos\imagem" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="" />
+      <created>1680132869128</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680132869128</updated>
+    </task>
+    <task id="LOCAL-00001" summary="t">
+      <created>1680135671513</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680135671513</updated>
+    </task>
+    <task id="LOCAL-00002" summary="t">
+      <created>1680136050715</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680136050715</updated>
+    </task>
+    <task id="LOCAL-00003" summary="t">
+      <created>1680136261500</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680136261500</updated>
+    </task>
+    <task id="LOCAL-00004" summary="30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior">
+      <created>1680186309068</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186309068</updated>
+    </task>
+    <task id="LOCAL-00005" summary="30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel">
+      <created>1680186540661</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186540661</updated>
+    </task>
+    <task id="LOCAL-00006" summary="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel">
+      <created>1680186797779</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186797779</updated>
+    </task>
+    <task id="LOCAL-00007" summary="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel">
+      <created>1680186855082</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186855082</updated>
+    </task>
+    <task id="LOCAL-00008" summary="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel">
+      <created>1680186965049</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680186965049</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Classe Docente">
+      <created>1680204553743</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680204553743</updated>
+    </task>
+    <task id="LOCAL-00010" summary="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel">
+      <created>1680266269040</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680266269040</updated>
+    </task>
+    <task id="LOCAL-00011" summary="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel">
+      <created>1680273159017</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680273159018</updated>
+    </task>
+    <task id="LOCAL-00012" summary="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel">
+      <created>1680273563057</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680273563057</updated>
+    </task>
+    <task id="LOCAL-00013" summary="31/03/2023 - Correção na Main">
+      <created>1680274133012</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680274133012</updated>
+    </task>
+    <task id="LOCAL-00014" summary="31/03/2023 - Alteração Eventos">
+      <created>1680279991385</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680279991385</updated>
+    </task>
+    <task id="LOCAL-00015" summary="31/03/2023 - Alteração Eventos">
+      <created>1680290108470</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680290108470</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Correçäo README">
+      <created>1680290453861</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680290453861</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Correçäo README">
+      <created>1680290628108</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680290628108</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Correçäo README">
+      <created>1680293257809</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680293257809</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Correçäo README">
+      <created>1680293324109</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680293324109</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Correçäo README">
+      <created>1680293490845</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680293490845</updated>
+    </task>
+    <task id="LOCAL-00021" summary="03/04/2023 - Update mensagens">
+      <created>1680524922839</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680524922839</updated>
+    </task>
+    <task id="LOCAL-00022" summary="03/04/2023 - Revisão e testes">
+      <created>1680525597498</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680525597498</updated>
+    </task>
+    <task id="LOCAL-00023" summary="03/04/2023 - Revisão e testes">
+      <created>1680525945728</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680525945728</updated>
+    </task>
+    <task id="LOCAL-00024" summary="31/05/2023 Adição do cadastro docente e alteralção da classe docente.">
+      <created>1685578513019</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685578513019</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Adição da função registrarPresença() em Evento.">
+      <created>1686011248511</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686011248511</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Adição da função pesquisarEvento() em ControleEvento.">
+      <created>1686012679875</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686012679875</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Criação de interface gráfica registroPresencaForm.java">
+      <created>1686405447107</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686405447107</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="t" />
+    <MESSAGE value="30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior" />
+    <MESSAGE value="30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="Classe Docente" />
+    <MESSAGE value="31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel" />
+    <MESSAGE value="31/03/2023 - Correção na Main" />
+    <MESSAGE value="31/03/2023 - Alteração Eventos" />
+    <MESSAGE value="Correçäo README" />
+    <MESSAGE value="03/04/2023 - Update mensagens" />
+    <MESSAGE value="03/04/2023 - Revisão e testes" />
+    <MESSAGE value="31/05/2023 Adição do cadastro docente e alteralção da classe docente." />
+    <MESSAGE value="Adição da função registrarPresença() em Evento." />
+    <MESSAGE value="Adição da função pesquisarEvento() em ControleEvento." />
+    <MESSAGE value="Criação de interface gráfica registroPresencaForm.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação de interface gráfica registroPresencaForm.java" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/POO_Sistema_de_Eventos$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1686184276560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>src.model.*</FILTER>
+    </SUITE>
+  </component>
+</project>
