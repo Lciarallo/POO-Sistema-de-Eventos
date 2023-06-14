@@ -28,7 +28,7 @@ public class BuscarEvento extends JFrame {
         constraints.gridy = 1;
         panel.add(labelEvento, constraints);
 
-        fieldEventos = new JTextField();
+        fieldEventos = new JTextField(10);
         constraints.gridx = 1;
         constraints.gridy = 1;
         panel.add(fieldEventos, constraints);

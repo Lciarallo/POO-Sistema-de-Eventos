@@ -107,9 +107,12 @@ public class InscricaoEvento extends JFrame {
             Evento evento = eventos.get(eventoSelecionado);
             Participante participante = participantes.get(participanteSelecionado);
 
-            evento.getParticipantes().add(participante);
-
-            JOptionPane.showMessageDialog(null, "Participante inscrito com sucesso no evento!");
+            if (evento.getParticipantes().contains(participante)) {
+                JOptionPane.showMessageDialog(null, "Participante já está inscrito neste evento!");
+            } else {
+                evento.getParticipantes().add(participante);
+                JOptionPane.showMessageDialog(null, "Participante inscrito com sucesso no evento!");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao inscrever participante no evento!");
         }
