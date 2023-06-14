@@ -1,29 +1,16 @@
-<!-- Output copied to clipboard! -->
-
-<!-----
-
-Yay, no errors, warnings, or alerts!
-
-Conversion time: 0.972 seconds.
 
 
-Using this Markdown file:
+<h1>Projeto: “Sistema de Gestão de Eventos”</h1>
+<h2>Atividade Avaliativa da Unidade Curricular de Programação Orientada a Objetos - IFSC Canoinhas/SC</h2>
+<p>Trata-se da 1ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC.</p>
+<p>Professor: Dr. Fernando Roberto Pereira.</p>
 
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
+<h3>Logo do Projeto</h3>
+<div align = "left">
+ <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
+ width="500" height="250" alt="logo projeto">
+</div>
 
-Conversion notes:
-
-* Docs to Markdown version 1.0β34
-* Tue Jun 13 2023 18:25:00 GMT-0700 (PDT)
-* Source doc: Sistema de Eventos
-* Tables are currently converted to HTML tables.
------>
-
-
-**Prazo de entrega: 13/06 HOJE 23:59**
 
 **Implementação Obrigatória**
 
