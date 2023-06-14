@@ -16,7 +16,8 @@ import src.view.BuscarEvento;
 import src.view.cadastroforms.CadastroOrganizador;
 import src.view.cadastroforms.CadastroParticipante;
 import src.view.InscricaoEventoForm;
-import src.view.RegistroPresencaForm;
+import src.view.RegistroPresenca;
+import src.view.RelatorioEventos;
 import src.view.cadastroforms.CadastroEvento;
 
 import java.awt.BorderLayout;
@@ -36,12 +37,15 @@ public class Menu extends JFrame {
 
     // ----------- Listas ---------------
     List<Evento> eventosNaoOcorridos = new ArrayList<>();
+    List<Evento> eventosOcorridos = new ArrayList<>();
     ArrayList<JButton> botoes = new ArrayList<>();
 
     // ---------- Variáveis de Controle -----------------------
     int organizadorCadastrado = 0;
     int eventoCadastrado = 0;
     int participanteCadastrado = 0;
+
+    // ---------------------------------------------------------
 
     public Menu() {
 
@@ -120,7 +124,6 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (eventoCadastrado > 0) {
-                    cEventos.listarEventoCompleto(cEventos.getEventos(), evento.getOrganizadores());
                     CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());
                     cadastroParticipante.setVisible(true);
                     participanteCadastrado++;
@@ -173,8 +176,7 @@ public class Menu extends JFrame {
 
                     else {
 
-                        RegistroPresencaForm registroPresencaForm = new RegistroPresencaForm(eventosNaoOcorridos,
-                                evento.getParticipantes(), evento.getParticipantesPresentes());
+                        RegistroPresenca registroPresencaForm = new RegistroPresenca(eventosNaoOcorridos, evento);
                         registroPresencaForm.setVisible(true);
 
                     }
@@ -186,12 +188,30 @@ public class Menu extends JFrame {
         btnBuscarEvento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (eventosNaoOcorridos.size() <= 0) {
-                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
-                } else {
+
+                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+
+                if (eventoCadastrado > 0) {
                     BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
                 }
 
+            }
+        });
+
+        // ----------- Relatório -------------------------
+        btnRelatorio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+
+                if (eventoCadastrado > 0 || evento.getParticipantesPresentes().size() > 0) {
+                    RelatorioEventos relatorioEventos = new RelatorioEventos(eventosNaoOcorridos);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para relatório!");
+                }
             }
         });
 

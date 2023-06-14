@@ -9,14 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class RegistroPresencaForm extends JFrame {
+public class RegistroPresenca extends JFrame {
     private static JComboBox<String> fieldEventos;
     private static JTextField fieldParticipantes;
     private static JComboBox<String> fieldPresente;
     private Participante participante;
 
 
-    public RegistroPresencaForm(List<Evento> eventos, List<Participante> participantes, List<Participante> participantesPresentes) {
+    public RegistroPresenca(List<Evento> eventos, Evento evento) {
             setTitle("Registro de presença");
 
 
@@ -40,8 +40,8 @@ public class RegistroPresencaForm extends JFrame {
         panel.add(fieldEventos, constraints);
 
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        for (Evento evento : eventos) {
-            model.addElement(evento.getNome());
+        for (Evento i : eventos) {
+            model.addElement(i.getNome());
         }
         fieldEventos.setModel(model);
 
@@ -63,7 +63,7 @@ public class RegistroPresencaForm extends JFrame {
         buttonRegistrarPresenca.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                registrarPresenca(eventos, participantes, participantesPresentes);
+                registrarPresenca(eventos, evento);
                 setVisible(false);
             }
         });
@@ -74,12 +74,16 @@ public class RegistroPresencaForm extends JFrame {
         setVisible(true);
     }
 
-    public void registrarPresenca(List<Evento> eventos, List<Participante> participantes, List<Participante> participantesPresentes) {
+    public void registrarPresenca(List<Evento> eventos, Evento evento) {
         String nomeEvento = (String) fieldEventos.getSelectedItem();
         int eventoSelecionado = encontrarEventoPorNome(nomeEvento, eventos);
 
+        List<Participante> participantes =  evento.getParticipantes();
+        List<Participante> participantesPresentes = evento.getParticipantesPresentes();
+
         String cpfParticipante = fieldParticipantes.getText();
         boolean participanteEncontrado = false;
+
         for (Participante participante : participantes) {
             if (cpfParticipante.equals(participante.getCpf())) {
                 participantesPresentes.add(participante);
@@ -88,21 +92,29 @@ public class RegistroPresencaForm extends JFrame {
             }
         }
 
-        if (participanteEncontrado) {
+        if (participanteEncontrado && eventoSelecionado >= 0) {
             JOptionPane.showMessageDialog(null, "Presença registrada com sucesso!");
+            evento.setParticipantesPresentes(participantesPresentes);
+            eventos.set(eventoSelecionado, evento);
         } else {
+            if (eventoSelecionado < 0) {
+                JOptionPane.showMessageDialog(null, "Erro desconhecido");
+            } else {
             JOptionPane.showMessageDialog(null, "Participante não encontrado pelo CPF, por favor tente outro!");
+            }
         }
     }
 
 
     private int encontrarEventoPorNome(String nome, List<Evento> eventos) {
-        for (int i = 0; i < eventos.size(); i++) {
-            Evento evento = eventos.get(i);
-            if (evento.getNome().equals(nome)) {
-                return i;
+        int i = 0;
+        int aux = -1;
+        for (Evento evento : eventos) {
+            if (nome.equals(evento.getNome())) {
+                aux = i;
             }
+            i++;
         }
-        return -1;
+        return aux;
     }
 }
