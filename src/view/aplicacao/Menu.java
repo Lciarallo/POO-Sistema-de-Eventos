@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import src.controller.ControleEventos;
 import src.model.Evento;
 import src.view.BuscarEvento;
+import src.view.InscricaoEvento;
+import src.view.RegistroPresenca;
 import src.view.cadastroforms.CadastroOrganizador;
 import src.view.cadastroforms.CadastroParticipante;
 import src.view.InscricaoEvento;
@@ -36,15 +38,12 @@ public class Menu extends JFrame {
 
     // ----------- Listas ---------------
     List<Evento> eventosNaoOcorridos = new ArrayList<>();
-    List<Evento> eventosOcorridos = new ArrayList<>();
     ArrayList<JButton> botoes = new ArrayList<>();
 
     // ---------- Variáveis de Controle -----------------------
     int organizadorCadastrado = 0;
     int eventoCadastrado = 0;
     int participanteCadastrado = 0;
-
-    // ---------------------------------------------------------
 
     public Menu() {
 
@@ -123,6 +122,7 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (eventoCadastrado > 0) {
+                    cEventos.listarEventos(cEventos.getEventos());
                     CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());
                     cadastroParticipante.setVisible(true);
                     participanteCadastrado++;
@@ -166,16 +166,18 @@ public class Menu extends JFrame {
 
                 if (participanteCadastrado <= 0) {
                     JOptionPane.showMessageDialog(null, "Não há participantes disponíveis para inscrição de presença!");
-                } else {
+                }
+                else {
                     eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
 
                     if (eventosNaoOcorridos.size() <= 0) {
                         JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
                     }
 
+
                     else {
 
-                        RegistroPresenca registroPresencaForm = new RegistroPresenca(eventosNaoOcorridos, evento);
+                        RegistroPresenca registroPresencaForm = new RegistroPresenca(eventosNaoOcorridos,evento);
                         registroPresencaForm.setVisible(true);
 
                     }
@@ -187,14 +189,10 @@ public class Menu extends JFrame {
         btnBuscarEvento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (eventoCadastrado > 0) {
-                    BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
-
-                    buscarEvento.setVisible(true);
-                } else {
+                if(eventoCadastrado <= -1){
                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
                 }
+<<<<<<< HEAD
 
             }
         });
@@ -215,10 +213,20 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 cEventos.relatorioEventos(eventosNaoOcorridos);
+=======
+                else {
+                    BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
+                    buscarEvento.setVisible(true);
+                }
+
+>>>>>>> 67216ad1f18dd8e3266a3d06a9c81da2f6f34552
             }
         });
 
-        getContentPane().add(panel, BorderLayout.CENTER);
+
+
+
+            getContentPane().add(panel, BorderLayout.CENTER);
         setLocationRelativeTo(null);
 
         setVisible(true);

@@ -1,0 +1,210 @@
+Index: src/model/Menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.model;\n\nimport javax.swing.BorderFactory;\nimport javax.swing.ImageIcon;\nimport javax.swing.JButton;\nimport javax.swing.JFrame;\nimport javax.swing.JLabel;\nimport javax.swing.JOptionPane;\nimport javax.swing.JPanel;\nimport javax.swing.SwingUtilities;\nimport javax.swing.border.EmptyBorder;\n\nimport src.controller.ControleEventos;\nimport src.views.InscricaoEventoForm;\nimport src.views.cadastroforms.CadastroEvento;\nimport src.views.cadastroforms.CadastroOrganizador;\nimport src.views.cadastroforms.CadastroParticipante;\n\nimport java.awt.BorderLayout;\nimport java.awt.FlowLayout;\nimport java.awt.GridLayout;\nimport java.awt.event.ActionEvent;\nimport java.awt.event.ActionListener;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class Menu extends JFrame {\n\n    // -------------- Instância dos Objetos ----------------------\n    ControleEventos cEventos = new ControleEventos();\n    Evento evento = new Evento();\n\n    // ----------- Listas ---------------\n    List<Evento> eventosNaoOcorridos = new ArrayList<>();\n    ArrayList<JButton> botoes = new ArrayList<>();\n\n    // ---------- Variáveis de Controle -----------------------\n    int organizadorCadastrado = 0;\n    int eventoCadastrado = 0;\n    int participanteCadastrado = 0;\n\n    public Menu() {\n\n        setTitle(\"Sistema de Controle de Eventos\");\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        setSize(600, 600);\n\n        ImageIcon imageIcon = new ImageIcon(\"src/img/logo.png\");\n\n        JPanel panel = new JPanel(new FlowLayout(10, 10, 10));\n        panel.setBorder(new EmptyBorder(10, 40, 10, 40));\n\n        JPanel buttonPanel = new JPanel(new GridLayout(0, 2, 12, 12));\n        buttonPanel.setBorder(new EmptyBorder(20, 20, 10, 40));\n\n        JLabel op = new JLabel(\"Escolha uma opção:\");\n        JLabel label = new JLabel(imageIcon);\n        label.checkImage(getIconImage(), 600, 200, label);\n        label.setBorder(new EmptyBorder(10, 20, 10, 20));\n\n        panel.add(label);\n        panel.add(op);\n        panel.add(buttonPanel);\n\n        JButton btnCadastrarOrganizador = new JButton(\"Cadastrar Organizador\");\n        JButton btnCadastrarEvento = new JButton(\"Cadastrar Evento\");\n        JButton btnCadastrarParticipante = new JButton(\"Cadastrar Participante\");\n        JButton btnInscreverParticipante = new JButton(\"Inscrever Participante no Evento\");\n        JButton btnRegistrarPresenca = new JButton(\"Registrar Presença do participante\");\n        JButton btnBuscarEvento = new JButton(\"Buscar por Evento\");\n        JButton btnAgendaEventos = new JButton(\"Agenda de Eventos\");\n        JButton btnRelatorio = new JButton(\"Relatório\");\n\n        botoes.addAll(Arrays.asList(btnCadastrarOrganizador, btnCadastrarEvento, btnCadastrarParticipante,\n                btnInscreverParticipante,\n                btnRegistrarPresenca, btnBuscarEvento, btnAgendaEventos, btnRelatorio));\n\n        for (JButton botao : botoes) {\n            botao.setSelected(true);\n            botao.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));\n            buttonPanel.add(botao);\n        }\n\n        // ------------ Cadastrar Organizador ------------------------\n        btnCadastrarOrganizador.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                CadastroOrganizador cadastroOrganizador = new CadastroOrganizador(evento.getOrganizadores());\n                cadastroOrganizador.setVisible(true);\n                organizadorCadastrado++;\n            }\n        });\n\n        // ----------- Cadastrar Evento -------------------------\n        btnCadastrarEvento.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (organizadorCadastrado > 0) {\n                    CadastroEvento formulario = new CadastroEvento(cEventos.getEventos(), evento.getOrganizadores());\n                    formulario.setVisible(true);\n                    eventoCadastrado++;\n\n                } else {\n                    JOptionPane.showMessageDialog(null, \"Não há organizadores cadastrados!\");\n                }\n\n            }\n\n        });\n\n        // ----------- Cadastrar Participante -------------------------\n        btnCadastrarParticipante.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (eventoCadastrado > 0) {\n                    cEventos.listarEventoCompleto(cEventos.getEventos(), evento.getOrganizadores());\n                    CadastroParticipante cadastroParticipante = new CadastroParticipante(evento.getParticipantes());\n                    cadastroParticipante.setVisible(true);\n                    participanteCadastrado++;\n                } else {\n                    JOptionPane.showMessageDialog(null, \"Não há eventos cadastrados!\");\n                }\n\n            }\n        });\n\n        // ----------- Inscrever Participante -------------------------\n        btnInscreverParticipante.addActionListener(new ActionListener() {\n            @Override\n            public void actionPerformed(ActionEvent e) {\n\n                if (participanteCadastrado <= 0) {\n                    JOptionPane.showMessageDialog(null, \"Não há participantes disponíveis para inscrição!\");\n                } else {\n\n                    eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());\n\n                    if (eventosNaoOcorridos.size() <= 0) {\n                        JOptionPane.showMessageDialog(null, \"Não há eventos disponíveis para inscrição!\");\n                    }\n\n                    else {\n\n                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,\n                                evento.getParticipantes());\n                        inscricaoEventoForm.setVisible(true);\n\n                    }\n                }\n            }\n        });\n\n        getContentPane().add(panel, BorderLayout.CENTER);\n        setLocationRelativeTo(null);\n\n        setVisible(true);\n\n    }\n\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(new Runnable() {\n            public void run() {\n                new Menu();\n            }\n        });\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/model/Menu.java b/src/model/Menu.java
+--- a/src/model/Menu.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/Menu.java	(date 1686351284475)
+@@ -15,6 +15,7 @@
+ import src.views.cadastroforms.CadastroEvento;
+ import src.views.cadastroforms.CadastroOrganizador;
+ import src.views.cadastroforms.CadastroParticipante;
++import src.views.registroPresencaForm;
+ 
+ import java.awt.BorderLayout;
+ import java.awt.FlowLayout;
+@@ -30,6 +31,7 @@
+     // -------------- Instância dos Objetos ----------------------
+     ControleEventos cEventos = new ControleEventos();
+     Evento evento = new Evento();
++    Participante participante = new Participante("","","");
+ 
+     // ----------- Listas ---------------
+     List<Evento> eventosNaoOcorridos = new ArrayList<>();
+@@ -139,7 +141,7 @@
+ 
+                     eventosNaoOcorridos = cEventos.listarEventosNaoOcorridos(cEventos.getEventos());
+ 
+-                    if (eventosNaoOcorridos.size() <= 0) {
++                    if (eventosNaoOcorridos.size()  <= 0) {
+                         JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para inscrição!");
+                     }
+ 
+@@ -153,12 +155,32 @@
+                 }
+             }
+         });
++        // ----------- Registrar presença de um Participante em evento-------------------------
++
++        btnRegistrarPresenca.addActionListener(new ActionListener(){
++            @Override
++            public void actionPerformed(ActionEvent e) {
++                if(participanteCadastrado <= -1){
++                    JOptionPane.showMessageDialog(null, "Não há participantes para haver presença!");
++
++                } else if (eventoCadastrado <= -1) {
++                    JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para registro de presença!");
++                } else {
++                    //evento.registrarPresenca(eventosNaoOcorridos,evento.getParticipantes(),evento.getParticipantesPresentes());
++
++                    registroPresencaForm registroPresencaForm = new registroPresencaForm(eventosNaoOcorridos,evento.getParticipantes(),evento.getParticipantesPresentes());
++                    registroPresencaForm.setVisible(true);
+ 
++                }
++            }
++
++        });
+         getContentPane().add(panel, BorderLayout.CENTER);
+         setLocationRelativeTo(null);
+ 
+         setVisible(true);
+ 
++
+     }
+ 
+     public static void main(String[] args) {
+Index: src/model/Evento.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package src.model;\n\nimport java.time.LocalDate;\nimport java.time.format.DateTimeFormatter;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport javax.swing.JOptionPane;\n\nimport src.participantes.Organizador;\n\npublic class Evento {\n\n    // Atributos da Classe Evento\n    private String nome;\n    private String titulo;\n    private String data_inicio;\n    private String data_fim;\n    private String local;\n    private String horario_inicio;\n    private String carga_horaria;\n    private String descricao;\n    private String categoria;\n    private int limite_participantes;\n\n    private List<Participante> participantes = new ArrayList<>();\n    private List<Participante> participantesPresentes = new ArrayList<>();\n    private List<Organizador> organizadores = new ArrayList<>();\n    private Participante participante;\n\n    // Método Construtor\n\n    public Evento() {\n\n    }\n\n    public Evento(String nome, String titulo, String descricao,\n            String categoria, String local, String data_inicio, String data_fim,\n            String horario_inicio, String carga_horaria, int limite_participantes) {\n        this.nome = nome;\n        this.titulo = titulo;\n        this.data_inicio = data_inicio;\n        this.data_fim = data_fim;\n        this.local = local;\n        this.horario_inicio = horario_inicio;\n        this.carga_horaria = carga_horaria;\n        this.descricao = descricao;\n        this.categoria = categoria;\n        this.limite_participantes = limite_participantes;\n    }\n\n    // Métodos getters e setters da Classe Evento\n    public String getNome() {\n        return nome;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public String getTitulo() {\n        return titulo;\n    }\n\n    public void setTitulo(String titulo) {\n        this.titulo = titulo;\n    }\n\n    public String getData_inicio() {\n        return data_inicio;\n    }\n\n    public void setData_inicio(String data_inicio) {\n        this.data_inicio = data_inicio;\n    }\n\n    public String getData_fim() {\n        return data_fim;\n    }\n\n    public void setData_fim(String data_fim) {\n        this.data_fim = data_fim;\n    }\n\n    public String getLocal() {\n        return local;\n    }\n\n    public void setLocal(String local) {\n        this.local = local;\n    }\n\n    public String getHorario_inicio() {\n        return horario_inicio;\n    }\n\n    public void setHorario_inicio(String horario_inicio) {\n        this.horario_inicio = horario_inicio;\n    }\n\n    public String getCarga_horaria() {\n        return carga_horaria;\n    }\n\n    public void setCarga_horaria(String carga_horaria) {\n        this.carga_horaria = carga_horaria;\n    }\n\n    public String getDescricao() {\n        return descricao;\n    }\n\n    public void setDescricao(String descricao) {\n        this.descricao = descricao;\n    }\n\n    public String getCategoria() {\n        return categoria;\n    }\n\n    public void setCategoria(String categoria) {\n        this.categoria = categoria;\n    }\n\n    public int getLimite_participantes() {\n        return limite_participantes;\n    }\n\n    public void setLimite_participantes(int limite_participantes) {\n        this.limite_participantes = limite_participantes;\n    }\n\n    public List<Participante> getParticipantes() {\n        return participantes;\n    }\n\n    public void setParticipantes(List<Participante> participantes) {\n        this.participantes = participantes;\n    }\n\n    public List<Organizador> getOrganizadores() {\n        return organizadores;\n    }\n\n    public void setOrganizadores(List<Organizador> organizadores) {\n        this.organizadores = organizadores;\n    }\n\n    public boolean validarEvento() {\n        boolean valido = true;\n\n        LocalDate dataAtual = LocalDate.now();\n\n        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd/MM/yyyy\");\n\n        LocalDate dataInicio = LocalDate.parse(getData_inicio(), formatter);\n\n        if (dataInicio.isBefore(dataAtual)) {\n            valido = false;\n        }\n\n        if (valido) {\n            return true;\n        } else {\n            return false;\n        }\n\n    }\n\n    // Registrar Presença\n\n    public void registrarPresenca() {\n        String i;\n        participante.listarParticipantes(participantes);\n        i = JOptionPane.showInputDialog(\"Insira o cpf do participante:\");\n        for (Participante participante : participantesPresentes){\n            if (i.equals(participante.getCpf())){\n                participantesPresentes.add(participante);\n            }\n        }\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/model/Evento.java b/src/model/Evento.java
+--- a/src/model/Evento.java	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/src/model/Evento.java	(date 1686238254375)
+@@ -134,6 +134,14 @@
+         return participantes;
+     }
+ 
++    public List<Participante> getParticipantesPresentes() {
++        return participantesPresentes;
++    }
++
++    public void setParticipantesPresentes(List<Participante> participantesPresentes) {
++        this.participantesPresentes = participantesPresentes;
++    }
++
+     public void setParticipantes(List<Participante> participantes) {
+         this.participantes = participantes;
+     }
+@@ -146,6 +154,7 @@
+         this.organizadores = organizadores;
+     }
+ 
++
+     public boolean validarEvento() {
+         boolean valido = true;
+ 
+@@ -169,7 +178,7 @@
+ 
+     // Registrar Presença
+ 
+-    public void registrarPresenca() {
++    public void registrarPresenca(List<Evento> eventos, List<Participante> participantes,List<Participante> participantesPresentes) {
+         String i;
+         participante.listarParticipantes(participantes);
+         i = JOptionPane.showInputDialog("Insira o cpf do participante:");
+@@ -179,5 +188,8 @@
+             }
+         }
+     }
++    public void listarPresentes(){
++
++    }
+ 
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8\" name=\"Changes\" comment=\"Adição da função pesquisarEvento() em ControleEvento.\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/model/Evento.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/model/Evento.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Ni32GVMsRyz0icvv665zgfvZsg\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\luize\\IdeaProjects\\POO-Sistema-de-Eventos\\imagem\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8\" name=\"Changes\" comment=\"\" />\n      <created>1680132869128</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1680132869128</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"t\">\n      <created>1680135671513</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680135671513</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"t\">\n      <created>1680136050715</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680136050715</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"t\">\n      <created>1680136261500</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680136261500</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior\">\n      <created>1680186309068</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186309068</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel\">\n      <created>1680186540661</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186540661</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186797779</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186797779</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186855082</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186855082</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\">\n      <created>1680186965049</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680186965049</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Classe Docente\">\n      <created>1680204553743</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680204553743</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel\">\n      <created>1680266269040</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680266269040</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel\">\n      <created>1680273159017</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680273159018</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel\">\n      <created>1680273563057</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680273563057</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"31/03/2023 - Correção na Main\">\n      <created>1680274133012</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680274133012</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"31/03/2023 - Alteração Eventos\">\n      <created>1680279991385</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680279991385</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"31/03/2023 - Alteração Eventos\">\n      <created>1680290108470</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290108470</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"Correçäo README\">\n      <created>1680290453861</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290453861</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"Correçäo README\">\n      <created>1680290628108</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680290628108</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"Correçäo README\">\n      <created>1680293257809</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293257809</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"Correçäo README\">\n      <created>1680293324109</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293324109</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"Correçäo README\">\n      <created>1680293490845</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680293490845</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"03/04/2023 - Update mensagens\">\n      <created>1680524922839</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680524922839</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"03/04/2023 - Revisão e testes\">\n      <created>1680525597498</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680525597498</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"03/04/2023 - Revisão e testes\">\n      <created>1680525945728</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680525945728</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"31/05/2023 Adição do cadastro docente e alteralção da classe docente.\">\n      <created>1685578513019</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1685578513019</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"Adição da função registrarPresença() em Evento.\">\n      <created>1686011248511</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1686011248511</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"Adição da função pesquisarEvento() em ControleEvento.\">\n      <created>1686012679875</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1686012679875</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"27\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"t\" />\n    <MESSAGE value=\"30/03/2023 - Criação de Pacotes e Classes&#10;Responsável: Daniel José Martins Junior\" />\n    <MESSAGE value=\"30/03/2023 - Alteração no README.MD&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"30/03/2023 - Alteração out&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"Classe Docente\" />\n    <MESSAGE value=\"31/03/2023 - Correção de warnings&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 Alterações na Main&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 Arrumado opção de sair&#10;&#10;Responsável: Daniel\" />\n    <MESSAGE value=\"31/03/2023 - Correção na Main\" />\n    <MESSAGE value=\"31/03/2023 - Alteração Eventos\" />\n    <MESSAGE value=\"Correçäo README\" />\n    <MESSAGE value=\"03/04/2023 - Update mensagens\" />\n    <MESSAGE value=\"03/04/2023 - Revisão e testes\" />\n    <MESSAGE value=\"31/05/2023 Adição do cadastro docente e alteralção da classe docente.\" />\n    <MESSAGE value=\"Adição da função registrarPresença() em Evento.\" />\n    <MESSAGE value=\"Adição da função pesquisarEvento() em ControleEvento.\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Adição da função pesquisarEvento() em ControleEvento.\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3ed34a9e047e0431f408552008ccde7a7d0f020a)
++++ b/.idea/workspace.xml	(date 1686405200938)
+@@ -4,9 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Adição da função pesquisarEvento() em ControleEvento.">
++    <list default="true" id="3bbbca94-41bf-4ce4-bca5-fe7d479fb0e8" name="Changes" comment="Criação de interface gráfica registroPresencaForm.java">
++      <change afterPath="$PROJECT_DIR$/src/views/cadastroforms/cadastroPresenca.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/views/registroPresencaForm.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/eventos/Evento.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/POO-Sistema-de-Eventos/src/participantes/Docente.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Evento.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Menu.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,6 +39,10 @@
+   </component>
+   <component name="PropertiesComponent">{
+   &quot;keyToString&quot;: {
++    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+@@ -237,7 +247,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1686012679875</updated>
+     </task>
+-    <option name="localTasksCounter" value="27" />
++    <task id="LOCAL-00027" summary="Correção da função &quot;registrarPresenca()&quot; na classe Evento.java">
++      <created>1686091271402</created>
++      <option name="number" value="00027" />
++      <option name="presentableId" value="LOCAL-00027" />
++      <option name="project" value="LOCAL" />
++      <updated>1686091271402</updated>
++    </task>
++    <task id="LOCAL-00028" summary="Criação de interface gráfica registroPresencaForm.java">
++      <created>1686405200034</created>
++      <option name="number" value="00028" />
++      <option name="presentableId" value="LOCAL-00028" />
++      <option name="project" value="LOCAL" />
++      <updated>1686405200034</updated>
++    </task>
++    <option name="localTasksCounter" value="29" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -268,6 +292,13 @@
+     <MESSAGE value="31/05/2023 Adição do cadastro docente e alteralção da classe docente." />
+     <MESSAGE value="Adição da função registrarPresença() em Evento." />
+     <MESSAGE value="Adição da função pesquisarEvento() em ControleEvento." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Adição da função pesquisarEvento() em ControleEvento." />
++    <MESSAGE value="Correção da função &quot;registrarPresenca()&quot; na classe Evento.java" />
++    <MESSAGE value="Criação de interface gráfica registroPresencaForm.java" />
++    <option name="LAST_COMMIT_MESSAGE" value="Criação de interface gráfica registroPresencaForm.java" />
++  </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/POO_Sistema_de_Eventos$Menu.ic" NAME="Menu Coverage Results" MODIFIED="1686184276560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>src.model.*</FILTER>
++    </SUITE>
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/views/cadastroforms/cadastroPresenca.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/cadastroforms/cadastroPresenca.java b/src/views/cadastroforms/cadastroPresenca.java
+new file mode 100644
+--- /dev/null	(date 1686096856748)
++++ b/src/views/cadastroforms/cadastroPresenca.java	(date 1686096856748)
+@@ -0,0 +1,4 @@
++package src.views.cadastroforms;
++
++public class cadastroPresenca {
++}

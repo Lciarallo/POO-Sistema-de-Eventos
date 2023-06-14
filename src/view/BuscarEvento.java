@@ -36,7 +36,7 @@ public class BuscarEvento extends JFrame {
         JButton buttonPesquisarEvento = new JButton("Pesquisar Evento");
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2; 
+        constraints.gridwidth = 2;
         panel.add(buttonPesquisarEvento, constraints);
         buttonPesquisarEvento.addActionListener(new ActionListener() {
             @Override
@@ -46,15 +46,20 @@ public class BuscarEvento extends JFrame {
             }
         });
 
+        setContentPane(panel);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
-    //Erro 
+
 
     public void buscarEventoPorNome(List<Evento> eventos, String pesquisa) {
-        pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
+        boolean encontrouEventos = false;
+
         for (Evento evento : eventos) {
             if (pesquisa.equals(evento.getNome())) {
-                JOptionPane.showMessageDialog(null,
+                String mensagem =
                         "Evento: " + evento.getNome() + "\n" +
                                 "Categoria: " + evento.getCategoria() + "\n" +
                                 "Data Início: " + evento.getData_inicio() + "\n" +
@@ -64,10 +69,17 @@ public class BuscarEvento extends JFrame {
                                 "Local do Evento: " + evento.getLocal() + "\n" +
                                 "Limite de participantes: " + evento.getLimite_participantes() + "\n" +
                                 "Carga Horária: " + evento.getCarga_horaria() + "\n" +
-                                "Horário Inicio: " + evento.getHorario_inicio() + "\n");
+                                "Horário Inicio: " + evento.getHorario_inicio() + "\n";
 
+                JOptionPane.showMessageDialog(null, mensagem);
+                encontrouEventos = true;
             }
         }
+
+        if (!encontrouEventos) {
+            JOptionPane.showMessageDialog(null, "Nenhum evento encontrado com o nome fornecido.");
+        }
     }
+
 
 }
