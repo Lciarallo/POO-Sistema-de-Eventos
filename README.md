@@ -29,6 +29,12 @@ Professor: Dr. .
 
 _“Para um melhor controle dos seus eventos”_
 
+<h3>Diagrama de Classe UML</h3>
+<div align = "left">
+  <img src="src/img/diagramaEventos.png"
+  width="500" height="250" alt="diagrama UML">
+</div>
+
 
 ## **Descrição do Projeto**
 
