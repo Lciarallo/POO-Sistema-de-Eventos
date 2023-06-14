@@ -177,11 +177,7 @@ public class CadastroEvento extends JFrame {
                         JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso!");
                         limparCampos();
                         setVisible(false);
-                    } else {
-                        JOptionPane.showMessageDialog(CadastroEvento.this, "Insira uma data válida!",
-                                "Erro ao cadastrar evento",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
+                    } 
 
                 } else {
                     JOptionPane.showMessageDialog(CadastroEvento.this, "Preencha todos os campos.", "Aviso",

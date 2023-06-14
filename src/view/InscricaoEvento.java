@@ -20,12 +20,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.List;
 
-public class InscricaoEventoForm extends JFrame {
+public class InscricaoEvento extends JFrame {
 
     private static JComboBox<String> fieldEventos;
     private static JComboBox<String> fieldParticipantes;
 
-    public InscricaoEventoForm(List<Evento> eventos, List<Participante> participantes) {
+    public InscricaoEvento(List<Evento> eventos, List<Participante> participantes) {
 
         setTitle("Inscrição de Participantes");
 

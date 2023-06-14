@@ -1,6 +1,5 @@
 package src.view;
 
-import src.controller.ControleEventos;
 import src.model.Evento;
 
 import javax.swing.*;
@@ -34,7 +33,6 @@ public class BuscarEvento extends JFrame {
         constraints.gridy = 1;
         panel.add(fieldEventos, constraints);
 
-        ControleEventos controleEventos = new ControleEventos();
         JButton buttonPesquisarEvento = new JButton("Pesquisar Evento");
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -43,14 +41,33 @@ public class BuscarEvento extends JFrame {
         buttonPesquisarEvento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controleEventos.pesquisarEvento(eventos, fieldEventos.getText());
+                buscarEventoPorNome(eventos, fieldEventos.getText());
                 setVisible(true);
             }
         });
 
+    }
 
+    //Erro 
 
+    public void buscarEventoPorNome(List<Evento> eventos, String pesquisa) {
+        pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
+        for (Evento evento : eventos) {
+            if (pesquisa.equals(evento.getNome())) {
+                JOptionPane.showMessageDialog(null,
+                        "Evento: " + evento.getNome() + "\n" +
+                                "Categoria: " + evento.getCategoria() + "\n" +
+                                "Data Início: " + evento.getData_inicio() + "\n" +
+                                "Data Fim: " + evento.getData_fim() + "\n" +
+                                "Descrição: " + evento.getDescricao() + "\n" +
+                                "Titulo: " + evento.getTitulo() + "\n" +
+                                "Local do Evento: " + evento.getLocal() + "\n" +
+                                "Limite de participantes: " + evento.getLimite_participantes() + "\n" +
+                                "Carga Horária: " + evento.getCarga_horaria() + "\n" +
+                                "Horário Inicio: " + evento.getHorario_inicio() + "\n");
 
+            }
+        }
     }
 
 }

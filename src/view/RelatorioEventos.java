@@ -92,19 +92,9 @@ public class RelatorioEventos extends JFrame {
                 x += "\n" + o.getNome();
             }
 
-            String y = "\nParticipantes Inscritos:";
-            List<Participante> participantesInscritos = e.getParticipantes();
-            for (Participante p : participantesInscritos) {
-                y += "\n" + p.getNome();
-            }
+            String y = "\nParticipantes Inscritos: " + e.getParticipantes().size();
 
-            String z = "\nParticipantes Presentes:";
-            List<Participante> participantesPresentes = e.getParticipantesPresentes();
-            for (Participante p : participantesPresentes) {
-                z += "\n" + p.getNome();
-            }
-
-            JOptionPane.showMessageDialog(null, "Lista de Eventos:\n" + aux + x + "\n" + y + "\n" + z);
+            JOptionPane.showMessageDialog(null, "Lista de Eventos:\n" + aux + x + "\n" + y + "\n");
 
         }
 

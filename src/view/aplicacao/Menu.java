@@ -15,7 +15,7 @@ import src.model.Evento;
 import src.view.BuscarEvento;
 import src.view.cadastroforms.CadastroOrganizador;
 import src.view.cadastroforms.CadastroParticipante;
-import src.view.InscricaoEventoForm;
+import src.view.InscricaoEvento;
 import src.view.RegistroPresenca;
 import src.view.RelatorioEventos;
 import src.view.cadastroforms.CadastroEvento;
@@ -151,7 +151,7 @@ public class Menu extends JFrame {
 
                     else {
 
-                        InscricaoEventoForm inscricaoEventoForm = new InscricaoEventoForm(eventosNaoOcorridos,
+                        InscricaoEvento inscricaoEventoForm = new InscricaoEvento(eventosNaoOcorridos,
                                 evento.getParticipantes());
                         inscricaoEventoForm.setVisible(true);
 
@@ -193,10 +193,22 @@ public class Menu extends JFrame {
 
                 if (eventoCadastrado > 0) {
                     BuscarEvento buscarEvento = new BuscarEvento(eventosNaoOcorridos);
+
+                    buscarEvento.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para busca!");
                 }
 
+            }
+        });
+
+        // ------Agenda de Eventos ---------------
+
+        btnAgendaEventos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cEventos.mostrarAgenda(eventosNaoOcorridos);
             }
         });
 
@@ -209,6 +221,8 @@ public class Menu extends JFrame {
 
                 if (eventoCadastrado > 0 || evento.getParticipantesPresentes().size() > 0) {
                     RelatorioEventos relatorioEventos = new RelatorioEventos(eventosNaoOcorridos);
+
+                    relatorioEventos.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Não há eventos disponíveis para relatório!");
                 }

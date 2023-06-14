@@ -21,8 +21,7 @@ public class CadastroDocente extends JFrame {
 
     public CadastroDocente(List<Participante> participantes) {
         setTitle("Cadastro de Docente");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+    
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
         panel.setPreferredSize(new Dimension(450, 500));

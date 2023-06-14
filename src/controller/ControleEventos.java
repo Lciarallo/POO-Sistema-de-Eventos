@@ -6,8 +6,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import src.model.Evento;
-import src.model.Participante;
-import src.model.participantes.Organizador;
 
 public class ControleEventos {
 
@@ -48,26 +46,16 @@ public class ControleEventos {
         return eventosNaoOcorridos;
     }
 
-    // Buscar Evento
 
-    public void pesquisarEvento(List<Evento> eventos, String pesquisa) {
-        pesquisa = JOptionPane.showInputDialog("Insira o nome do evento que queira pesquisar:");
-        for (Evento evento : eventos) {
-            if (pesquisa.equals(evento.getNome())) {
-                JOptionPane.showMessageDialog(null,
-                        "Evento: " + evento.getNome() + "\n" +
-                                "Categoria: " + evento.getCategoria() + "\n" +
-                                "Data Início: " + evento.getData_inicio() + "\n" +
-                                "Data Fim: " + evento.getData_fim() + "\n" +
-                                "Descrição: " + evento.getDescricao() + "\n" +
-                                "Titulo: " + evento.getTitulo() + "\n" +
-                                "Local do Evento: " + evento.getLocal() + "\n" +
-                                "Limite de participantes: " + evento.getLimite_participantes() + "\n" +
-                                "Carga Horária: " + evento.getCarga_horaria() + "\n" +
-                                "Horário Inicio: " + evento.getHorario_inicio() + "\n");
+    public void mostrarAgenda(List<Evento> eventos) {
 
-            }
+        for (Evento e : eventos) {
+            String aux = "\nNome: " + e.getNome() + "\nTítulo: " + e.getTitulo()
+                    + "\nCategoria: " + e.getCategoria() + "\nLocal: " + e.getLocal() + "\nData de início: "
+                    + e.getData_inicio() + "\nData de encerramento:" + e.getData_fim() + "\n";
+
+            JOptionPane.showMessageDialog(null, "Agenda de Eventos: \n" + aux);
+
         }
     }
-
 }

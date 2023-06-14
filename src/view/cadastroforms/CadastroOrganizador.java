@@ -29,7 +29,7 @@ public class CadastroOrganizador extends JFrame {
 
     public CadastroOrganizador(List<Organizador> organizadores) {
 
-        setTitle("Cadastro de Evento");
+        setTitle("Cadastro de Organizador");
 
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));

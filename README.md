@@ -1,67 +1,327 @@
+
+
 <h1>Projeto: “Sistema de Gestão de Eventos”</h1>
 <h2>Atividade Avaliativa da Unidade Curricular de Programação Orientada a Objetos - IFSC Canoinhas/SC</h2>
-<p>Trata-se da 1ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC.</p>
+<p>Trata-se da 2ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC.</p>
 <p>Professor: Dr. Fernando Roberto Pereira.</p>
 
 <h3>Logo do Projeto</h3>
 <div align = "left">
- <img src="imagem/229206960-25082923-acd4-45a1-b599-edee20d8fd05.png"
+ <img src="src/img/logo.png"
  width="500" height="250" alt="logo projeto">
 </div>
 
 
-<h3>Slogan do Projeto:</h3>
-<p><i>“Para um melhor controle dos seus eventos”</i></p>
+**Implementação Obrigatória**
 
-<h2>Descrição do Projeto</h2>
-<p>O Event System tem como objetivo auxiliar as instituições de ensino a fazerem a gerência de eventos acadêmicos (e.g., palestras, workshops, atividades de extensão, mostras e afins).</p>
-<p>Cada evento possui diversas informações tais como:</p>
 
- 
- <ul type="disc">
-  <li>Nome e Título</li>
-  <li>Data de início e fim</li>
-  <li>Carga-horária</li>
-  <li>Organizadores</li>
-  <li>Descrição e Categoria</li>
-  <li>Local</li>
-  <li>Horário de início e fim</li>
-  <li>Limite de participantes</li>
-  <li>Interessados</li> 
- </ul>
-   
-<p>O proponente do evento informa os dados supracitados para cadastrar o evento no sistema.</p>
-<p>Para a comunidade acadêmica cadastrar-se em um evento na condição de participante, é necessário informar qual papel desempenha no campus (docente ou discente).</p>
-<p>Se discente deve informar:</p>
-  
-  <ul type="disc">
-   <li>Nome Completo</li>
-   <li>Data de nascimento</li>
-   <li>Número da matrícula</li>
-   <li>CPF</li>
-   <li>Curso</li>
-   <li>Turno</li> 
-  </ul>
-    
-<p>Se docente deve informar:</p>
- 
-  <ul type="disc">
-   <li>Nome Completo</li>
-   <li>Data de nascimento</li>
-   <li>CPF</li>
-   <li>Título</li>
-   <li>Carga Horária</li>
-   <li>Turno</li> 
-   <li>Especialização</li>
-   <li>Unidades Curriculares</li> 
-  </ul>
- 
-   
-<p>De modo geral, quando ocorre um evento, na mesa de recepção do evento, o participante deve informar seu CPF para comprovar sua participação.</p>
-   
-<p>Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores.</p>
 
-### Funcionalidades da Aplicação:
+* Realizar pesquisa sobre os dados de entrada necessários para resolução do problema; 
+* Organizar as classes em pacotes;
+* Criação de classes, com os qualificadores que julgarem adequados; 
+* Criação de atributos e métodos das classes, com os qualificadores de acesso que julgarem adequados; 
+* Criação de menu de opções para o usuário interagir com o sistema; 
+* Obtenção de dados por meio do terminal (e.g., Scanner) ou interface gráfica (e.g., JOptionPane.showInputDialog) para popularizar as classes. 
+*  Criar o diagrama de classes (UML) do problema conforme o enunciado; 
+*  Utilizar símbolos/notações da UML corretamente; 
+* Utilizar relacionamento (i.e., associação, agregação, composição) entre classes quando julgarem necessário; 
+* Utilizar generalização/especialização (herança) quando julgarem necessário; 
+* Utilizar polimorfismo (e.g., overriding, overloading etc.) quando julgarem necessário; 
+* Os dados de entrada devem ser fornecidos pelo usuário; e 
+* A implementação deve corresponder ao diagrama de classes proposto. 
+
+**<span style="text-decoration:underline;">Dica:</span>** Na criação de um objeto de uma subclasse seria interessante/pertinente/vantajoso declarar o tipo da variável que fará a referência ao objeto com o tipo da superclasse? Fazer reflexão. 
+
+**<span style="text-decoration:underline;">Observação:</span>** - As classes, atributos e métodos, bem com os qualificadores implementados na 1ª etapa da atividade avaliativa podem ser adequados se julgarem necessário;
+
+**Divisão de Tarefas**
+
+
+<table>
+  <tr>
+   <td>Diagrama de Classes UML
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Implementar Herança (Classe Participantes)
+   </td>
+   <td>    
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Implementar Polimorfismo
+   </td>
+   <td>
+   </td>
+   <td>Juntos -cada um na sua classe 
+   </td>
+  </tr>
+  <tr>
+   <td>Implementar Classe Organizador
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Implementar Relacionamento Participante -> Evento
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Implementar Relacionamento
+<p>
+Organizador -> Evento
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Função de Inscrição
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Função Registrar Presença
+   </td>
+   <td>
+   </td>
+   <td>Luiz
+   </td>
+  </tr>
+  <tr>
+   <td>Função Pesquisar Evento
+   </td>
+   <td>
+   </td>
+   <td>Luiz  
+   </td>
+  </tr>
+  <tr>
+   <td>Função Visualizar Agenda de Eventos
+   </td>
+   <td>
+   </td>
+   <td>Daniel
+   </td>
+  </tr>
+  <tr>
+   <td>Função Relatório
+   </td>
+   <td>
+   </td>
+   <td>Daniel
+   </td>
+  </tr>
+  <tr>
+   <td>Main -> Menu Principal
+   </td>
+   <td>
+   </td>
+   <td>Juntos
+   </td>
+  </tr>
+</table>
+
+
+Views
+
+
+<table>
+  <tr>
+   <td>Tela Menu
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Cadastro Organizador
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Cadastro Evento
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Inscrição Evento
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Cadastro Participante
+   </td>
+   <td>
+   </td>
+   <td>Laisa
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Cadastro Docente
+   </td>
+   <td>
+   </td>
+   <td>Luiz
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Cadastro Discente
+   </td>
+   <td>
+   </td>
+   <td>Daniel
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Registrar Presença
+   </td>
+   <td>
+   </td>
+   <td>Luiz
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Buscar Evento
+   </td>
+   <td>
+   </td>
+   <td>Luiz
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Agenda
+   </td>
+   <td>
+   </td>
+   <td>Daniel
+   </td>
+  </tr>
+  <tr>
+   <td>Tela Relatório
+   </td>
+   <td>
+   </td>
+   <td>Daniel
+   </td>
+  </tr>
+</table>
+
+
+Verificações específicas de cada view
+
+
+<table>
+  <tr>
+   <td>Se todos os campos estão preenchidos
+   </td>
+   <td>
+   </td>
+   <td>juntos
+   </td>
+  </tr>
+</table>
+
+
+README
+
+
+## **Projeto: “Sistema de Gestão de Eventos” **
+
+
+## **Atividade Avaliativa da Unidade Curricular de Programação Orientada a Objetos - IFSC Canoinhas/SC**
+
+Trata-se da 2ª Etapa do Projeto / Atividade Avaliativa desenvolvida para cumprir os requisitos da Unidade Curricular de Programação Orientada a Objetos do Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina - IFSC Câmpus Canoinhas/SC. 
+
+Professor: Dr. .
+
+**Logo do Projeto:**
+
+**Slogan do Projeto:**
+
+_“Para um melhor controle dos seus eventos”_
+
+
+## **Descrição do Projeto**
+
+O Event System tem como objetivo auxiliar as instituições de ensino a fazerem a gerência de eventos acadêmicos (e.g., palestras, workshops, atividades de extensão, mostras e afins).
+
+Cada evento possui diversas informações tais como:
+
+
+
+* Nome e Título
+* Data de início e fim
+* Local
+* Horário de início e fim
+* Carga-horária
+* Organizadores
+* Limite de participantes
+* Interessados
+* Descrição e Categoria
+
+O proponente do evento informa os dados supracitados para cadastrar o evento no sistema.
+
+Para a comunidade acadêmica cadastrar-se em um evento na condição de participante, é necessário informar qual papel desempenha no campus (docente ou discente). 
+
+Se discente deve informar:  
+
+
+
+* Nome Completo
+* Data de nascimento
+* Número da matrícula
+* CPF
+* Curso 
+
+Se docente deve informar: 
+
+
+
+* Nome Completo
+* Data de nascimento
+* CPF
+* Título
+* Carga Horária
+* Turno
+* Especialização
+* Unidades Curriculares
+
+De modo geral, quando ocorre um evento, na mesa de recepção do evento, o participante deve informar seu CPF para comprovar sua participação.
+
+Para acompanhar o andamento dos eventos, o sistema é capaz de prover relatório que ranqueia os eventos com base no número de participantes, para um melhor gerenciamento e organização por parte dos organizadores. 
+
+
+## **Funcionalidades da Aplicação**:
+
+
+
 * Cadastro de Evento;
 * Cadastro de Participantes;
 * Inscrição de Participantes nos Eventos;
@@ -70,26 +330,29 @@
 * Busca de eventos por filtros característicos;
 * Relatório.
 
-<h3>Status do Projeto</h3>
 
-<b>Em Andamento.</b>
+## **Tecnologias utilizadas;**
 
-O projeto está dividido em etapas de implementação. Nesta primeira etapa foram desenvolvidas somente algumas funcionalidades do sistema descritas acima, são elas:
-* Cadastro de Evento
-* Cadastro de Participante
-* Visualização de Evento cadastrado
-* Visualização de Participante cadastro
+Linguagem de programação: JAVA.
 
-### Tecnologias utilizadas:
-* Linguagem de programação: JAVA
-* IDE: IntelliJ
+Biblioteca de componentes gráficos: JAVA SWING
 
-### Pessoas Contribuidoras:
-* DANIEL JOSÉ MARTINS JUNIOR
-* LAISA KARINA DO NASCIMENTO
-* LUIZ EDUARDO DO NASCIMENTO CIARALLO
+IDE: IntelliJ
 
-### Pessoas Desenvolvedoras do Projeto:
-* DANIEL JOSÉ MARTINS JUNIOR
-* LAISA KARINA DO NASCIMENTO
-* LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+## **Pessoas Contribuidoras:**
+
+DANIEL JOSÉ MARTINS JUNIOR
+
+LAISA KARINA DO NASCIMENTO
+
+LUIZ EDUARDO DO NASCIMENTO CIARALLO
+
+
+## **Pessoas Desenvolvedoras do Projeto:**
+
+DANIEL JOSÉ MARTINS JUNIOR
+
+LAISA KARINA DO NASCIMENTO
+
+LUIZ EDUARDO DO NASCIMENTO CIARALLO

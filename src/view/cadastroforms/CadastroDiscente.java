@@ -2,7 +2,6 @@ package src.view.cadastroforms;
 
 import src.model.Participante;
 import src.model.participantes.Discente;
-import src.model.participantes.Docente;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,20 +9,19 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CadastroDiscente extends JFrame{
+public class CadastroDiscente extends JFrame {
 
-    //Atributos
+    // Atributos
     private JTextField textFieldNome;
     private JTextField textFieldData_de_nascimento;
     private JTextField textFieldCpf;
     private JTextField textFieldNumeroMatricula;
     private JTextField textFieldCurso;
-    private JTextField textFieldTurno;
 
-    //Método Construtor
+    // Método Construtor
     public CadastroDiscente(List<Participante> participantes) {
 
-        //Definições Principais
+        // Definições Principais
         setTitle("Cadastro de Discente");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel(new GridBagLayout());
@@ -33,7 +31,7 @@ public class CadastroDiscente extends JFrame{
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(5, 5, 5, 5);
 
-        //Nome
+        // Nome
         JLabel labelNome = new JLabel("Nome:");
         constraints.gridx = 0;
         constraints.gridy = 0;
@@ -43,7 +41,7 @@ public class CadastroDiscente extends JFrame{
         constraints.gridy = 0;
         panel.add(textFieldNome, constraints);
 
-        //Data de Nascimento
+        // Data de Nascimento
         JLabel labelDataDeNascimento = new JLabel("Data de Nascimento:");
         constraints.gridx = 0;
         constraints.gridy = 1;
@@ -53,7 +51,7 @@ public class CadastroDiscente extends JFrame{
         constraints.gridy = 1;
         panel.add(textFieldData_de_nascimento, constraints);
 
-        //CPF
+        // CPF
         JLabel labelCPF = new JLabel("CPF:");
         constraints.gridx = 0;
         constraints.gridy = 2;
@@ -63,7 +61,7 @@ public class CadastroDiscente extends JFrame{
         constraints.gridy = 2;
         panel.add(textFieldCpf, constraints);
 
-        //Número de Matrícula
+        // Número de Matrícula
         JLabel labelNumeroDeMatricula = new JLabel("Número de Matrícula:");
         constraints.gridx = 0;
         constraints.gridy = 3;
@@ -73,7 +71,7 @@ public class CadastroDiscente extends JFrame{
         constraints.gridy = 3;
         panel.add(textFieldNumeroMatricula, constraints);
 
-        //Curso
+        // Curso
         JLabel labelCurso = new JLabel("Curso:");
         constraints.gridx = 0;
         constraints.gridy = 4;
@@ -83,17 +81,7 @@ public class CadastroDiscente extends JFrame{
         constraints.gridy = 4;
         panel.add(textFieldCurso, constraints);
 
-        //Turno
-        JLabel labelTurno = new JLabel("Turno:");
-        constraints.gridx = 0;
-        constraints.gridy = 5;
-        panel.add(labelTurno, constraints);
-        textFieldTurno = new JTextField(20);
-        constraints.gridx = 1;
-        constraints.gridy = 5;
-        panel.add(textFieldTurno, constraints);
-
-        //Botão Cadastrar
+        // Botão Cadastrar
         JButton buttonCadastrar = new JButton("Cadastrar");
         constraints.gridx = 1;
         constraints.gridy = 8;
@@ -124,7 +112,6 @@ public class CadastroDiscente extends JFrame{
         textFieldCpf.setText("");
         textFieldNumeroMatricula.setText("");
         textFieldCurso.setText("");
-        textFieldTurno.setText("");
     }
 
     public boolean CadastrarDiscente(List<Participante> participantes) {
@@ -139,7 +126,6 @@ public class CadastroDiscente extends JFrame{
         String numero_de_matricula = "";
         long numeroMatricula = 0;
         String curso = "";
-        String turno = "";
 
         try {
             nome = textFieldNome.getText();
@@ -149,7 +135,6 @@ public class CadastroDiscente extends JFrame{
             numero_de_matricula = textFieldNumeroMatricula.getText();
             numeroMatricula = Long.parseLong(numero_de_matricula);
             curso = textFieldCurso.getText();
-            turno = textFieldTurno.getText();
 
         } catch (Exception ex) {
             retorno = false;
@@ -159,7 +144,7 @@ public class CadastroDiscente extends JFrame{
 
         if (retorno) {
 
-            Discente discente = new Discente (nome, Data_de_nascimento, cpf, numeroMatricula, curso, turno);
+            Discente discente = new Discente(nome, Data_de_nascimento, cpf, numeroMatricula, curso);
 
             participantes.add(discente);
         }

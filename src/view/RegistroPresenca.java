@@ -12,13 +12,9 @@ import java.util.List;
 public class RegistroPresenca extends JFrame {
     private static JComboBox<String> fieldEventos;
     private static JTextField fieldParticipantes;
-    private static JComboBox<String> fieldPresente;
-    private Participante participante;
-
 
     public RegistroPresenca(List<Evento> eventos, Evento evento) {
-            setTitle("Registro de presença");
-
+        setTitle("Registro de presença");
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
@@ -58,7 +54,7 @@ public class RegistroPresenca extends JFrame {
         JButton buttonRegistrarPresenca = new JButton("Registrar Presença");
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2; 
+        constraints.gridwidth = 2;
         panel.add(buttonRegistrarPresenca, constraints);
         buttonRegistrarPresenca.addActionListener(new ActionListener() {
             @Override
@@ -78,7 +74,7 @@ public class RegistroPresenca extends JFrame {
         String nomeEvento = (String) fieldEventos.getSelectedItem();
         int eventoSelecionado = encontrarEventoPorNome(nomeEvento, eventos);
 
-        List<Participante> participantes =  evento.getParticipantes();
+        List<Participante> participantes = evento.getParticipantes();
         List<Participante> participantesPresentes = evento.getParticipantesPresentes();
 
         String cpfParticipante = fieldParticipantes.getText();
@@ -100,11 +96,10 @@ public class RegistroPresenca extends JFrame {
             if (eventoSelecionado < 0) {
                 JOptionPane.showMessageDialog(null, "Erro desconhecido");
             } else {
-            JOptionPane.showMessageDialog(null, "Participante não encontrado pelo CPF, por favor tente outro!");
+                JOptionPane.showMessageDialog(null, "Participante não encontrado pelo CPF, por favor tente outro!");
             }
         }
     }
-
 
     private int encontrarEventoPorNome(String nome, List<Evento> eventos) {
         int i = 0;
